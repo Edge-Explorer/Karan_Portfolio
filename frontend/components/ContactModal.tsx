@@ -72,8 +72,8 @@ export default function ContactModal({ isOpen, onClose }: { isOpen: boolean; onC
                                         <CheckCircle2 size={32} />
                                     </div>
                                     <div className="space-y-2">
-                                        <h4 className="text-xl font-semibold">Message Logged!</h4>
-                                        <p className="text-sm text-white/40">Opening your email client to finalize sending...</p>
+                                        <h4 className="text-xl font-semibold">Message Sent!</h4>
+                                        <p className="text-sm text-white/40">Karan has been notified. Expect a response soon.</p>
                                     </div>
                                 </motion.div>
                             ) : (
