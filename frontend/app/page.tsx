@@ -5,7 +5,7 @@ import {
   Github, Linkedin, Mail, ExternalLink, Code2, Cpu, Globe, Rocket, Sparkles,
   Terminal, Database, Layout, Smartphone, Cloud, Layers, Cpu as AiIcon,
   Binary, GitBranch, Box, FileCode, Search, Server, Monitor, GraduationCap, BookOpen,
-  Activity, Zap
+  Activity, Zap, Instagram
 } from "lucide-react";
 import ChatInterface from "@/components/ChatInterface";
 import ContactModal from "@/components/ContactModal";
@@ -195,9 +195,10 @@ export default function Home() {
                   </div>
                 </motion.button>
 
-                <div className="flex items-center gap-3">
+                <div className="flex flex-wrap items-center gap-3">
                   <SocialLink icon={<Github size={20} />} href="https://github.com/Edge-Explorer" label="GitHub" />
                   <SocialLink icon={<Linkedin size={20} />} href="https://linkedin.com/in/karan-shelar-779381343" label="LinkedIn" />
+                  <SocialLink icon={<Instagram size={20} />} href="https://instagram.com/karan.shelar.2004" label="Instagram" />
                   <SocialLink icon={<ExternalLink size={20} />} href="https://drive.google.com/file/d/1QhYwPLs4nQjjvCFuEEjYx0Q8Gbcc7GMb/view?usp=drive_link" label="Resume" />
                 </div>
               </motion.div>
