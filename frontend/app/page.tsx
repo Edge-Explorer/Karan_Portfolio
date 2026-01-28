@@ -14,63 +14,63 @@ const skills = [
   {
     group: "Core",
     items: [
-      { name: "Python", info: "High-level programming for AI & Data Science.", icon: "python" },
-      { name: "JavaScript", info: "Dynamic web logic and interactive UI.", icon: "javascript" },
-      { name: "TypeScript", info: "Scaling JS with robust static typing.", icon: "typescript" },
-      { name: "SQL", info: "Relational data management and complex queries.", icon: "mysql" }
+      { name: "Python", info: "High-level programming for AI & Data Science.", icon: "python", color: "#3776ab" },
+      { name: "JavaScript", info: "Dynamic web logic and interactive UI.", icon: "javascript", color: "#f7df1e" },
+      { name: "TypeScript", info: "Scaling JS with robust static typing.", icon: "typescript", color: "#3178c6" },
+      { name: "SQL", info: "Relational data management and complex queries.", icon: "mysql", color: "#4479a1" }
     ]
   },
   {
     group: "Frontend & Mobile",
     items: [
-      { name: "React", info: "Building component-based immersive interfaces.", icon: "react" },
-      { name: "Next.js", info: "Modern fullstack framework with SSR/SSG.", icon: "nextjs" },
-      { name: "Tailwind CSS", info: "Rapid styling with utility-first CSS.", icon: "tailwindcss" },
-      { name: "React Native", info: "Cross-platform native mobile applications.", icon: "react" },
-      { name: "Expo", info: "Accelerated development for React Native.", local: "/skills/expo.png" },
-      { name: "Android", info: "Native mobile development for Android devices.", icon: "android" }
+      { name: "React", info: "Building component-based immersive interfaces.", icon: "react", color: "#61dafb" },
+      { name: "Next.js", info: "Modern fullstack framework with SSR/SSG.", icon: "nextjs", color: "#ffffff" },
+      { name: "Tailwind CSS", info: "Rapid styling with utility-first CSS.", icon: "tailwindcss", color: "#06b6d4" },
+      { name: "React Native", info: "Cross-platform native mobile applications.", icon: "react", color: "#61dafb" },
+      { name: "Expo", info: "Accelerated development for React Native.", local: "/skills/expo.png", color: "#000020" },
+      { name: "Android", info: "Native mobile development for Android devices.", icon: "android", color: "#3ddc84" }
     ]
   },
   {
     group: "Backend & Cloud",
     items: [
-      { name: "FastAPI", info: "High-performance Python API development.", icon: "fastapi" },
-      { name: "PostgreSQL", info: "Robust, open-source relational database.", icon: "postgresql" },
-      { name: "Docker", info: "Containerization for consistent deployments.", icon: "docker" },
-      { name: "Flask", info: "Micro web framework for agile Python apps.", icon: "flask" },
-      { name: "Render", info: "Fast, simple cloud platform for web apps.", local: "/skills/render.jpg" },
-      { name: "Alembic", info: "Database migration tool for SQLAlchemy.", lucide: Database }
+      { name: "FastAPI", info: "High-performance Python API development.", icon: "fastapi", color: "#05998b" },
+      { name: "PostgreSQL", info: "Robust, open-source relational database.", icon: "postgresql", color: "#4169e1" },
+      { name: "Docker", info: "Containerization for consistent deployments.", icon: "docker", color: "#2496ed" },
+      { name: "Flask", info: "Micro web framework for agile Python apps.", icon: "flask", color: "#ffffff" },
+      { name: "Render", info: "Fast, simple cloud platform for web apps.", local: "/skills/render.jpg", color: "#46e3b7" },
+      { name: "Alembic", info: "Database migration tool for SQLAlchemy.", lucide: Database, color: "#ed2124" }
     ]
   },
   {
     group: "Generative AI",
     items: [
-      { name: "LangChain", info: "Framework for building LLM-powered apps.", local: "/skills/langchain.png" },
-      { name: "Google Gemini", info: "Multimodal AI models for generative tasks.", local: "/skills/gemini.png" },
-      { name: "OpenAI", info: "Cutting-edge models like GPT-4 and DALL-E.", local: "/skills/openai.png" },
-      { name: "Hugging Face", info: "Hub for modern transformers and public models.", local: "/skills/huggingface.png" },
-      { name: "Ollama", info: "Running large language models locally.", local: "/skills/ollama.png" },
-      { name: "Keras", info: "Deep learning API for fast experimentation.", local: "/skills/keras.png" }
+      { name: "LangChain", info: "Framework for building LLM-powered apps.", local: "/skills/langchain.png", color: "#1c3c3c" },
+      { name: "Google Gemini", info: "Multimodal AI models for generative tasks.", local: "/skills/gemini.png", color: "#8e75ff" },
+      { name: "OpenAI", info: "Cutting-edge models like GPT-4 and DALL-E.", local: "/skills/openai.png", color: "#74aa9c" },
+      { name: "Hugging Face", info: "Hub for modern transformers and public models.", local: "/skills/huggingface.png", color: "#ffbd45" },
+      { name: "Ollama", info: "Running large language models locally.", local: "/skills/ollama.png", color: "#ffffff" },
+      { name: "Keras", info: "Deep learning API for fast experimentation.", local: "/skills/keras.png", color: "#d00000" }
     ]
   },
   {
     group: "ML & Data Science",
     items: [
-      { name: "TensorFlow", info: "Open-source platform for end-to-end ML.", icon: "tensorflow" },
-      { name: "PyTorch", info: "Flexible deep learning for research and prod.", icon: "pytorch" },
-      { name: "Scikit Learn", info: "Simple and efficient tools for predictive data.", local: "/skills/scikitlearn.jpg" },
-      { name: "Pandas", info: "Powerful data manipulation and analysis.", icon: "pandas" },
-      { name: "NumPy", info: "Fundamental package for scientific computing.", icon: "numpy" },
-      { name: "Matplotlib", info: "Comprehensive library for static/animated plots.", local: "/skills/matplotlib.png" }
+      { name: "TensorFlow", info: "Open-source platform for end-to-end ML.", icon: "tensorflow", color: "#ff6f00" },
+      { name: "PyTorch", info: "Flexible deep learning for research and prod.", icon: "pytorch", color: "#ee4c2c" },
+      { name: "Scikit Learn", info: "Simple and efficient tools for predictive data.", local: "/skills/scikitlearn.jpg", color: "#f7931e" },
+      { name: "Pandas", info: "Powerful data manipulation and analysis.", icon: "pandas", color: "#150458" },
+      { name: "NumPy", info: "Fundamental package for scientific computing.", icon: "numpy", color: "#4d77cf" },
+      { name: "Matplotlib", info: "Comprehensive library for static/animated plots.", local: "/skills/matplotlib.png", color: "#ffffff" }
     ]
   },
   {
     group: "Tools",
     items: [
-      { name: "Git", info: "Version control for tracking code changes.", icon: "git" },
-      { name: "Postman", info: "Platform for building and using APIs.", local: "/skills/postman.jpg" },
-      { name: "VS Code", info: "Extensible code editor for modern development.", icon: "vscode" },
-      { name: "Jupyter", info: "Interactive computing across all languages.", icon: "jupyter" }
+      { name: "Git", info: "Version control for tracking code changes.", icon: "git", color: "#f05032" },
+      { name: "Postman", info: "Platform for building and using APIs.", local: "/skills/postman.jpg", color: "#ff6c37" },
+      { name: "VS Code", info: "Extensible code editor for modern development.", icon: "vscode", color: "#007acc" },
+      { name: "Jupyter", info: "Interactive computing across all languages.", icon: "jupyter", color: "#f37626" }
     ]
   }
 ];
@@ -101,7 +101,7 @@ function SkillLogo({ skill }: { skill: any }) {
     return (
       <img
         src={skill.local}
-        className="w-8 h-8 object-contain group-hover:scale-110 transition-transform"
+        className="w-12 h-12 md:w-16 md:h-16 object-contain transition-transform duration-500"
         alt={skill.name}
       />
     );
@@ -109,7 +109,7 @@ function SkillLogo({ skill }: { skill: any }) {
 
   if (skill.lucide) {
     const LucideIcon = skill.lucide;
-    return <LucideIcon className="w-7 h-7 text-indigo-400 group-hover:text-white transition-colors" />;
+    return <LucideIcon className="w-10 h-10 md:w-14 md:h-14 transition-colors" style={{ color: skill.color }} />;
   }
 
   return (
@@ -117,9 +117,9 @@ function SkillLogo({ skill }: { skill: any }) {
       src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.icon}/${skill.icon}-original.svg`}
       onError={(e) => {
         (e.target as any).style.display = 'none';
-        (e.target as any).parentElement.innerHTML = `<span class="text-xs font-bold text-white/20">${skill.name[0]}</span>`;
+        (e.target as any).parentElement.innerHTML = `<span class="text-xl font-black opacity-20">${skill.name[0]}</span>`;
       }}
-      className="w-7 h-7 object-contain group-hover:scale-110 transition-transform"
+      className="w-12 h-12 md:w-16 md:h-16 object-contain transition-transform duration-500"
       alt={skill.name}
     />
   );
@@ -203,54 +203,64 @@ export default function Home() {
           </motion.div>
         </section>
 
-        <section className="w-full max-w-6xl space-y-20 py-24 border-y border-white/5">
-          <div className="text-center space-y-4">
-            <h2 className="text-sm font-bold text-indigo-400 uppercase tracking-[0.5em]">Core Expertise</h2>
-            <p className="text-4xl md:text-6xl font-black text-white px-4">Mastering the Tech Stack</p>
+        {/* Unified Skillset Section */}
+        <section className="w-full max-w-7xl space-y-24 py-32 border-y border-white/5">
+          <div className="flex flex-col items-center text-center space-y-8">
+            <h2 className="text-sm font-black text-indigo-400 uppercase tracking-[0.5em] animate-pulse">Neural_Capabilities</h2>
+            <h3 className="text-7xl md:text-9xl font-black tracking-tighter text-white">Skillset</h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {skills.map((group, i) => (
+          <div className="flex flex-wrap justify-center gap-x-12 gap-y-16 px-4">
+            {skills.flatMap(group => group.items).map((skill, i) => (
               <motion.div
-                key={group.group}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                key={skill.name}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="p-10 rounded-[3rem] glass border-white/5 group hover:border-indigo-500/30 transition-all duration-500"
+                transition={{ delay: i * 0.02 }}
+                onMouseEnter={() => setActiveSkill(skill)}
+                onMouseLeave={() => setActiveSkill(null)}
+                className="flex flex-col items-center gap-6 group relative w-24 md:w-32"
               >
-                <h3 className="text-sm font-black text-white/40 mb-10 uppercase tracking-widest group-hover:text-indigo-400 transition-colors">
-                  {group.group}
-                </h3>
-                <div className="grid grid-cols-4 gap-6">
-                  {group.items.map(skill => (
-                    <div
-                      key={skill.name}
-                      onMouseEnter={() => setActiveSkill(skill)}
-                      onMouseLeave={() => setActiveSkill(null)}
-                      className="flex flex-col items-center gap-3 cursor-help relative group"
-                    >
-                      <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center hover:bg-indigo-500/10 hover:border-indigo-500/40 transition-all duration-300">
-                        <SkillLogo skill={skill} />
-                      </div>
-                      <span className="text-[10px] font-bold text-white/30 uppercase tracking-tighter text-center">{skill.name}</span>
+                {/* Improved Hover Glow */}
+                <div className="absolute inset-0 bg-indigo-500/5 blur-[40px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                      <AnimatePresence>
-                        {activeSkill?.name === skill.name && (
-                          <motion.div
-                            initial={{ opacity: 0, y: 10, scale: 0.9 }}
-                            animate={{ opacity: 1, y: 0, scale: 1 }}
-                            exit={{ opacity: 0, y: 10, scale: 0.9 }}
-                            className="absolute bottom-full mb-4 z-20 w-48 p-4 glass rounded-2xl border border-white/10 shadow-2xl pointer-events-none"
-                          >
-                            <p className="text-[11px] text-indigo-400 font-bold mb-1">{skill.name}</p>
-                            <p className="text-[10px] text-white/60 leading-tight">{skill.info}</p>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  ))}
+                {/* Logo Container */}
+                <div className="relative w-20 h-20 md:w-24 md:h-24 flex items-center justify-center transition-all duration-500 group-hover:-translate-y-3 cursor-help">
+                  <SkillLogo skill={skill} />
                 </div>
+
+                {/* Styled Badge */}
+                <div
+                  className="px-4 py-1.5 rounded-xl border backdrop-blur-md shadow-2xl transition-all duration-300"
+                  style={{
+                    borderColor: `${skill.color}44`,
+                    backgroundColor: `${skill.color}22`
+                  }}
+                >
+                  <span
+                    className="text-[10px] md:text-xs font-black uppercase tracking-wider transition-colors"
+                    style={{ color: skill.color }}
+                  >
+                    {skill.name}
+                  </span>
+                </div>
+
+                {/* Tooltip Info */}
+                <AnimatePresence>
+                  {activeSkill?.name === skill.name && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10, scale: 0.9 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 10, scale: 0.9 }}
+                      className="absolute bottom-full mb-6 z-[200] w-56 p-5 glass rounded-3xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] pointer-events-none"
+                    >
+                      <p className="text-xs font-black text-indigo-400 mb-2 uppercase tracking-widest">{skill.name}</p>
+                      <p className="text-[11px] text-white/70 leading-relaxed font-medium">{skill.info}</p>
+                      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 glass border-r border-b border-white/10 rotate-45" />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </motion.div>
             ))}
           </div>
