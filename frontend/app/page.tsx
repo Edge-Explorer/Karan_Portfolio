@@ -153,34 +153,24 @@ export default function Home() {
         </motion.button>
 
         <section className="w-full text-center space-y-24 mb-32">
-          <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20 px-4">
-            {/* Split Name Block */}
-            <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-              <motion.h1
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                className="text-6xl md:text-8xl lg:text-[10rem] font-black tracking-tighter leading-none bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent"
-              >
-                Karan Rohidas
-              </motion.h1>
-              <motion.h1
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.1 }}
-                className="text-7xl md:text-9xl lg:text-[12rem] font-black tracking-tighter leading-none bg-gradient-to-t from-white/20 via-white to-white bg-clip-text text-transparent"
-              >
-                Shelar
-              </motion.h1>
-            </div>
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-16 px-4">
+            {/* Unified Name Block */}
+            <motion.h1
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="text-4xl md:text-6xl lg:text-8xl font-black tracking-tighter leading-none bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent lg:whitespace-nowrap"
+            >
+              Karan Rohidas Shelar
+            </motion.h1>
 
-            {/* Massive Portrait on the Right */}
+            {/* Optimized Portrait on the Right */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8, rotate: 5 }}
-              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
               className="relative group shrink-0"
             >
               <div className="absolute -inset-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full blur-2xl opacity-40 group-hover:opacity-100 transition duration-700 animate-pulse"></div>
-              <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-[28rem] lg:h-[28rem] rounded-full overflow-hidden border-8 border-white/10 shadow-[0_0_80px_rgba(99,102,241,0.4)] bg-background">
+              <div className="relative w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-white/10 shadow-[0_0_50px_rgba(99,102,241,0.3)] bg-background">
                 <img
                   src="/karan_image.png"
                   alt="Karan"
