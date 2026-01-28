@@ -23,11 +23,8 @@ export default function ContactModal({ isOpen, onClose }: { isOpen: boolean; onC
             // 2. Success state
             setStatus("success");
 
-            // 3. Open mail client as backup/direct send
-            setTimeout(() => {
-                const mailtoUrl = `mailto:karanshelar8775@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`From: ${formData.name} (${formData.email})\n\n${formData.message}`)}`;
-                window.location.href = mailtoUrl;
-            }, 1000);
+            // Clear form
+            setFormData({ name: "", email: "", subject: "", message: "" });
 
         } catch (error) {
             console.error("Failed to send message", error);
