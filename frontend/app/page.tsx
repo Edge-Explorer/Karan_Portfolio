@@ -27,7 +27,7 @@ const skills = [
       { name: "Next.js", info: "Modern fullstack framework with SSR/SSG.", icon: "nextjs" },
       { name: "Tailwind CSS", info: "Rapid styling with utility-first CSS.", icon: "tailwindcss" },
       { name: "React Native", info: "Cross-platform native mobile applications.", icon: "react" },
-      { name: "Expo", info: "Accelerated development for React Native.", lucide: Layout },
+      { name: "Expo", info: "Accelerated development for React Native.", local: "/skills/expo.png" },
       { name: "Android", info: "Native mobile development for Android devices.", icon: "android" }
     ]
   },
@@ -38,19 +38,19 @@ const skills = [
       { name: "PostgreSQL", info: "Robust, open-source relational database.", icon: "postgresql" },
       { name: "Docker", info: "Containerization for consistent deployments.", icon: "docker" },
       { name: "Flask", info: "Micro web framework for agile Python apps.", icon: "flask" },
-      { name: "Render", info: "Fast, simple cloud platform for web apps.", lucide: Cloud },
+      { name: "Render", info: "Fast, simple cloud platform for web apps.", local: "/skills/render.jpg" },
       { name: "Alembic", info: "Database migration tool for SQLAlchemy.", lucide: Database }
     ]
   },
   {
     group: "Generative AI",
     items: [
-      { name: "LangChain", info: "Framework for building LLM-powered apps.", lucide: Layers },
-      { name: "Google Gemini", info: "Multimodal AI models for generative tasks.", lucide: Sparkles },
-      { name: "OpenAI", info: "Cutting-edge models like GPT-4 and DALL-E.", icon: "openai" },
-      { name: "Hugging Face", info: "Hub for modern transformers and public models.", lucide: AiIcon },
-      { name: "Ollama", info: "Running large language models locally.", lucide: Box },
-      { name: "Keras", info: "Deep learning API for fast experimentation.", lucide: AiIcon }
+      { name: "LangChain", info: "Framework for building LLM-powered apps.", local: "/skills/langchain.png" },
+      { name: "Google Gemini", info: "Multimodal AI models for generative tasks.", local: "/skills/gemini.png" },
+      { name: "OpenAI", info: "Cutting-edge models like GPT-4 and DALL-E.", local: "/skills/openai.png" },
+      { name: "Hugging Face", info: "Hub for modern transformers and public models.", local: "/skills/huggingface.png" },
+      { name: "Ollama", info: "Running large language models locally.", local: "/skills/ollama.png" },
+      { name: "Keras", info: "Deep learning API for fast experimentation.", local: "/skills/keras.png" }
     ]
   },
   {
@@ -58,17 +58,17 @@ const skills = [
     items: [
       { name: "TensorFlow", info: "Open-source platform for end-to-end ML.", icon: "tensorflow" },
       { name: "PyTorch", info: "Flexible deep learning for research and prod.", icon: "pytorch" },
-      { name: "Scikit Learn", info: "Simple and efficient tools for predictive data.", lucide: Binary },
+      { name: "Scikit Learn", info: "Simple and efficient tools for predictive data.", local: "/skills/scikitlearn.jpg" },
       { name: "Pandas", info: "Powerful data manipulation and analysis.", icon: "pandas" },
       { name: "NumPy", info: "Fundamental package for scientific computing.", icon: "numpy" },
-      { name: "Matplotlib", info: "Comprehensive library for static/animated plots.", lucide: Monitor }
+      { name: "Matplotlib", info: "Comprehensive library for static/animated plots.", local: "/skills/matplotlib.png" }
     ]
   },
   {
     group: "Tools",
     items: [
       { name: "Git", info: "Version control for tracking code changes.", icon: "git" },
-      { name: "Postman", info: "Platform for building and using APIs.", lucide: Server },
+      { name: "Postman", info: "Platform for building and using APIs.", local: "/skills/postman.jpg" },
       { name: "VS Code", info: "Extensible code editor for modern development.", icon: "vscode" },
       { name: "Jupyter", info: "Interactive computing across all languages.", icon: "jupyter" }
     ]
@@ -97,6 +97,16 @@ const projects = [
 ];
 
 function SkillLogo({ skill }: { skill: any }) {
+  if (skill.local) {
+    return (
+      <img
+        src={skill.local}
+        className="w-8 h-8 object-contain group-hover:scale-110 transition-transform"
+        alt={skill.name}
+      />
+    );
+  }
+
   if (skill.lucide) {
     const LucideIcon = skill.lucide;
     return <LucideIcon className="w-7 h-7 text-indigo-400 group-hover:text-white transition-colors" />;
