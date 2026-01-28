@@ -223,7 +223,7 @@ export default function Home() {
         </section>
 
         {/* Elegant Tech Divider */}
-        <div className="w-full max-w-7xl mx-auto px-6 h-32 flex items-center justify-center opacity-20 pointer-events-none">
+        <div className="w-full max-w-7xl mx-auto px-6 h-20 flex items-center justify-center opacity-20 pointer-events-none">
           <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-indigo-500 to-transparent relative">
             <motion.div
               animate={{ left: ["0%", "100%"] }}
@@ -234,7 +234,7 @@ export default function Home() {
         </div>
 
         {/* INTRODUCTION / OVERVIEW SECTION */}
-        <section className="w-full max-w-7xl space-y-20 py-24 px-4">
+        <section className="w-full max-w-7xl space-y-20 pt-12 pb-24 px-4">
           <div className="space-y-6 text-left max-w-3xl">
             <h2 className="text-sm font-black text-indigo-400 uppercase tracking-[0.5em]">Introduction</h2>
             <h3 className="text-6xl md:text-8xl font-black tracking-tighter text-white leading-none">Overview</h3>
