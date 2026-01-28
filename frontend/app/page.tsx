@@ -147,7 +147,7 @@ export default function Home() {
         >
           <div className="absolute -inset-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full blur-xl opacity-40 group-hover:opacity-100 transition duration-500 animate-pulse" />
           <div className="relative w-24 h-24 rounded-full overflow-hidden border-4 border-white/20 glass shadow-2xl">
-            <img src="/karan_image.png" alt="AI Agent" className="w-full h-full object-cover" />
+            <img src="/karan_image.png" alt="AI Agent" className="w-full h-full object-cover object-top" />
             <div className="absolute inset-0 bg-indigo-500/20 group-hover:bg-transparent transition-colors" />
             <div className="absolute bottom-1 right-1 w-6 h-6 bg-green-500 border-2 border-white rounded-full" />
           </div>
@@ -215,7 +215,7 @@ export default function Home() {
                 <img
                   src="/karan_image.png"
                   alt="Karan"
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                  className="w-full h-full object-cover object-top transition-transform duration-1000 group-hover:scale-105"
                 />
               </div>
             </motion.div>
