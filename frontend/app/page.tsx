@@ -153,15 +153,15 @@ export default function Home() {
           </div>
         </motion.button>
 
-        <section className="w-full text-center lg:text-left space-y-16 mb-20 px-4 md:px-10 lg:px-12">
-          <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between max-w-[85rem] mx-auto gap-12 lg:gap-20">
+        <section className="w-full text-center lg:text-left space-y-16 mb-10 px-6">
+          <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between max-w-7xl mx-auto gap-12 lg:gap-16">
             {/* Identity Column */}
             <div className="flex flex-col items-center lg:items-start space-y-10 order-2 lg:order-1">
               <div className="space-y-4">
                 <motion.h1
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
-                  className="text-4xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-black tracking-tighter leading-none bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent lg:whitespace-nowrap"
+                  className="text-4xl md:text-6xl lg:text-7xl xl:text-[5rem] font-black tracking-tighter leading-none bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent lg:whitespace-nowrap"
                 >
                   Karan Rohidas Shelar
                 </motion.h1>
@@ -184,63 +184,47 @@ export default function Home() {
               >
                 <button
                   onClick={() => setIsContactOpen(true)}
-                  className="px-10 py-5 bg-white text-black font-black uppercase tracking-widest text-xs rounded-2xl hover:bg-indigo-500 hover:text-white transition-all shadow-2xl flex items-center gap-3 active:scale-95 z-10"
+                  className="px-8 py-4 bg-white text-black font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-indigo-500 hover:text-white transition-all shadow-2xl flex items-center gap-2 active:scale-95"
                 >
-                  <Mail size={16} /> Connect Now
+                  <Mail size={14} /> Connect Now
                 </button>
 
-                <div className="flex items-center gap-3">
-                  <SocialLink icon={<Github size={20} />} href="https://github.com/Edge-Explorer" label="GitHub" />
-                  <SocialLink icon={<Linkedin size={20} />} href="https://linkedin.com/in/karan-shelar-779381343" label="LinkedIn" />
-                  <SocialLink icon={<ExternalLink size={20} />} href="https://drive.google.com/file/d/1QhYwPLs4nQjjvCFuEEjYx0Q8Gbcc7GMb/view?usp=drive_link" label="Resume" />
+                <div className="flex items-center gap-2">
+                  <SocialLink icon={<Github size={18} />} href="https://github.com/Edge-Explorer" label="GitHub" />
+                  <SocialLink icon={<Linkedin size={18} />} href="https://linkedin.com/in/karan-shelar-779381343" label="LinkedIn" />
+                  <SocialLink icon={<ExternalLink size={18} />} href="https://drive.google.com/file/d/1QhYwPLs4nQjjvCFuEEjYx0Q8Gbcc7GMb/view?usp=drive_link" label="Resume" />
                 </div>
               </motion.div>
             </div>
 
-            {/* Portrait Anchor */}
+            {/* Portrait Anchor - Brought Inside */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               className="relative group shrink-0 order-1 lg:order-2"
             >
-              <div className="absolute -inset-6 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full blur-[40px] opacity-30 group-hover:opacity-100 transition duration-1000 animate-pulse"></div>
-              <div className="relative w-56 h-56 md:w-72 md:h-72 lg:w-[22rem] lg:h-[22rem] rounded-full overflow-hidden border-2 border-white/10 shadow-[0_0_80px_rgba(99,102,241,0.2)] bg-background">
+              <div className="absolute -inset-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full blur-[30px] opacity-20 group-hover:opacity-100 transition duration-1000 animate-pulse"></div>
+              <div className="relative w-52 h-52 md:w-64 md:h-64 lg:w-[21rem] lg:h-[21rem] rounded-full overflow-hidden border-2 border-white/10 shadow-[0_10px_60px_rgba(99,102,241,0.2)] bg-background">
                 <img
                   src="/karan_image.png"
                   alt="Karan"
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-indigo-500/10 to-transparent pointer-events-none" />
               </div>
             </motion.div>
           </div>
         </section>
 
-        {/* Pulse Metrics Section (Bridging the Void) */}
-        <section className="w-full max-w-7xl mx-auto px-6 mb-24">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 p-8 rounded-[3rem] glass border border-white/5 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/5 via-purple-500/5 to-pink-500/5" />
-            {[
-              { label: "Neural Architectures", value: "5+", icon: <AiIcon size={20} className="text-blue-400" /> },
-              { label: "End-to-End Projects", value: "15+", icon: <Zap size={20} className="text-orange-400" /> },
-              { label: "Success Rate", value: "100%", icon: <Activity size={20} className="text-green-400" /> },
-              { label: "Learning Path", value: "MCA DS", icon: <GraduationCap size={20} className="text-purple-400" /> }
-            ].map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="flex flex-col items-center justify-center space-y-2 relative z-10 border-r last:border-r-0 border-white/5 px-4"
-              >
-                <div className="p-3 rounded-2xl bg-white/5 mb-2">{stat.icon}</div>
-                <span className="text-3xl md:text-4xl font-black tracking-tighter text-white">{stat.value}</span>
-                <span className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] text-center">{stat.label}</span>
-              </motion.div>
-            ))}
+        {/* Elegant Tech Divider */}
+        <div className="w-full max-w-7xl mx-auto px-6 h-32 flex items-center justify-center opacity-20 pointer-events-none">
+          <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-indigo-500 to-transparent relative">
+            <motion.div
+              animate={{ left: ["0%", "100%"] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+              className="absolute top-0 w-20 h-[1px] bg-white blur-sm"
+            />
           </div>
-        </section>
+        </div>
 
         {/* INTRODUCTION / OVERVIEW SECTION */}
         <section className="w-full max-w-7xl space-y-20 py-24 px-4">
