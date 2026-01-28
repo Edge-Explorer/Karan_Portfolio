@@ -152,60 +152,66 @@ export default function Home() {
           </div>
         </motion.button>
 
-        <section className="w-full text-center space-y-24 mb-32">
-          <div className="flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-16 px-4">
-            {/* Unified Name Block */}
-            <motion.h1
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="text-4xl md:text-6xl lg:text-8xl font-black tracking-tighter leading-none bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent lg:whitespace-nowrap"
-            >
-              Karan Rohidas Shelar
-            </motion.h1>
+        <section className="w-full text-center lg:text-left space-y-16 mb-40 px-4">
+          <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between max-w-7xl mx-auto gap-12 lg:gap-20">
+            {/* Executive Identity Column */}
+            <div className="flex flex-col items-center lg:items-start space-y-10 order-2 lg:order-1">
+              <div className="space-y-4">
+                <motion.h1
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tighter leading-none bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent lg:whitespace-nowrap"
+                >
+                  Karan Rohidas Shelar
+                </motion.h1>
 
-            {/* Optimized Portrait on the Right */}
+                <motion.p
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.1 }}
+                  className="text-xl md:text-2xl lg:text-3xl text-indigo-400 font-bold tracking-[0.3em] uppercase leading-none"
+                >
+                  Generative AI Developer
+                </motion.p>
+              </div>
+
+              {/* Refined Action Bar */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="flex flex-wrap justify-center lg:justify-start items-center gap-4 group"
+              >
+                <button
+                  onClick={() => setIsContactOpen(true)}
+                  className="px-10 py-5 bg-white text-black font-black uppercase tracking-widest text-xs rounded-2xl hover:bg-indigo-500 hover:text-white transition-all shadow-2xl flex items-center gap-3 active:scale-95 z-10"
+                >
+                  <Mail size={16} /> Connect Now
+                </button>
+
+                <div className="flex items-center gap-3">
+                  <SocialLink icon={<Github size={20} />} href="https://github.com/Edge-Explorer" label="GitHub" />
+                  <SocialLink icon={<Linkedin size={20} />} href="https://linkedin.com/in/karan-shelar-779381343" label="LinkedIn" />
+                  <SocialLink icon={<ExternalLink size={20} />} href="https://drive.google.com/file/d/1QhYwPLs4nQjjvCFuEEjYx0Q8Gbcc7GMb/view?usp=drive_link" label="Resume" />
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Premium Portrait Anchor */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="relative group shrink-0"
+              className="relative group shrink-0 order-1 lg:order-2"
             >
-              <div className="absolute -inset-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full blur-2xl opacity-40 group-hover:opacity-100 transition duration-700 animate-pulse"></div>
-              <div className="relative w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-white/10 shadow-[0_0_50px_rgba(99,102,241,0.3)] bg-background">
+              <div className="absolute -inset-6 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full blur-[40px] opacity-30 group-hover:opacity-100 transition duration-1000 animate-pulse"></div>
+              <div className="relative w-56 h-56 md:w-72 md:h-72 lg:w-[24rem] lg:h-[24rem] rounded-full overflow-hidden border-2 border-white/10 shadow-[0_0_80px_rgba(99,102,241,0.2)] bg-background">
                 <img
                   src="/karan_image.png"
                   alt="Karan"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-indigo-500/20 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-indigo-500/10 to-transparent pointer-events-none" />
               </div>
-            </motion.div>
-          </div>
-
-          <div className="flex flex-col items-center gap-10">
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="text-xl md:text-3xl text-indigo-400 font-medium tracking-wide uppercase"
-            >
-              Generative AI Developer
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
-              className="flex flex-wrap justify-center gap-6"
-            >
-              <SocialLink icon={<Github size={24} />} href="https://github.com/Edge-Explorer" label="GitHub" />
-              <SocialLink icon={<Linkedin size={24} />} href="https://linkedin.com/in/karan-shelar-779381343" label="LinkedIn" />
-              <button
-                onClick={() => setIsContactOpen(true)}
-                className="px-8 py-4 bg-white text-black font-bold rounded-2xl hover:bg-indigo-500 hover:text-white transition-all shadow-xl flex items-center gap-3"
-              >
-                <Mail size={20} /> Connect Now
-              </button>
-              <SocialLink icon={<ExternalLink size={24} />} href="https://drive.google.com/file/d/1QhYwPLs4nQjjvCFuEEjYx0Q8Gbcc7GMb/view?usp=drive_link" label="Resume" />
             </motion.div>
           </div>
         </section>
