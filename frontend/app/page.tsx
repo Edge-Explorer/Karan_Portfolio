@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, ExternalLink, Code2, Cpu, Globe, Rocket, Terminal as TerminalIcon, Sparkles } from "lucide-react";
+import { Github, Linkedin, Mail, ExternalLink, Code2, Cpu, Globe, Rocket, Sparkles } from "lucide-react";
 import ChatInterface from "@/components/ChatInterface";
 import ContactModal from "@/components/ContactModal";
 import { useState } from "react";
@@ -227,9 +227,9 @@ function SocialLink({ icon, href, label }: { icon: React.ReactNode; href: string
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex items-center gap-3 px-4 py-2 glass rounded-2xl hover:text-cyan-400 hover:border-cyan-500/50 transition-all duration-300 group"
+      className="flex items-center gap-3 px-4 py-2 glass rounded-2xl hover:text-indigo-400 hover:border-indigo-500/50 transition-all duration-300 group"
     >
-      <span className="text-white/40 group-hover:text-cyan-400 transition-colors">{icon}</span>
+      <span className="text-white/40 group-hover:text-indigo-400 transition-colors">{icon}</span>
       <span className="text-sm font-mono text-white/60 group-hover:text-white transition-colors">{label}</span>
     </a>
   );
