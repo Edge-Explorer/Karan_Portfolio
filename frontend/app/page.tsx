@@ -180,19 +180,25 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="flex flex-wrap justify-center lg:justify-start items-center gap-4 group"
+                className="flex flex-wrap justify-center lg:justify-start items-center gap-4 md:gap-6"
               >
-                <button
+                <motion.button
                   onClick={() => setIsContactOpen(true)}
-                  className="px-8 py-4 bg-white text-black font-black uppercase tracking-widest text-[10px] rounded-2xl hover:bg-indigo-500 hover:text-white transition-all shadow-2xl flex items-center gap-2 active:scale-95"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group relative px-10 py-5 bg-white text-black font-black uppercase tracking-widest text-[10px] rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(255,255,255,0.1)] transition-all active:scale-95"
                 >
-                  <Mail size={14} /> Connect Now
-                </button>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-indigo-500/10 to-transparent -translate-x-full animate-shimmer" />
+                  <div className="relative z-10 flex items-center gap-3">
+                    <Mail size={16} className="group-hover:rotate-12 transition-transform" />
+                    <span>Connect Now</span>
+                  </div>
+                </motion.button>
 
-                <div className="flex items-center gap-2">
-                  <SocialLink icon={<Github size={18} />} href="https://github.com/Edge-Explorer" label="GitHub" />
-                  <SocialLink icon={<Linkedin size={18} />} href="https://linkedin.com/in/karan-shelar-779381343" label="LinkedIn" />
-                  <SocialLink icon={<ExternalLink size={18} />} href="https://drive.google.com/file/d/1QhYwPLs4nQjjvCFuEEjYx0Q8Gbcc7GMb/view?usp=drive_link" label="Resume" />
+                <div className="flex items-center gap-3">
+                  <SocialLink icon={<Github size={20} />} href="https://github.com/Edge-Explorer" label="GitHub" />
+                  <SocialLink icon={<Linkedin size={20} />} href="https://linkedin.com/in/karan-shelar-779381343" label="LinkedIn" />
+                  <SocialLink icon={<ExternalLink size={20} />} href="https://drive.google.com/file/d/1QhYwPLs4nQjjvCFuEEjYx0Q8Gbcc7GMb/view?usp=drive_link" label="Resume" />
                 </div>
               </motion.div>
             </div>
@@ -491,14 +497,19 @@ export default function Home() {
 
 function SocialLink({ icon, href, label }: { icon: React.ReactNode; href: string; label: string }) {
   return (
-    <a
+    <motion.a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex items-center gap-3 px-6 py-3 glass rounded-2xl hover:text-indigo-400 hover:border-indigo-500/50 transition-all duration-300 group"
+      whileHover={{ y: -5, scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      className="flex items-center gap-3 px-6 py-3 glass rounded-2xl hover:text-indigo-400 hover:border-indigo-500/50 transition-all duration-300 group relative overflow-hidden"
     >
-      <span className="text-white/40 group-hover:text-indigo-400 transition-colors">{icon}</span>
-      <span className="text-sm font-bold text-white/60 group-hover:text-white transition-colors uppercase tracking-widest">{label}</span>
-    </a>
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:animate-shimmer"
+      />
+      <span className="text-white/40 group-hover:text-indigo-400 transition-colors relative z-10">{icon}</span>
+      <span className="text-sm font-bold text-white/60 group-hover:text-white transition-colors uppercase tracking-widest relative z-10">{label}</span>
+    </motion.a>
   );
 }
