@@ -73,30 +73,40 @@ export default function Home() {
         </motion.button>
 
         {/* Hero Section */}
-        <section className="space-y-12 mb-24">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-3 px-6 py-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-400 text-xs font-black uppercase tracking-[0.2em] shadow-lg"
-          >
-            <Sparkles size={14} className="animate-pulse" />
-            Generative AI Pioneer
-          </motion.div>
+        <section className="space-y-12 mb-24 w-full">
+          <div className="flex flex-col items-center gap-8">
+            <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12">
+              <motion.h1
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.1 }}
+                className="text-5xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-none bg-gradient-to-b from-white via-white to-white/20 bg-clip-text text-transparent"
+              >
+                Karan Rohidas Shelar.
+              </motion.h1>
 
-          <div className="space-y-6">
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="text-7xl md:text-[10rem] font-black tracking-tighter leading-[0.8] bg-gradient-to-b from-white via-white to-white/20 bg-clip-text text-transparent"
-            >
-              Karan <br /> Rohidas <br /> Shelar.
-            </motion.h1>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
+                animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                transition={{ type: "spring", stiffness: 100 }}
+                className="relative group shrink-0"
+              >
+                <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full blur opacity-40 group-hover:opacity-100 transition duration-500"></div>
+                <div className="relative w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl">
+                  <img
+                    src="/karan_image.png"
+                    alt="Karan"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                </div>
+              </motion.div>
+            </div>
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-xl md:text-2xl text-indigo-400 font-mono tracking-tight"
+              className="text-2xl md:text-4xl text-indigo-400 font-mono tracking-tight font-light"
             >
               // Generative AI Developer
             </motion.p>
@@ -140,11 +150,23 @@ export default function Home() {
               >
                 <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-500/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
                 <h3 className="text-sm font-black text-white/40 mb-8 uppercase tracking-[0.2em] group-hover:text-indigo-400 transition-colors">{skillGroup.group}</h3>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-4">
                   {skillGroup.items.map(skill => (
-                    <span key={skill} className="px-4 py-2 rounded-2xl bg-white/5 border border-white/5 text-xs font-mono text-white/50 group-hover:text-white transition-colors hover:bg-indigo-500/20 hover:border-indigo-500/30">
-                      {skill}
-                    </span>
+                    <div key={skill} className="flex flex-col items-center gap-2 group/icon">
+                      <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center group-hover/icon:border-indigo-500/50 group-hover/icon:bg-indigo-500/10 transition-all duration-300">
+                        <img
+                          src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.toLowerCase().replace(" ", "")}/${skill.toLowerCase().replace(" ", "")}-original.svg`}
+                          onError={(e) => {
+                            // Fallback if logo not found
+                            (e.target as any).style.display = 'none';
+                            (e.target as any).parentElement.innerHTML = `<span class="text-[10px] text-white/40">${skill[0]}</span>`;
+                          }}
+                          className="w-7 h-7 object-contain"
+                          alt={skill}
+                        />
+                      </div>
+                      <span className="text-[10px] font-mono text-white/30 group-hover/icon:text-white transition-colors uppercase tracking-tighter">{skill}</span>
+                    </div>
                   ))}
                 </div>
               </motion.div>
