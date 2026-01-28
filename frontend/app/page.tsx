@@ -152,27 +152,52 @@ export default function Home() {
           </div>
         </motion.button>
 
-        <section className="w-full text-center space-y-16 mb-32">
-          <div className="flex flex-col items-center gap-10">
-            <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-14">
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="text-4xl md:text-7xl lg:text-[9rem] font-black tracking-tighter leading-none bg-gradient-to-b from-white to-white/30 bg-clip-text text-transparent lg:whitespace-nowrap"
-              >
-                Karan Rohidas Shelar
-              </motion.h1>
+        <section className="w-full text-center space-y-24 mb-32">
+          <div className="flex flex-col items-center gap-12">
+            {/* Massive Kinetic Name Layout */}
+            <div className="flex flex-col items-center">
+              <div className="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-14">
+                <motion.h1
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  className="text-6xl md:text-8xl lg:text-[10rem] font-black tracking-tighter leading-none bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent"
+                >
+                  Karan
+                </motion.h1>
 
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="relative group shrink-0"
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
+                  animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                  className="relative group shrink-0"
+                >
+                  <div className="absolute -inset-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full blur-2xl opacity-40 group-hover:opacity-100 transition duration-700 animate-pulse"></div>
+                  <div className="relative w-48 h-48 md:w-80 md:h-80 lg:w-[26rem] lg:h-[26rem] rounded-full overflow-hidden border-8 border-white/10 shadow-[0_0_50px_rgba(99,102,241,0.3)] bg-background">
+                    <img
+                      src="/karan_image.png"
+                      alt="Karan"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-indigo-500/20 to-transparent" />
+                  </div>
+                </motion.div>
+
+                <motion.h1
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  className="text-6xl md:text-8xl lg:text-[10rem] font-black tracking-tighter leading-none bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent"
+                >
+                  Rohidas
+                </motion.h1>
+              </div>
+
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="text-7xl md:text-9xl lg:text-[12rem] font-black tracking-tighter leading-none mt-4 bg-gradient-to-t from-white/20 via-white to-white bg-clip-text text-transparent"
               >
-                <div className="absolute -inset-2 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full blur opacity-50 group-hover:opacity-100 transition duration-500"></div>
-                <div className="relative w-32 h-32 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl">
-                  <img src="/karan_image.png" alt="Karan" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                </div>
-              </motion.div>
+                Shelar
+              </motion.h1>
             </div>
 
             <motion.p
