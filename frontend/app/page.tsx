@@ -203,6 +203,48 @@ export default function Home() {
           </motion.div>
         </section>
 
+        {/* INTRODUCTION / OVERVIEW SECTION */}
+        <section className="w-full max-w-7xl space-y-20 py-24 px-4">
+          <div className="space-y-6 text-left max-w-3xl">
+            <h2 className="text-sm font-black text-indigo-400 uppercase tracking-[0.5em]">Introduction</h2>
+            <h3 className="text-6xl md:text-8xl font-black tracking-tighter text-white leading-none">Overview</h3>
+            <p className="text-xl md:text-2xl text-white/60 font-medium leading-relaxed">
+              I am a specialized Generative AI Developer focused on building the next generation of intelligent systems,
+              scalable architectures, and immersive digital experiences.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { title: "Generative AI", desc: "Crafting advanced LLM solutions & neural agents.", icon: <AiIcon size={40} />, color: "from-blue-500/20 to-indigo-500/20", borderColor: "border-blue-500/30", textColor: "text-blue-400" },
+              { title: "Data Scientist", desc: "Extracting insights from complex neural datasets.", icon: <Binary size={40} />, color: "from-purple-500/20 to-pink-500/20", borderColor: "border-purple-500/30", textColor: "text-purple-400" },
+              { title: "Fullstack Eng", desc: "Architecting robust web & backend systems.", icon: <Code2 size={40} />, color: "from-green-500/20 to-emerald-500/20", borderColor: "border-green-500/30", textColor: "text-green-400" },
+              { title: "Problem Solver", desc: "Solving bottlenecks with optimized logic.", icon: <Search size={40} />, color: "from-orange-500/20 to-red-500/20", borderColor: "border-orange-500/30", textColor: "text-orange-400" },
+            ].map((card, i) => (
+              <motion.div
+                key={card.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                whileHover={{ y: -10 }}
+                className={`group p-10 rounded-[3rem] glass border ${card.borderColor} bg-gradient-to-br ${card.color} hover:shadow-2xl transition-all duration-500 relative overflow-hidden`}
+              >
+                <div className="absolute -inset-10 bg-white/5 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="space-y-8 relative z-10">
+                  <div className={`${card.textColor} transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6`}>
+                    {card.icon}
+                  </div>
+                  <div className="space-y-2">
+                    <h4 className={`text-xl font-black uppercase tracking-widest ${card.textColor}`}>{card.title}</h4>
+                    <p className="text-sm text-white/50 font-medium leading-snug">{card.desc}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
         {/* Unified Skillset Section */}
         <section className="w-full max-w-7xl space-y-24 py-32 border-y border-white/5">
           <div className="flex flex-col items-center text-center space-y-8">
