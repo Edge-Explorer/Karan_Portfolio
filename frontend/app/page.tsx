@@ -1,18 +1,78 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, ExternalLink, Code2, Cpu, Globe, Rocket, Sparkles } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Github, Linkedin, Mail, ExternalLink, Code2, Cpu, Globe, Rocket, Sparkles,
+  Terminal, Database, Layout, Smartphone, Cloud, Layers, Cpu as AiIcon,
+  Binary, GitBranch, Box, FileCode, Search, Server, Monitor
+} from "lucide-react";
 import ChatInterface from "@/components/ChatInterface";
 import ContactModal from "@/components/ContactModal";
 import { useState } from "react";
 
 const skills = [
-  { group: "Core", items: ["Python", "JavaScript", "TypeScript", "SQL"] },
-  { group: "Frontend & Mobile", items: ["React Native", "Expo", "React", "Android", "Next.js", "Tailwind CSS"] },
-  { group: "Backend & Cloud", items: ["FastAPI", "PostgreSQL", "Render", "Docker", "Flask", "Alembic"] },
-  { group: "ML/DL & AI", items: ["TensorFlow", "PyTorch", "Scikit Learn", "Keras", "LangChain", "Hugging Face", "Google Gemini", "OpenAI", "Ollama"] },
-  { group: "Data Science", items: ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Plotly"] },
-  { group: "Tools", items: ["Git", "Jupyter", "VS Code", "Postman"] }
+  {
+    group: "Core",
+    items: [
+      { name: "Python", info: "High-level programming for AI & Data Science.", icon: "python" },
+      { name: "JavaScript", info: "Dynamic web logic and interactive UI.", icon: "javascript" },
+      { name: "TypeScript", info: "Scaling JS with robust static typing.", icon: "typescript" },
+      { name: "SQL", info: "Relational data management and complex queries.", icon: "mysql" }
+    ]
+  },
+  {
+    group: "Frontend & Mobile",
+    items: [
+      { name: "React", info: "Building component-based immersive interfaces.", icon: "react" },
+      { name: "Next.js", info: "Modern fullstack framework with SSR/SSG.", icon: "nextjs" },
+      { name: "Tailwind CSS", info: "Rapid styling with utility-first CSS.", icon: "tailwindcss" },
+      { name: "React Native", info: "Cross-platform native mobile applications.", icon: "react" },
+      { name: "Expo", info: "Accelerated development for React Native.", lucide: Layout },
+      { name: "Android", info: "Native mobile development for Android devices.", icon: "android" }
+    ]
+  },
+  {
+    group: "Backend & Cloud",
+    items: [
+      { name: "FastAPI", info: "High-performance Python API development.", icon: "fastapi" },
+      { name: "PostgreSQL", info: "Robust, open-source relational database.", icon: "postgresql" },
+      { name: "Docker", info: "Containerization for consistent deployments.", icon: "docker" },
+      { name: "Flask", info: "Micro web framework for agile Python apps.", icon: "flask" },
+      { name: "Render", info: "Fast, simple cloud platform for web apps.", lucide: Cloud },
+      { name: "Alembic", info: "Database migration tool for SQLAlchemy.", lucide: Database }
+    ]
+  },
+  {
+    group: "Generative AI",
+    items: [
+      { name: "LangChain", info: "Framework for building LLM-powered apps.", lucide: Layers },
+      { name: "Google Gemini", info: "Multimodal AI models for generative tasks.", lucide: Sparkles },
+      { name: "OpenAI", info: "Cutting-edge models like GPT-4 and DALL-E.", icon: "openai" },
+      { name: "Hugging Face", info: "Hub for modern transformers and public models.", lucide: AiIcon },
+      { name: "Ollama", info: "Running large language models locally.", lucide: Box },
+      { name: "Keras", info: "Deep learning API for fast experimentation.", lucide: AiIcon }
+    ]
+  },
+  {
+    group: "ML & Data Science",
+    items: [
+      { name: "TensorFlow", info: "Open-source platform for end-to-end ML.", icon: "tensorflow" },
+      { name: "PyTorch", info: "Flexible deep learning for research and prod.", icon: "pytorch" },
+      { name: "Scikit Learn", info: "Simple and efficient tools for predictive data.", lucide: Binary },
+      { name: "Pandas", info: "Powerful data manipulation and analysis.", icon: "pandas" },
+      { name: "NumPy", info: "Fundamental package for scientific computing.", icon: "numpy" },
+      { name: "Matplotlib", info: "Comprehensive library for static/animated plots.", lucide: Monitor }
+    ]
+  },
+  {
+    group: "Tools",
+    items: [
+      { name: "Git", info: "Version control for tracking code changes.", icon: "git" },
+      { name: "Postman", info: "Platform for building and using APIs.", lucide: Server },
+      { name: "VS Code", info: "Extensible code editor for modern development.", icon: "vscode" },
+      { name: "Jupyter", info: "Interactive computing across all languages.", icon: "jupyter" }
+    ]
+  }
 ];
 
 const projects = [
@@ -36,24 +96,37 @@ const projects = [
   }
 ];
 
+function SkillLogo({ skill }: { skill: any }) {
+  if (skill.lucide) {
+    const LucideIcon = skill.lucide;
+    return <LucideIcon className="w-7 h-7 text-indigo-400 group-hover:text-white transition-colors" />;
+  }
+
+  return (
+    <img
+      src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.icon}/${skill.icon}-original.svg`}
+      onError={(e) => {
+        (e.target as any).style.display = 'none';
+        (e.target as any).parentElement.innerHTML = `<span class="text-xs font-bold text-white/20">${skill.name[0]}</span>`;
+      }}
+      className="w-7 h-7 object-contain group-hover:scale-110 transition-transform"
+      alt={skill.name}
+    />
+  );
+}
+
 export default function Home() {
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isAIChatOpen, setIsAIChatOpen] = useState(false);
+  const [activeSkill, setActiveSkill] = useState<any | null>(null);
 
   return (
-    <main className="min-h-screen bg-background text-white selection:bg-indigo-500/30 overflow-x-hidden bg-gradient-mesh">
+    <main className="min-h-screen bg-background text-white selection:bg-indigo-500/30 overflow-x-hidden bg-gradient-mesh pb-20">
       <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
       <ChatInterface isOpen={isAIChatOpen} onClose={() => setIsAIChatOpen(false)} />
 
-      {/* Background Decorative Elements */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-500/10 blur-[120px] rounded-full" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-purple-500/10 blur-[120px] rounded-full" />
-      </div>
+      <div className="relative max-w-7xl mx-auto px-6 py-12 lg:py-32 flex flex-col items-center">
 
-      <div className="relative max-w-7xl mx-auto px-6 py-12 lg:py-32 flex flex-col items-center text-center">
-
-        {/* Floating AI Trigger */}
         <motion.button
           onClick={() => setIsAIChatOpen(true)}
           initial={{ scale: 0, opacity: 0 }}
@@ -63,58 +136,48 @@ export default function Home() {
         >
           <div className="absolute -inset-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full blur-xl opacity-40 group-hover:opacity-100 transition duration-500 animate-pulse" />
           <div className="relative w-24 h-24 rounded-full overflow-hidden border-4 border-white/20 glass shadow-2xl">
-            <img src="/karan_image.png" alt="AI Agent" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+            <img src="/karan_image.png" alt="AI Agent" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-indigo-500/20 group-hover:bg-transparent transition-colors" />
             <div className="absolute bottom-1 right-1 w-6 h-6 bg-green-500 border-2 border-white rounded-full" />
           </div>
-          <div className="absolute -top-12 right-0 bg-indigo-500 text-white text-[10px] font-black px-3 py-1.5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap uppercase tracking-widest shadow-xl">
-            Initialize Neural Chat
-          </div>
         </motion.button>
 
-        {/* Hero Section */}
-        <section className="space-y-12 mb-24 w-full">
-          <div className="flex flex-col items-center gap-8">
-            <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12">
+        <section className="w-full text-center space-y-16 mb-32">
+          <div className="flex flex-col items-center gap-10">
+            <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-14">
               <motion.h1
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.1 }}
-                className="text-5xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-none bg-gradient-to-b from-white via-white to-white/20 bg-clip-text text-transparent"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-6xl md:text-8xl lg:text-[9rem] font-black tracking-tight leading-none bg-gradient-to-b from-white to-white/30 bg-clip-text text-transparent"
               >
-                Karan Rohidas Shelar.
+                Karan Rohidas Shelar
               </motion.h1>
 
               <motion.div
-                initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
-                animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                transition={{ type: "spring", stiffness: 100 }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
                 className="relative group shrink-0"
               >
-                <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full blur opacity-40 group-hover:opacity-100 transition duration-500"></div>
-                <div className="relative w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl">
-                  <img
-                    src="/karan_image.png"
-                    alt="Karan"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
+                <div className="absolute -inset-2 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full blur opacity-50 group-hover:opacity-100 transition duration-500"></div>
+                <div className="relative w-32 h-32 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl">
+                  <img src="/karan_image.png" alt="Karan" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 </div>
               </motion.div>
             </div>
 
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="text-2xl md:text-4xl text-indigo-400 font-mono tracking-tight font-light"
+              className="text-xl md:text-3xl text-indigo-400 font-medium tracking-wide uppercase"
             >
-              // Generative AI Developer
+              Generative AI Developer
             </motion.p>
           </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
             className="flex flex-wrap justify-center gap-6"
           >
@@ -122,50 +185,59 @@ export default function Home() {
             <SocialLink icon={<Linkedin size={24} />} href="https://linkedin.com/in/karan-shelar-779381343" label="LinkedIn" />
             <button
               onClick={() => setIsContactOpen(true)}
-              className="flex items-center gap-4 px-8 py-4 bg-white text-black font-black rounded-3xl hover:bg-indigo-500 hover:text-white transition-all duration-300 shadow-[0_20px_50px_rgba(255,255,255,0.1)] hover:shadow-indigo-500/40 group"
+              className="px-8 py-4 bg-white text-black font-bold rounded-2xl hover:bg-indigo-500 hover:text-white transition-all shadow-xl flex items-center gap-3"
             >
-              <Mail size={24} />
-              <span className="font-mono text-sm uppercase tracking-widest">Connect_System</span>
+              <Mail size={20} /> Connect Now
             </button>
             <SocialLink icon={<ExternalLink size={24} />} href="https://drive.google.com/file/d/1QhYwPLs4nQjjvCFuEEjYx0Q8Gbcc7GMb/view?usp=drive_link" label="Resume" />
           </motion.div>
         </section>
 
-        {/* Dynamic Skills Cloud */}
-        <section className="w-full max-w-5xl space-y-16 py-20">
+        <section className="w-full max-w-6xl space-y-20 py-24 border-y border-white/5">
           <div className="text-center space-y-4">
-            <h2 className="text-sm font-mono text-indigo-400 uppercase tracking-[0.5em]">Neural_Cognition_Matrix</h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto rounded-full" />
+            <h2 className="text-sm font-bold text-indigo-400 uppercase tracking-[0.5em]">Core Expertise</h2>
+            <p className="text-4xl md:text-6xl font-black text-white px-4">Mastering the Tech Stack</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {skills.map((skillGroup, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {skills.map((group, i) => (
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                key={group.group}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                key={skillGroup.group}
-                className="p-10 rounded-[3rem] glass border-white/5 hover:border-indigo-500/40 transition-all duration-700 group hover:-translate-y-2 overflow-hidden relative"
+                className="p-10 rounded-[3rem] glass border-white/5 group hover:border-indigo-500/30 transition-all duration-500"
               >
-                <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-500/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-                <h3 className="text-sm font-black text-white/40 mb-8 uppercase tracking-[0.2em] group-hover:text-indigo-400 transition-colors">{skillGroup.group}</h3>
-                <div className="flex flex-wrap gap-4">
-                  {skillGroup.items.map(skill => (
-                    <div key={skill} className="flex flex-col items-center gap-2 group/icon">
-                      <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center group-hover/icon:border-indigo-500/50 group-hover/icon:bg-indigo-500/10 transition-all duration-300">
-                        <img
-                          src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.toLowerCase().replace(" ", "")}/${skill.toLowerCase().replace(" ", "")}-original.svg`}
-                          onError={(e) => {
-                            // Fallback if logo not found
-                            (e.target as any).style.display = 'none';
-                            (e.target as any).parentElement.innerHTML = `<span class="text-[10px] text-white/40">${skill[0]}</span>`;
-                          }}
-                          className="w-7 h-7 object-contain"
-                          alt={skill}
-                        />
+                <h3 className="text-sm font-black text-white/40 mb-10 uppercase tracking-widest group-hover:text-indigo-400 transition-colors">
+                  {group.group}
+                </h3>
+                <div className="grid grid-cols-4 gap-6">
+                  {group.items.map(skill => (
+                    <div
+                      key={skill.name}
+                      onMouseEnter={() => setActiveSkill(skill)}
+                      onMouseLeave={() => setActiveSkill(null)}
+                      className="flex flex-col items-center gap-3 cursor-help relative group"
+                    >
+                      <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center hover:bg-indigo-500/10 hover:border-indigo-500/40 transition-all duration-300">
+                        <SkillLogo skill={skill} />
                       </div>
-                      <span className="text-[10px] font-mono text-white/30 group-hover/icon:text-white transition-colors uppercase tracking-tighter">{skill}</span>
+                      <span className="text-[10px] font-bold text-white/30 uppercase tracking-tighter text-center">{skill.name}</span>
+
+                      <AnimatePresence>
+                        {activeSkill?.name === skill.name && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 10, scale: 0.9 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: 10, scale: 0.9 }}
+                            className="absolute bottom-full mb-4 z-20 w-48 p-4 glass rounded-2xl border border-white/10 shadow-2xl pointer-events-none"
+                          >
+                            <p className="text-[11px] text-indigo-400 font-bold mb-1">{skill.name}</p>
+                            <p className="text-[10px] text-white/60 leading-tight">{skill.info}</p>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
                   ))}
                 </div>
@@ -174,11 +246,9 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Innovative Project Layout */}
         <section className="w-full max-w-6xl space-y-24 py-32">
           <div className="flex flex-col items-center text-center space-y-6">
-            <h2 className="text-6xl md:text-8xl font-black tracking-tighter">Genesis <span className="text-indigo-500 underline decoration-purple-500/30">Archives.</span></h2>
-            <p className="text-white/40 font-mono tracking-widest uppercase text-xs">Architecting the future of Generative Intelligence</p>
+            <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none">Selected <br /> <span className="text-indigo-500">Creations</span></h2>
           </div>
 
           <div className="space-y-32">
@@ -192,7 +262,7 @@ export default function Home() {
               >
                 <div className="flex-1 space-y-8 text-left">
                   <div className="space-y-4">
-                    <div className={`inline-block p-4 rounded-3xl bg-gradient-to-br ${project.color} text-white shadow-2xl animate-float`}>
+                    <div className={`inline-block p-4 rounded-3xl bg-gradient-to-br ${project.color} text-white shadow-2xl`}>
                       {idx === 0 ? <Cpu size={40} /> : idx === 1 ? <Globe size={40} /> : <Rocket size={40} />}
                     </div>
                     <h3 className="text-5xl md:text-7xl font-black tracking-tighter">{project.title}</h3>
@@ -202,23 +272,17 @@ export default function Home() {
                   </p>
                   <div className="flex flex-wrap gap-3">
                     {project.tech.map(t => (
-                      <span key={t} className="text-xs font-mono px-4 py-2 rounded-xl bg-white/5 border border-white/5 text-indigo-400/80 uppercase">
+                      <span key={t} className="text-xs font-bold px-4 py-2 rounded-xl bg-white/5 border border-white/5 text-indigo-400 uppercase">
                         {t}
                       </span>
                     ))}
                   </div>
-                  <motion.button
-                    whileHover={{ x: 10 }}
-                    className="flex items-center gap-4 text-sm font-black uppercase tracking-[0.3em] text-white/40 hover:text-indigo-400 transition-colors"
-                  >
-                    Explore System <ExternalLink size={16} />
-                  </motion.button>
                 </div>
                 <div className="flex-1 w-full aspect-[4/3] rounded-[4rem] overflow-hidden relative group">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-20 group-hover:opacity-40 transition-opacity duration-700`} />
-                  <div className="absolute inset-0 glass-vibrant group-hover:blur-sm transition-all duration-700" />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-20`} />
+                  <div className="absolute inset-0 glass-vibrant" />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-[12px] font-mono text-white font-black uppercase tracking-[0.5em] opacity-30 group-hover:opacity-100 transition-opacity">Neural_Render_Pending</div>
+                    <div className="text-[12px] font-bold text-white font-black uppercase tracking-[0.5em] opacity-30">Render_Matrix</div>
                   </div>
                 </div>
               </motion.div>
@@ -226,16 +290,9 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Footer */}
-        <footer className="w-full py-20 border-t border-white/5 mt-32 space-y-8">
-          <div className="flex justify-center gap-12">
-            <a href="#" className="text-xs font-mono text-white/20 hover:text-indigo-400 transition-colors tracking-widest uppercase">System_Status: Optimal</a>
-            <a href="#" className="text-xs font-mono text-white/20 hover:text-indigo-400 transition-colors tracking-widest uppercase">Encryption: AES-256</a>
-          </div>
-          <div className="text-center space-y-4">
-            <p className="text-6xl font-black tracking-tighter opacity-10">KRS_OS_2026</p>
-            <p className="text-[10px] font-mono text-white/10 uppercase tracking-[1em]">Generative AI Developer // Karan Rohidas Shelar</p>
-          </div>
+        <footer className="w-full py-20 border-t border-white/5 mt-32 text-center space-y-4">
+          <p className="text-6xl font-black tracking-tighter opacity-10 uppercase">KRS 2026</p>
+          <p className="text-[10px] font-bold text-white/20 uppercase tracking-[1em]">Karan Rohidas Shelar</p>
         </footer>
 
       </div>
@@ -249,29 +306,10 @@ function SocialLink({ icon, href, label }: { icon: React.ReactNode; href: string
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex items-center gap-3 px-4 py-2 glass rounded-2xl hover:text-indigo-400 hover:border-indigo-500/50 transition-all duration-300 group"
+      className="flex items-center gap-3 px-6 py-3 glass rounded-2xl hover:text-indigo-400 hover:border-indigo-500/50 transition-all duration-300 group"
     >
       <span className="text-white/40 group-hover:text-indigo-400 transition-colors">{icon}</span>
-      <span className="text-sm font-mono text-white/60 group-hover:text-white transition-colors">{label}</span>
+      <span className="text-sm font-bold text-white/60 group-hover:text-white transition-colors uppercase tracking-widest">{label}</span>
     </a>
-  );
-}
-
-function SkillBar({ label, progress, color }: { label: string; progress: number; color: string }) {
-  return (
-    <div className="space-y-2">
-      <div className="flex justify-between text-[10px] font-mono text-white/40 uppercase tracking-widest">
-        <span>{label}</span>
-        <span>{progress}%</span>
-      </div>
-      <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
-        <motion.div
-          initial={{ width: 0 }}
-          whileInView={{ width: `${progress}%` }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-          className={`h-full ${color} shadow-[0_0_15px_rgba(34,211,238,0.3)]`}
-        />
-      </div>
-    </div>
   );
 }
