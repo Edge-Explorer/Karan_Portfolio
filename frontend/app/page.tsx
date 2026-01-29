@@ -327,6 +327,7 @@ export default function Home() {
               {
                 degree: "MCA Data Science",
                 school: "Amity University Online",
+                logo: "/education/amity-logo.jpg",
                 period: "2024 — Present",
                 coursework: ["Machine Learning", "NLP", "Deep Learning", "Feature Engineering", "Model Evaluation", "SQL", "Database Systems"],
                 icon: <GraduationCap className="text-blue-400" size={32} />,
@@ -336,6 +337,7 @@ export default function Home() {
               {
                 degree: "B.Sc. Information Technology",
                 school: "Sanpada College of Commerce and Technology",
+                logo: "/education/sanpada-logo.jpg",
                 period: "Graduated",
                 details: "GPA: 8.88 / 10.0",
                 coursework: ["Foundational IT", "Programming", "System Architecture", "Web Technologies", "Software Management"],
@@ -356,8 +358,12 @@ export default function Home() {
 
                 <div className="space-y-10 relative z-10">
                   <div className="flex justify-between items-center">
-                    <div className="p-5 rounded-3xl bg-white/5 border border-white/10 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 shadow-2xl">
-                      {edu.icon}
+                    <div className="w-20 h-20 md:w-24 md:h-24 p-4 rounded-3xl bg-white/5 border border-white/10 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 shadow-2xl flex items-center justify-center overflow-hidden">
+                      {edu.logo ? (
+                        <img src={edu.logo} alt={edu.school} className="w-full h-full object-contain filter brightness-110 contrast-110" />
+                      ) : (
+                        edu.icon
+                      )}
                     </div>
                     <div className="px-4 py-1.5 rounded-xl bg-white/5 border border-white/10 text-[10px] font-black text-white/30 uppercase tracking-[0.2em]">
                       {edu.period}
