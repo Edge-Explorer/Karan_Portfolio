@@ -1,7 +1,10 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Depends
 from pydantic import BaseModel
 from google import genai
+from sqlalchemy.orm import Session
 from app.core.config import settings
+from app.database import get_db
+from app.models import ChatMessage
 
 router = APIRouter()
 
@@ -78,8 +81,14 @@ INTERACTION PROTOCOL:
 """
 
 @router.post("/")
-async def chat_with_gemini(request: ChatRequest):
+async def chat_with_gemini(request: ChatRequest, db: Session = Depends(get_db)):
     try:
+        # 1. Store User Message in DB
+        user_msg = ChatMessage(role="user", content=request.message)
+        db.add(user_msg)
+        db.commit()
+
+        # 2. Generate AI Response
         response = client.models.generate_content(
             model='gemini-2.0-flash',
             contents=[
@@ -88,6 +97,15 @@ async def chat_with_gemini(request: ChatRequest):
                 {"role": "user", "parts": [{"text": request.message}]}
             ]
         )
-        return {"response": response.text}
+        
+        ai_response_text = response.text
+
+        # 3. Store AI Response in DB
+        ai_msg = ChatMessage(role="ai", content=ai_response_text)
+        db.add(ai_msg)
+        db.commit()
+
+        return {"response": ai_response_text}
     except Exception as e:
+        db.rollback()
         raise HTTPException(status_code=500, detail=str(e))
