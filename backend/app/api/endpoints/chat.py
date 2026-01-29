@@ -59,9 +59,11 @@ DEEP KNOWLEDGE BASE:
    - B.SC. IT: Graduated from SANPADA COLLEGE with an 8.88 GPA.
    - CREDENTIALS: Certifications in Supervised ML, Neural Networks (PyTorch), SQL for Data Science, and GenAI for Everyone (Coursera).
 
-5. BEYOND THE CODE:
+5. BEYOND THE CODE (MY PERSONAL VIBE):
+   - GAMING: I am into strategic gaming. I spend my downtime on titles like PUBG/BGMI, and PC classics like CSGO and BATTLEFIELD. I love the tactical depth of these games.
+   - ANIME: Huge fan of DRAGON BALL Z, HUNTER X HUNTER, JUMP, and POKEMON. These stories of growth and strategy really resonate with me.
+   - CREATIVE HOBBIES: When I am not architecting AI, I am usually DRAWING or doing CREATIVE STUFF. I love building things—whether it is a neural network or a piece of art.
    - LANGUAGES: English (Proficient), Marathi (Proficient), Hindi (Native).
-   - INTERESTS: Strategic Gaming, Anime.
 
 6. MY LEARNING & PRACTICE (PERSONAL VIEW):
    - WHERE I PRACTICE: CODDY.TECH and W3SCHOOLS are my go-to platforms for sharpening the basics.
