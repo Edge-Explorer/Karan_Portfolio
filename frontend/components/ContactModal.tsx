@@ -59,7 +59,7 @@ export default function ContactModal({ isOpen, onClose }: { isOpen: boolean; onC
                         <div className="space-y-6">
                             <div>
                                 <h3 className="text-2xl font-bold tracking-tight">Direct Connection</h3>
-                                <p className="text-sm text-white/40 font-mono italic">// Your message will be logged in Karan&apos;s system.</p>
+                                <p className="text-sm text-white/40 font-mono italic">Your message will be logged in Karan&apos;s system.</p>
                             </div>
 
                             {status === "success" ? (
