@@ -54,50 +54,50 @@ export default function ChatInterface({ isOpen, onClose }: { isOpen: boolean; on
         <AnimatePresence>
             {isOpen && (
                 <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    className="fixed inset-0 z-[200] bg-background/95 backdrop-blur-3xl flex flex-col"
+                    initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                    className="fixed bottom-32 right-6 md:right-10 z-[200] w-[calc(100vw-3rem)] md:w-[420px] h-[65vh] md:h-[650px] bg-background/80 backdrop-blur-3xl rounded-[3rem] border border-white/10 shadow-[0_20px_80px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden"
                 >
-                    {/* Header */}
-                    <div className="p-6 md:p-10 flex justify-between items-center border-b border-white/5 bg-background/50">
-                        <div className="flex items-center gap-5">
-                            <div className="p-3 bg-indigo-500 rounded-2xl glow-indigo text-white animate-pulse">
-                                <Cpu size={24} />
+                    {/* Header: Compact Neural Branding */}
+                    <div className="p-5 flex justify-between items-center border-b border-white/5 bg-white/5">
+                        <div className="flex items-center gap-4">
+                            <div className="p-2.5 bg-indigo-500 rounded-2xl glow-indigo text-white shadow-xl">
+                                <Cpu size={20} />
                             </div>
                             <div>
-                                <h2 className="text-2xl font-black tracking-tighter uppercase italic">KRS-Neural-Link</h2>
-                                <p className="text-[10px] font-mono text-indigo-400 uppercase tracking-widest">Active Multi-Agent Gateway v4.0</p>
+                                <h2 className="text-lg font-black tracking-tighter uppercase italic leading-none">KRS-Link</h2>
+                                <p className="text-[8px] font-mono text-indigo-400 uppercase tracking-widest mt-1">Multi-Agent Node v4.0</p>
                             </div>
                         </div>
                         <button
                             onClick={onClose}
-                            className="p-4 hover:bg-white/5 rounded-full text-white/40 hover:text-white transition-all"
+                            className="p-2 hover:bg-white/10 rounded-full text-white/40 hover:text-white transition-all"
                         >
-                            <X size={32} />
+                            <X size={24} />
                         </button>
                     </div>
 
-                    {/* Messages Area */}
-                    <div ref={scrollRef} className="flex-1 overflow-y-auto px-6 md:px-24 space-y-12 py-10 scroll-smooth">
+                    {/* Messages Area: Optimized Density */}
+                    <div ref={scrollRef} className="flex-1 overflow-y-auto px-5 py-6 space-y-8 scroll-smooth scrollbar-hide">
                         {messages.length === 0 && (
-                            <div className="h-full flex flex-col items-center justify-center text-center space-y-10">
+                            <div className="h-full flex flex-col items-center justify-center text-center space-y-6">
                                 <div className="relative">
-                                    <div className="absolute -inset-10 bg-indigo-500/20 blur-[60px] rounded-full animate-pulse" />
-                                    <div className="relative w-24 h-24 bg-white/5 rounded-full flex items-center justify-center text-indigo-400 border border-white/10">
-                                        <Sparkles size={48} />
+                                    <div className="absolute -inset-6 bg-indigo-500/20 blur-[40px] rounded-full animate-pulse" />
+                                    <div className="relative w-16 h-16 bg-white/5 rounded-full flex items-center justify-center text-indigo-400 border border-white/10">
+                                        <Sparkles size={32} />
                                     </div>
                                 </div>
-                                <div className="space-y-4">
-                                    <h3 className="text-4xl font-black tracking-tighter">Initializing Neural Interface...</h3>
-                                    <p className="text-white/40 max-w-lg mx-auto font-medium">I am Karan&apos;s digital proxy. Access his technical DNA, project architectures, and professional roadmap below.</p>
+                                <div className="space-y-3 px-4">
+                                    <h3 className="text-2xl font-black tracking-tighter">Neural Proxy Active</h3>
+                                    <p className="text-[11px] text-white/40 font-medium leading-relaxed">I can decode Karan&apos;s technical DNA and project architectures. Start the sequence below.</p>
                                 </div>
-                                <div className="flex flex-wrap justify-center gap-3 max-w-2xl px-4">
+                                <div className="flex flex-wrap justify-center gap-2 px-2 pb-4">
                                     {starterChips.map((chip) => (
                                         <button
                                             key={chip}
                                             onClick={() => handleSubmit(undefined, chip)}
-                                            className="px-6 py-3 bg-white/5 hover:bg-indigo-500/10 border border-white/10 hover:border-indigo-500/40 rounded-2xl text-xs font-bold text-white/50 hover:text-white transition-all active:scale-95"
+                                            className="px-4 py-2 bg-white/5 hover:bg-indigo-500/10 border border-white/5 hover:border-indigo-500/40 rounded-xl text-[10px] font-bold text-white/50 hover:text-white transition-all active:scale-95"
                                         >
                                             {chip}
                                         </button>
@@ -109,51 +109,51 @@ export default function ChatInterface({ isOpen, onClose }: { isOpen: boolean; on
                         {messages.map((m, i) => (
                             <motion.div
                                 key={i}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                className={`flex gap-6 ${m.role === "user" ? "flex-row-reverse" : ""}`}
+                                initial={{ opacity: 0, x: m.role === "user" ? 10 : -10 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                className={`flex gap-3 ${m.role === "user" ? "flex-row-reverse" : ""}`}
                             >
-                                <div className={`p-4 rounded-3xl h-fit border ${m.role === "user" ? "bg-purple-500 border-purple-400/50 shadow-2xl" : "bg-white/5 border-white/10 shadow-lg"}`}>
-                                    {m.role === "user" ? <User size={20} className="text-white" /> : <Bot size={20} className="text-indigo-400" />}
+                                <div className={`p-2.5 rounded-2xl h-fit border ${m.role === "user" ? "bg-purple-500 border-purple-400/50" : "bg-white/5 border-white/10"}`}>
+                                    {m.role === "user" ? <User size={16} className="text-white" /> : <Bot size={16} className="text-indigo-400" />}
                                 </div>
-                                <div className={`max-w-[75%] p-8 rounded-[2.5rem] shadow-2xl ${m.role === "user"
-                                    ? "bg-white/5 border border-white/10"
-                                    : "bg-indigo-500/5 border border-indigo-500/20 text-white/90"
+                                <div className={`max-w-[85%] p-5 rounded-3xl text-sm ${m.role === "user"
+                                    ? "bg-white/5 border border-white/5 text-white/80"
+                                    : "bg-indigo-500/5 border border-indigo-500/10 text-white/90"
                                     }`}>
-                                    <p className="text-lg leading-relaxed whitespace-pre-wrap font-medium">{m.content}</p>
+                                    <p className="leading-relaxed whitespace-pre-wrap font-medium">{m.content}</p>
                                 </div>
                             </motion.div>
                         ))}
 
                         {isLoading && (
-                            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex gap-6">
-                                <div className="p-4 rounded-3xl bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 animate-spin">
-                                    <Loader2 size={20} />
+                            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex gap-3">
+                                <div className="p-2.5 rounded-2xl bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 animate-spin">
+                                    <Loader2 size={16} />
                                 </div>
-                                <div className="max-w-[70%] p-8 rounded-[2.5rem] bg-indigo-500/5 border border-indigo-500/10 italic text-indigo-400/60 font-mono text-sm tracking-widest">
-                                    Conducting neural scan...
+                                <div className="bg-indigo-500/5 border border-indigo-500/10 px-5 py-4 rounded-3xl italic text-indigo-400/60 font-mono text-[10px] tracking-widest">
+                                    Scanning...
                                 </div>
                             </motion.div>
                         )}
                     </div>
 
-                    {/* Input Area */}
-                    <div className="p-10 md:px-24 border-t border-white/5 bg-background">
-                        <form onSubmit={handleSubmit} className="relative max-w-5xl mx-auto group">
-                            <div className="absolute -inset-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-[2rem] opacity-10 group-focus-within:opacity-40 blur transition duration-500" />
+                    {/* Input Area: Re-engineered Flow */}
+                    <div className="p-6 bg-background/50 border-t border-white/5">
+                        <form onSubmit={handleSubmit} className="relative group">
+                            <div className="absolute -inset-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-2xl opacity-10 group-focus-within:opacity-40 blur transition duration-500" />
                             <input
                                 autoFocus
                                 value={input}
                                 onChange={(e) => setInput(e.target.value)}
-                                placeholder="Query the neural network..."
-                                className="relative w-full bg-background border border-white/10 rounded-[2rem] px-10 py-7 text-xl focus:border-indigo-500/50 outline-none transition-all shadow-2xl"
+                                placeholder="Query neural network..."
+                                className="relative w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm focus:border-indigo-500/50 outline-none transition-all pr-16"
                             />
                             <button
                                 type="submit"
                                 disabled={isLoading}
-                                className="absolute right-4 top-1/2 -translate-y-1/2 p-5 bg-indigo-500 hover:bg-indigo-400 text-white rounded-2xl transition-all shadow-2xl active:scale-90 disabled:opacity-50"
+                                className="absolute right-2 top-1/2 -translate-y-1/2 p-2.5 bg-indigo-500 hover:bg-indigo-400 text-white rounded-xl transition-all shadow-lg active:scale-90 disabled:opacity-50"
                             >
-                                <Send size={24} />
+                                <Send size={18} />
                             </button>
                         </form>
                     </div>
