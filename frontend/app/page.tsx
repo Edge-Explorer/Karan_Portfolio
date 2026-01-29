@@ -135,14 +135,28 @@ export default function Home() {
   const [theme, setTheme] = useState<"neural" | "space">("neural");
 
   return (
-    <main className="min-h-screen bg-background text-white selection:bg-indigo-500/30 overflow-x-hidden relative">
-      {/* Dynamic Background */}
-      {theme === "neural" ? <NeuralBackground /> : <SpaceBackground />}
+    <main className="min-h-screen bg-black text-white selection:bg-indigo-500/30 overflow-x-hidden relative">
+      {/* Dynamic Background with Cross-fade */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={theme}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.5 }}
+          className="fixed inset-0 z-0"
+        >
+          {theme === "neural" ? <NeuralBackground /> : <SpaceBackground />}
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Content Backdrop to ensure consistent readability */}
+      <div className="fixed inset-0 z-[1] bg-gradient-to-b from-black/20 via-transparent to-black/40 pointer-events-none" />
 
       <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
       <ChatInterface isOpen={isAIChatOpen} onClose={() => setIsAIChatOpen(false)} />
 
-      <div className="relative max-w-7xl mx-auto px-6 py-12 lg:py-32 flex flex-col items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-12 lg:py-32 flex flex-col items-center">
 
         <motion.button
           onClick={() => setIsAIChatOpen(!isAIChatOpen)}
@@ -233,7 +247,7 @@ export default function Home() {
                   >
                     {theme === "neural" ? <Sparkles size={20} className="animate-pulse" /> : <Zap size={20} className="text-yellow-400" />}
                     <span className="text-xs font-black uppercase tracking-widest hidden md:inline">
-                      {theme === "neural" ? "AI Neural" : "Space Cinematic"}
+                      {theme === "neural" ? "Switch to Cinematic" : "Switch to Neural"}
                     </span>
                   </motion.button>
                 </div>
