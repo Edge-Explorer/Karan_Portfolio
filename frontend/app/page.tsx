@@ -317,8 +317,7 @@ export default function Home() {
           className="w-full max-w-7xl space-y-20 py-24 px-4 overflow-hidden"
         >
           <div className="flex flex-col items-center text-center space-y-6">
-            <h2 className="text-sm font-black text-indigo-400 uppercase tracking-[0.5em] animate-pulse">Academic_Foundation</h2>
-            <h3 className="text-6xl md:text-[8rem] font-black tracking-tighter text-white">Learning Path</h3>
+            <h3 className="text-6xl md:text-[8rem] font-black tracking-tighter text-white">Academics</h3>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
