@@ -9,6 +9,8 @@ import {
 } from "lucide-react";
 import ChatInterface from "@/components/ChatInterface";
 import ContactModal from "@/components/ContactModal";
+import NeuralBackground from "@/components/NeuralBackground";
+import SpaceBackground from "@/components/SpaceBackground";
 import { useState } from "react";
 
 const skills = [
@@ -130,9 +132,13 @@ export default function Home() {
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isAIChatOpen, setIsAIChatOpen] = useState(false);
   const [activeSkill, setActiveSkill] = useState<any | null>(null);
+  const [theme, setTheme] = useState<"neural" | "space">("neural");
 
   return (
-    <main className="min-h-screen bg-background text-white selection:bg-indigo-500/30 overflow-x-hidden bg-gradient-mesh pb-20">
+    <main className="min-h-screen bg-background text-white selection:bg-indigo-500/30 overflow-x-hidden relative">
+      {/* Dynamic Background */}
+      {theme === "neural" ? <NeuralBackground /> : <SpaceBackground />}
+
       <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
       <ChatInterface isOpen={isAIChatOpen} onClose={() => setIsAIChatOpen(false)} />
 
@@ -216,6 +222,20 @@ export default function Home() {
                   <SocialLink icon={<Linkedin size={20} />} href="https://linkedin.com/in/karan-shelar-779381343" label="LinkedIn" />
                   <SocialLink icon={<Instagram size={20} />} href="https://instagram.com/karan.shelar.2004" label="Instagram" />
                   <SocialLink icon={<ExternalLink size={20} />} href="https://drive.google.com/file/d/1QhYwPLs4nQjjvCFuEEjYx0Q8Gbcc7GMb/view?usp=drive_link" label="Resume" />
+
+                  {/* Theme Toggle Button */}
+                  <motion.button
+                    onClick={() => setTheme(theme === "neural" ? "space" : "neural")}
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex items-center gap-3 px-6 py-3 glass rounded-2xl text-indigo-400 border-indigo-500/50 hover:bg-indigo-500/10 transition-all duration-300 group"
+                    title="Switch Background Theme"
+                  >
+                    {theme === "neural" ? <Sparkles size={20} className="animate-pulse" /> : <Zap size={20} className="text-yellow-400" />}
+                    <span className="text-xs font-black uppercase tracking-widest hidden md:inline">
+                      {theme === "neural" ? "AI Neural" : "Space Cinematic"}
+                    </span>
+                  </motion.button>
                 </div>
               </motion.div>
             </div>
