@@ -57,27 +57,27 @@ export default function ChatInterface({ isOpen, onClose }: { isOpen: boolean; on
                     initial={{ opacity: 0, scale: 0.9, y: 20 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                    className="fixed bottom-40 right-4 md:right-10 z-[200] w-[calc(100vw-2rem)] md:w-[400px] h-fit max-h-[85vh] md:h-[600px] bg-background/80 backdrop-blur-3xl rounded-[2.5rem] border border-white/10 shadow-[0_20px_80px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden"
+                    className="fixed bottom-32 right-4 md:right-10 z-[200] w-[calc(100vw-2rem)] md:w-[400px] h-fit max-h-[75vh] md:h-[580px] bg-background/80 backdrop-blur-3xl rounded-[2.5rem] border border-white/10 shadow-[0_20px_80px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden"
                 >
                     {/* Header: Humanized Branding */}
-                    <div className="p-5 flex justify-between items-center border-b border-white/5 bg-white/5">
+                    <div className="p-4 md:p-5 flex justify-between items-center border-b border-white/5 bg-white/5">
                         <div className="flex items-center gap-4">
                             <div className="relative">
-                                <div className="p-2.5 bg-indigo-500 rounded-2xl glow-indigo text-white shadow-xl">
-                                    <Cpu size={20} />
+                                <div className="w-12 h-12 rounded-2xl overflow-hidden border-2 border-indigo-500/50 shadow-lg shadow-indigo-500/20">
+                                    <img src="/karan_image.png" alt="Karan" className="w-full h-full object-cover object-top" />
                                 </div>
-                                <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-green-500 border-2 border-background rounded-full" />
+                                <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-green-500 border-2 border-background rounded-full" />
                             </div>
                             <div>
-                                <h2 className="text-lg font-black tracking-tighter uppercase italic leading-none text-white">KRS AI Proxy</h2>
-                                <p className="text-[10px] font-bold text-indigo-400 uppercase tracking-widest mt-1">Direct Chat with Karan</p>
+                                <h2 className="text-base md:text-lg font-black tracking-tighter uppercase italic leading-none text-white">Karan&apos;s AI Assistant</h2>
+                                <p className="text-[9px] font-bold text-indigo-400 uppercase tracking-widest mt-1.5 line-clamp-1">Self-Learning Digital Twin</p>
                             </div>
                         </div>
                         <button
                             onClick={onClose}
                             className="p-2 hover:bg-white/10 rounded-full text-white/40 hover:text-white transition-all"
                         >
-                            <X size={24} />
+                            <X size={22} />
                         </button>
                     </div>
 
