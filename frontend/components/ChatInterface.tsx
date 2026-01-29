@@ -57,17 +57,20 @@ export default function ChatInterface({ isOpen, onClose }: { isOpen: boolean; on
                     initial={{ opacity: 0, scale: 0.9, y: 20 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                    className="fixed bottom-32 right-6 md:right-10 z-[200] w-[calc(100vw-3rem)] md:w-[420px] h-[65vh] md:h-[650px] bg-background/80 backdrop-blur-3xl rounded-[3rem] border border-white/10 shadow-[0_20px_80px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden"
+                    className="fixed bottom-24 right-4 md:right-10 z-[200] w-[calc(100vw-2rem)] md:w-[400px] h-fit max-h-[85vh] md:h-[600px] bg-background/80 backdrop-blur-3xl rounded-[2.5rem] border border-white/10 shadow-[0_20px_80px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden"
                 >
-                    {/* Header: Compact Neural Branding */}
+                    {/* Header: Humanized Branding */}
                     <div className="p-5 flex justify-between items-center border-b border-white/5 bg-white/5">
                         <div className="flex items-center gap-4">
-                            <div className="p-2.5 bg-indigo-500 rounded-2xl glow-indigo text-white shadow-xl">
-                                <Cpu size={20} />
+                            <div className="relative">
+                                <div className="p-2.5 bg-indigo-500 rounded-2xl glow-indigo text-white shadow-xl">
+                                    <Cpu size={20} />
+                                </div>
+                                <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-green-500 border-2 border-background rounded-full" />
                             </div>
                             <div>
-                                <h2 className="text-lg font-black tracking-tighter uppercase italic leading-none">KRS-Link</h2>
-                                <p className="text-[8px] font-mono text-indigo-400 uppercase tracking-widest mt-1">Multi-Agent Node v4.0</p>
+                                <h2 className="text-lg font-black tracking-tighter uppercase italic leading-none text-white">KRS AI Proxy</h2>
+                                <p className="text-[10px] font-bold text-indigo-400 uppercase tracking-widest mt-1">Direct Chat with Karan</p>
                             </div>
                         </div>
                         <button
@@ -78,26 +81,29 @@ export default function ChatInterface({ isOpen, onClose }: { isOpen: boolean; on
                         </button>
                     </div>
 
-                    {/* Messages Area: Optimized Density */}
+                    {/* Messages Area: Humanized Flow */}
                     <div ref={scrollRef} className="flex-1 overflow-y-auto px-5 py-6 space-y-8 scroll-smooth scrollbar-hide">
                         {messages.length === 0 && (
-                            <div className="h-full flex flex-col items-center justify-center text-center space-y-6">
+                            <div className="h-full flex flex-col items-center justify-center text-center space-y-6 px-4">
                                 <div className="relative">
-                                    <div className="absolute -inset-6 bg-indigo-500/20 blur-[40px] rounded-full animate-pulse" />
-                                    <div className="relative w-16 h-16 bg-white/5 rounded-full flex items-center justify-center text-indigo-400 border border-white/10">
+                                    <div className="absolute -inset-6 bg-indigo-500/10 blur-[40px] rounded-full animate-pulse" />
+                                    <div className="relative w-16 h-16 bg-white/5 rounded-full flex items-center justify-center text-indigo-400 border border-white/10 shadow-inner">
                                         <Sparkles size={32} />
                                     </div>
                                 </div>
-                                <div className="space-y-3 px-4">
-                                    <h3 className="text-2xl font-black tracking-tighter">Neural Proxy Active</h3>
-                                    <p className="text-[11px] text-white/40 font-medium leading-relaxed">I can decode Karan&apos;s technical DNA and project architectures. Start the sequence below.</p>
+                                <div className="space-y-3">
+                                    <h3 className="text-2xl font-black tracking-tighter text-white">Hey! I&apos;m Karan&apos;s AI Twin.</h3>
+                                    <p className="text-xs text-white/50 font-medium leading-relaxed">
+                                        I&apos;m here to dive into my projects, engineering logic, and my journey into GenAI with you.
+                                        What&apos;s on your mind?
+                                    </p>
                                 </div>
-                                <div className="flex flex-wrap justify-center gap-2 px-2 pb-4">
+                                <div className="flex flex-wrap justify-center gap-2 pb-4">
                                     {starterChips.map((chip) => (
                                         <button
                                             key={chip}
                                             onClick={() => handleSubmit(undefined, chip)}
-                                            className="px-4 py-2 bg-white/5 hover:bg-indigo-500/10 border border-white/5 hover:border-indigo-500/40 rounded-xl text-[10px] font-bold text-white/50 hover:text-white transition-all active:scale-95"
+                                            className="px-4 py-2 bg-white/5 hover:bg-indigo-500/10 border border-white/5 hover:border-indigo-500/40 rounded-xl text-[10px] font-bold text-white/60 hover:text-white transition-all active:scale-95 shadow-sm"
                                         >
                                             {chip}
                                         </button>
