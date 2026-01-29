@@ -250,7 +250,13 @@ export default function Home() {
         </div>
 
         {/* INTRODUCTION / OVERVIEW SECTION */}
-        <section className="w-full max-w-7xl space-y-20 pt-12 pb-24 px-4">
+        <motion.section
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="w-full max-w-7xl space-y-20 pt-12 pb-24 px-4"
+        >
           <div className="space-y-6 text-left max-w-3xl">
             <h2 className="text-sm font-black text-indigo-400 uppercase tracking-[0.5em]">Introduction</h2>
             <h3 className="text-6xl md:text-8xl font-black tracking-tighter text-white leading-none">Overview</h3>
@@ -289,10 +295,27 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
-        </section>
+        </motion.section>
+
+        {/* Elegant Tech Divider */}
+        <div className="w-full max-w-7xl mx-auto px-6 h-20 flex items-center justify-center opacity-20 pointer-events-none">
+          <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-indigo-500 to-transparent relative">
+            <motion.div
+              animate={{ left: ["0%", "100%"] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+              className="absolute top-0 w-20 h-[1px] bg-white blur-sm"
+            />
+          </div>
+        </div>
 
         {/* ACADEMIC FOUNDATION SECTION */}
-        <section className="w-full max-w-7xl space-y-20 py-24 px-4 overflow-hidden">
+        <motion.section
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="w-full max-w-7xl space-y-20 py-24 px-4 overflow-hidden"
+        >
           <div className="flex flex-col items-center text-center space-y-6">
             <h2 className="text-sm font-black text-indigo-400 uppercase tracking-[0.5em] animate-pulse">Academic_Foundation</h2>
             <h3 className="text-6xl md:text-[8rem] font-black tracking-tighter text-white">Learning Path</h3>
@@ -371,10 +394,27 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
-        </section>
+        </motion.section>
+
+        {/* Elegant Tech Divider */}
+        <div className="w-full max-w-7xl mx-auto px-6 h-20 flex items-center justify-center opacity-20 pointer-events-none">
+          <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-indigo-500 to-transparent relative">
+            <motion.div
+              animate={{ left: ["0%", "100%"] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+              className="absolute top-0 w-20 h-[1px] bg-white blur-sm"
+            />
+          </div>
+        </div>
 
         {/* Unified Skillset Section */}
-        <section className="w-full max-w-7xl space-y-24 py-32 border-y border-white/5">
+        <motion.section
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="w-full max-w-7xl space-y-24 py-32 border-y border-white/5"
+        >
           <div className="flex flex-col items-center text-center space-y-8">
             <h2 className="text-sm font-black text-indigo-400 uppercase tracking-[0.5em] animate-pulse">Neural_Capabilities</h2>
             <h3 className="text-7xl md:text-9xl font-black tracking-tighter text-white">Skillset</h3>
@@ -434,9 +474,26 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
-        </section>
+        </motion.section>
 
-        <section className="w-full max-w-6xl space-y-24 py-32">
+        {/* Elegant Tech Divider */}
+        <div className="w-full max-w-7xl mx-auto px-6 h-20 flex items-center justify-center opacity-20 pointer-events-none">
+          <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-indigo-500 to-transparent relative">
+            <motion.div
+              animate={{ left: ["0%", "100%"] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+              className="absolute top-0 w-20 h-[1px] bg-white blur-sm"
+            />
+          </div>
+        </div>
+
+        <motion.section
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="w-full max-w-6xl space-y-24 py-32"
+        >
           <div className="flex flex-col items-center text-center space-y-6">
             <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none">Selected <br /> <span className="text-indigo-500">Creations</span></h2>
           </div>
@@ -500,12 +557,17 @@ export default function Home() {
               </div>
             </a>
           </motion.div>
-        </section>
+        </motion.section>
 
-        <footer className="w-full py-20 border-t border-white/5 mt-32 text-center space-y-4">
+        <motion.footer
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1.5 }}
+          className="w-full py-20 border-t border-white/5 mt-32 text-center space-y-4"
+        >
           <p className="text-6xl font-black tracking-tighter opacity-10 uppercase">KRS 2026</p>
           <p className="text-[10px] font-bold text-white/20 uppercase tracking-[1em]">Karan Rohidas Shelar</p>
-        </footer>
+        </motion.footer>
 
       </div >
     </main >
