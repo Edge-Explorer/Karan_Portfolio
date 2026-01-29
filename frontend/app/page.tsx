@@ -139,17 +139,21 @@ export default function Home() {
       <div className="relative max-w-7xl mx-auto px-6 py-12 lg:py-32 flex flex-col items-center">
 
         <motion.button
-          onClick={() => setIsAIChatOpen(true)}
+          onClick={() => setIsAIChatOpen(!isAIChatOpen)}
           initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          whileHover={{ scale: 1.1, rotate: 5 }}
-          className="fixed bottom-10 right-10 z-[150] group"
+          animate={{
+            scale: 1,
+            opacity: 1,
+            rotate: isAIChatOpen ? 180 : 0
+          }}
+          whileHover={{ scale: 1.1 }}
+          className="fixed bottom-10 right-10 z-[250] group transition-all duration-500"
         >
-          <div className="absolute -inset-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full blur-xl opacity-40 group-hover:opacity-100 transition duration-500 animate-pulse" />
-          <div className="relative w-24 h-24 rounded-full overflow-hidden border-4 border-white/20 glass shadow-2xl">
+          <div className={`absolute -inset-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full blur-2xl transition-opacity duration-500 ${isAIChatOpen ? 'opacity-80 scale-110' : 'opacity-40'} group-hover:opacity-100 animate-pulse`} />
+          <div className={`relative w-24 h-24 rounded-full overflow-hidden border-4 ${isAIChatOpen ? 'border-white/60' : 'border-white/20'} glass shadow-2xl transition-all duration-500`}>
             <img src="/karan_image.png" alt="AI Agent" className="w-full h-full object-cover object-top" />
-            <div className="absolute inset-0 bg-indigo-500/20 group-hover:bg-transparent transition-colors" />
-            <div className="absolute bottom-1 right-1 w-6 h-6 bg-green-500 border-2 border-white rounded-full" />
+            <div className={`absolute inset-0 ${isAIChatOpen ? 'bg-transparent' : 'bg-indigo-500/20'} group-hover:bg-transparent transition-colors`} />
+            <div className={`absolute bottom-1 right-1 w-6 h-6 ${isAIChatOpen ? 'bg-indigo-500' : 'bg-green-500'} border-2 border-white rounded-full transition-colors`} />
           </div>
         </motion.button>
 
