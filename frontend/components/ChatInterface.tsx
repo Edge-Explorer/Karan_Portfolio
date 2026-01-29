@@ -57,7 +57,7 @@ export default function ChatInterface({ isOpen, onClose }: { isOpen: boolean; on
                     initial={{ opacity: 0, scale: 0.9, y: 20 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                    className="fixed bottom-24 right-4 md:right-10 z-[200] w-[calc(100vw-2rem)] md:w-[400px] h-fit max-h-[85vh] md:h-[600px] bg-background/80 backdrop-blur-3xl rounded-[2.5rem] border border-white/10 shadow-[0_20px_80px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden"
+                    className="fixed bottom-40 right-4 md:right-10 z-[200] w-[calc(100vw-2rem)] md:w-[400px] h-fit max-h-[85vh] md:h-[600px] bg-background/80 backdrop-blur-3xl rounded-[2.5rem] border border-white/10 shadow-[0_20px_80px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden"
                 >
                     {/* Header: Humanized Branding */}
                     <div className="p-5 flex justify-between items-center border-b border-white/5 bg-white/5">

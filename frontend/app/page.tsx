@@ -5,7 +5,7 @@ import {
   Github, Linkedin, Mail, ExternalLink, Code2, Cpu, Globe, Rocket, Sparkles,
   Terminal, Database, Layout, Smartphone, Cloud, Layers, Cpu as AiIcon,
   Binary, GitBranch, Box, FileCode, Search, Server, Monitor, GraduationCap, BookOpen,
-  Activity, Zap, Instagram
+  Activity, Zap, Instagram, X
 } from "lucide-react";
 import ChatInterface from "@/components/ChatInterface";
 import ContactModal from "@/components/ContactModal";
@@ -142,18 +142,30 @@ export default function Home() {
           onClick={() => setIsAIChatOpen(!isAIChatOpen)}
           initial={{ scale: 0, opacity: 0 }}
           animate={{
-            scale: 1,
+            scale: isAIChatOpen ? 0.95 : 1,
             opacity: 1,
-            rotate: isAIChatOpen ? 180 : 0
+            rotate: 0
           }}
-          whileHover={{ scale: 1.1 }}
+          whileHover={{ scale: 1.05 }}
           className="fixed bottom-10 right-10 z-[250] group transition-all duration-500"
         >
+          {/* Active State Halo */}
+          {isAIChatOpen && (
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+              className="absolute -inset-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full blur-md opacity-100"
+            />
+          )}
+
           <div className={`absolute -inset-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full blur-2xl transition-opacity duration-500 ${isAIChatOpen ? 'opacity-80 scale-110' : 'opacity-40'} group-hover:opacity-100 animate-pulse`} />
-          <div className={`relative w-24 h-24 rounded-full overflow-hidden border-4 ${isAIChatOpen ? 'border-white/60' : 'border-white/20'} glass shadow-2xl transition-all duration-500`}>
+
+          <div className={`relative w-24 h-24 rounded-full overflow-hidden border-4 ${isAIChatOpen ? 'border-white/80 shadow-[0_0_20px_rgba(255,255,255,0.3)]' : 'border-white/20'} glass shadow-2xl transition-all duration-500`}>
             <img src="/karan_image.png" alt="AI Agent" className="w-full h-full object-cover object-top" />
             <div className={`absolute inset-0 ${isAIChatOpen ? 'bg-transparent' : 'bg-indigo-500/20'} group-hover:bg-transparent transition-colors`} />
-            <div className={`absolute bottom-1 right-1 w-6 h-6 ${isAIChatOpen ? 'bg-indigo-500' : 'bg-green-500'} border-2 border-white rounded-full transition-colors`} />
+            <div className={`absolute bottom-1 right-1 w-6 h-6 ${isAIChatOpen ? 'bg-indigo-500' : 'bg-green-500'} border-2 border-white rounded-full transition-colors flex items-center justify-center`}>
+              {isAIChatOpen && <X size={10} className="text-white" />}
+            </div>
           </div>
         </motion.button>
 
