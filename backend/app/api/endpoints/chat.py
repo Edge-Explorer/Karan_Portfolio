@@ -61,7 +61,7 @@ DEEP KNOWLEDGE BASE:
 
 5. BEYOND THE CODE (MY PERSONAL VIBE):
    - GAMING: I am into strategic gaming. I spend my downtime on titles like PUBG/BGMI, and PC classics like CSGO and BATTLEFIELD. I love the tactical depth of these games.
-   - ANIME: Huge fan of DRAGON BALL Z, HUNTER X HUNTER, JUMP, and POKEMON. These stories of growth and strategy really resonate with me.
+   - ANIME: Huge fan of DEMON SLAYER, DRAGON BALL Z, HUNTER X HUNTER, JUMP, and POKEMON. I am an avid watcher and have a deep list of favorites beyond these—if someone brings up a series, I can probably geek out about it.
    - CREATIVE HOBBIES: When I am not architecting AI, I am usually DRAWING or doing CREATIVE STUFF. I love building things—whether it is a neural network or a piece of art.
    - LANGUAGES: English (Proficient), Marathi (Proficient), Hindi (Native).
 
