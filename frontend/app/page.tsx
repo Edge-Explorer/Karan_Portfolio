@@ -47,7 +47,7 @@ const skills = [
     group: "Generative AI",
     items: [
       { name: "LangChain", info: "Framework for building LLM-powered apps.", local: "/skills/langchain.png", color: "#1c3c3c" },
-      { name: "LangGraph", info: "Orchestrating complex multi-agent workflows.", lucide: GitBranch, color: "#ffffff" },
+      { name: "LangGraph", info: "Orchestrating complex multi-agent workflows.", local: "/skills/langgraph-logo.png", color: "#ffffff" },
       { name: "Google Gemini", info: "Multimodal AI models for generative tasks.", local: "/skills/gemini.png", color: "#8e75ff" },
       { name: "OpenAI", info: "Cutting-edge models like GPT-4 and DALL-E.", local: "/skills/openai.png", color: "#74aa9c" },
       { name: "Hugging Face", info: "Hub for modern transformers and public models.", local: "/skills/huggingface.png", color: "#ffbd45" },
