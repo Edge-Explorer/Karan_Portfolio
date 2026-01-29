@@ -13,41 +13,65 @@ import { useState } from "react";
 
 const skills = [
   {
-    group: "AI/ML",
+    group: "Core",
+    items: [
+      { name: "Python", info: "High-level programming for AI & Data Science.", icon: "python", color: "#3776ab" },
+      { name: "JavaScript", info: "Dynamic web logic and interactive UI.", icon: "javascript", color: "#f7df1e" },
+      { name: "TypeScript", info: "Scaling JS with robust static typing.", icon: "typescript", color: "#3178c6" },
+      { name: "SQL", info: "Relational data management and complex queries.", icon: "mysql", color: "#4479a1" }
+    ]
+  },
+  {
+    group: "Frontend & Mobile",
+    items: [
+      { name: "React", info: "Building component-based immersive interfaces.", icon: "react", color: "#61dafb" },
+      { name: "Next.js", info: "Modern fullstack framework with SSR/SSG.", icon: "nextjs", color: "#ffffff" },
+      { name: "Tailwind CSS", info: "Rapid styling with utility-first CSS.", icon: "tailwindcss", color: "#06b6d4" },
+      { name: "React Native", info: "Cross-platform native mobile applications.", icon: "react", color: "#61dafb" },
+      { name: "Expo", info: "Accelerated development for React Native.", local: "/skills/expo.png", color: "#000020" },
+      { name: "Android", info: "Native mobile development for Android devices.", icon: "android", color: "#3ddc84" }
+    ]
+  },
+  {
+    group: "Backend & Cloud",
+    items: [
+      { name: "FastAPI", info: "High-performance Python API development.", icon: "fastapi", color: "#05998b" },
+      { name: "PostgreSQL", info: "Robust, open-source relational database.", icon: "postgresql", color: "#4169e1" },
+      { name: "Docker", info: "Containerization for consistent deployments.", icon: "docker", color: "#2496ed" },
+      { name: "Google Cloud", info: "Scalable cloud infrastructure and AI hosting.", icon: "googlecloud", color: "#4285f4" },
+      { name: "Render", info: "Fast, simple cloud platform for web apps.", local: "/skills/render.jpg", color: "#46e3b7" },
+      { name: "Alembic", info: "Database migration tool for SQLAlchemy.", lucide: Database, color: "#ed2124" }
+    ]
+  },
+  {
+    group: "Generative AI",
     items: [
       { name: "LangChain", info: "Framework for building LLM-powered apps.", local: "/skills/langchain.png", color: "#1c3c3c" },
       { name: "LangGraph", info: "Orchestrating complex multi-agent workflows.", lucide: GitBranch, color: "#ffffff" },
-      { name: "Prompt Engineering", info: "Advanced techniques for optimizing LLM output.", lucide: Sparkles, color: "#8e75ff" },
-      { name: "RAG Pipelines", info: "Retrieval Augmented Generation for persistent context.", lucide: Search, color: "#3178c6" },
-      { name: "Agentic Flows", info: "Designing autonomous AI behavior loops.", lucide: Zap, color: "#f7df1e" }
+      { name: "Google Gemini", info: "Multimodal AI models for generative tasks.", local: "/skills/gemini.png", color: "#8e75ff" },
+      { name: "OpenAI", info: "Cutting-edge models like GPT-4 and DALL-E.", local: "/skills/openai.png", color: "#74aa9c" },
+      { name: "Hugging Face", info: "Hub for modern transformers and public models.", local: "/skills/huggingface.png", color: "#ffbd45" },
+      { name: "Ollama", info: "Running large language models locally.", local: "/skills/ollama.png", color: "#ffffff" }
     ]
   },
   {
-    group: "Development",
+    group: "ML & Data Science",
     items: [
-      { name: "Python", info: "Primary engine for my AI & Neural backends.", icon: "python", color: "#3776ab" },
-      { name: "FastAPI", info: "High-performance Python API development.", icon: "fastapi", color: "#05998b" },
-      { name: "React Native", info: "Cross-platform mobile interfaces for AI.", icon: "react", color: "#61dafb" },
-      { name: "TypeScript", info: "Type-safe engineering for scalable data flows.", icon: "typescript", color: "#3178c6" },
-      { name: "SQLAlchemy", info: "ORM for structured and reliable database interactions.", lucide: Database, color: "#ed2124" }
+      { name: "TensorFlow", info: "Open-source platform for end-to-end ML.", icon: "tensorflow", color: "#ff6f00" },
+      { name: "PyTorch", info: "Flexible deep learning for research and prod.", icon: "pytorch", color: "#ee4c2c" },
+      { name: "Scikit Learn", info: "Simple and efficient tools for predictive data.", local: "/skills/scikitlearn.jpg", color: "#f7931e" },
+      { name: "Pandas", info: "Powerful data manipulation and analysis.", icon: "pandas", color: "#150458" },
+      { name: "NumPy", info: "Fundamental package for scientific computing.", icon: "numpy", color: "#4d77cf" },
+      { name: "Matplotlib", info: "Comprehensive library for static/animated plots.", local: "/skills/matplotlib.png", color: "#ffffff" }
     ]
   },
   {
-    group: "Cloud & Data",
+    group: "Tools",
     items: [
-      { name: "PostgreSQL", info: "Robust relational data management.", icon: "postgresql", color: "#4169e1" },
-      { name: "Docker", info: "Containerization for production-ready systems.", icon: "docker", color: "#2496ed" },
-      { name: "Render", info: "Cloud deployment for high-availability backends.", local: "/skills/render.jpg", color: "#46e3b7" },
-      { name: "EAS Build", info: "Optimized mobile deployment pipelines.", local: "/skills/expo.png", color: "#ffffff" }
-    ]
-  },
-  {
-    group: "APIs & Ecosystem",
-    items: [
-      { name: "Gemini API", info: "Advanced multimodal intelligence integration.", local: "/skills/gemini.png", color: "#8e75ff" },
-      { name: "OpenAI API", info: "Cutting-edge LLM and embedding models.", local: "/skills/openai.png", color: "#74aa9c" },
-      { name: "ElevenLabs", info: "High-fidelity AI voice synthesis pipelines.", lucide: Smartphone, color: "#ffffff" },
-      { name: "Git", info: "Version control for neural and software systems.", icon: "git", color: "#f05032" }
+      { name: "Git", info: "Version control for tracking code changes.", icon: "git", color: "#f05032" },
+      { name: "Postman", info: "Platform for building and using APIs.", local: "/skills/postman.jpg", color: "#ff6c37" },
+      { name: "VS Code", info: "Extensible code editor for modern development.", icon: "vscode", color: "#007acc" },
+      { name: "Jupyter", info: "Interactive computing across all languages.", icon: "jupyter", color: "#f37626" }
     ]
   }
 ];
