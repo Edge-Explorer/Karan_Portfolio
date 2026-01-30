@@ -420,7 +420,7 @@ export default function Home() {
           className="w-full max-w-6xl space-y-24 py-32"
         >
           <div className="flex flex-col items-center text-center space-y-6">
-            <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none">Selected <br /> <span className="text-indigo-500">Creations</span></h2>
+            <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none">Featured <br /> <span className="text-indigo-400">Ventures</span></h2>
           </div>
 
           <div className="space-y-32">
