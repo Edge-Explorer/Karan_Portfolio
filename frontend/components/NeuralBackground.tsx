@@ -55,7 +55,7 @@ const NeuralBackground: React.FC = () => {
                 if (!ctx) return;
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(99, 102, 241, 0.4)';
+                ctx.fillStyle = 'rgba(99, 102, 241, 1)';
                 ctx.fill();
             }
         }
@@ -92,7 +92,7 @@ const NeuralBackground: React.FC = () => {
 
                     if (distance < connectionDistance) {
                         ctx.beginPath();
-                        ctx.strokeStyle = `rgba(79, 70, 229, ${0.8 * (1 - distance / connectionDistance)})`;
+                        ctx.strokeStyle = `rgba(129, 140, 248, ${0.8 * (1 - distance / connectionDistance)})`;
                         ctx.lineWidth = 0.8;
                         ctx.moveTo(p.x, p.y);
                         ctx.lineTo(particles[j].x, particles[j].y);
@@ -120,7 +120,7 @@ const NeuralBackground: React.FC = () => {
     return (
         <canvas
             ref={canvasRef}
-            className="fixed inset-0 pointer-events-none z-0 opacity-40"
+            className="fixed inset-0 pointer-events-none z-0 bg-[#1e293b]"
         />
     );
 };
