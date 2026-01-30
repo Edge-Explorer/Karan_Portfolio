@@ -305,7 +305,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { title: "Generative AI", desc: "Crafting advanced LLM solutions & neural agents.", img: "/projects/neel-logo.png", color: "from-blue-500/20 to-indigo-500/20", borderColor: "border-blue-500/30", textColor: "text-blue-400" },
+              { title: "Generative AI", desc: "Crafting advanced LLM solutions & neural agents.", img: "/overview/generative_ai.png", color: "from-blue-500/20 to-indigo-500/20", borderColor: "border-blue-500/30", textColor: "text-blue-400" },
               { title: "Data Science", desc: "Extracting insights from complex neural datasets.", img: "/overview/data_science.png", color: "from-purple-500/20 to-pink-500/20", borderColor: "border-purple-500/30", textColor: "text-purple-400" },
               { title: "Fullstack", desc: "Architecting robust web & backend systems.", img: "/overview/fullstack.png", color: "from-green-500/20 to-emerald-500/20", borderColor: "border-green-500/30", textColor: "text-green-400" },
               { title: "Problem Solver", desc: "Solving bottlenecks with optimized logic.", img: "/overview/problem_solving.jpg", color: "from-orange-500/20 to-red-500/20", borderColor: "border-orange-500/30", textColor: "text-orange-400" },
@@ -435,8 +435,16 @@ export default function Home() {
               >
                 <div className="flex-1 space-y-8 text-left">
                   <div className="space-y-4">
-                    <div className={`inline-block p-4 rounded-3xl bg-gradient-to-br ${project.color} text-white shadow-2xl`}>
-                      {idx === 0 ? <Cpu size={40} /> : idx === 1 ? <Globe size={40} /> : <Rocket size={40} />}
+                    <div className={`inline-block p-1 rounded-3xl bg-black shadow-2xl relative overflow-hidden group/project-icon`}>
+                      {project.image ? (
+                        <div className="w-16 h-16 rounded-2xl overflow-hidden">
+                          <img src={project.image} alt={project.title} className="w-full h-full object-cover scale-[1.1]" />
+                        </div>
+                      ) : (
+                        <div className={`p-4 bg-gradient-to-br ${project.color} text-white`}>
+                          {idx === 0 ? <Cpu size={40} /> : idx === 1 ? <Globe size={40} /> : <Rocket size={40} />}
+                        </div>
+                      )}
                     </div>
                     <h3 className="text-5xl md:text-7xl font-black tracking-tighter text-white">{project.title}</h3>
                   </div>
