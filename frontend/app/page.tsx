@@ -84,6 +84,7 @@ const projects = [
     description: "Architected a 3-tier multi-agent productivity system (Supervisor → Reasoning → Reflection) with reflection-based validation and NLP activity extraction.",
     tech: ["LangChain", "LangGraph", "FastAPI", "React Native", "PostgreSQL", "Gemini API"],
     color: "from-indigo-600 to-blue-500",
+    image: "/projects/neel-logo.png"
   },
   {
     title: "Documind-AI",
@@ -453,8 +454,16 @@ export default function Home() {
                 <div className="flex-1 w-full aspect-[4/3] rounded-[4rem] overflow-hidden relative group">
                   <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-20`} />
                   <div className="absolute inset-0 glass-vibrant" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-[12px] font-bold text-white font-black uppercase tracking-[0.5em] opacity-30">Render_Matrix</div>
+                  <div className="absolute inset-0 flex items-center justify-center p-12">
+                    {project.image ? (
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-contain filter drop-shadow-2xl transition-transform duration-700 group-hover:scale-110"
+                      />
+                    ) : (
+                      <div className="text-[12px] font-bold text-white font-black uppercase tracking-[0.5em] opacity-30 italic">Render_Matrix</div>
+                    )}
                   </div>
                 </div>
               </motion.div>
