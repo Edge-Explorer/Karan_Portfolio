@@ -295,10 +295,10 @@ export default function Home() {
             <h2 className="text-sm font-black text-indigo-400 uppercase tracking-[0.5em]">Introduction</h2>
             <h3 className="text-6xl md:text-8xl font-black tracking-tighter text-white leading-none">Overview</h3>
             <p className="text-xl md:text-2xl text-white/60 font-medium leading-relaxed">
-              I am a specialized Generative AI Developer dedicated to architecting the next generation of intelligent systems.
-              By bridging the gap between vision and full-stack execution, I built NEEL—a live multi-agent productivity environment—using
-              LangChain, FastAPI, and React Native. I thrive on designing complex agentic workflows and immersive digital experiences
-              that solve real-world problems with neural precision.
+              I am an emerging Generative AI Developer with a mission to architect the next generation of autonomous systems.
+              I specialize in bridging the gap between ambitious AI research and practical execution, as seen in NEEL—a live
+              multi-agent productivity environment I built using LangChain, FastAPI, and React Native. I approach every challenge
+              with fresh energy and a drive to master agentic workflows, focused on solving real-world problems with neural precision.
             </p>
           </div>
 
