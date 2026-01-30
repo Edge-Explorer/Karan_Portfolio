@@ -70,10 +70,19 @@ DEEP KNOWLEDGE BASE:
    - ACCESS:
      - GITHUB: github.com/Edge-Explorer/DOCUMIND-AI
 
-3. PROJECT AI TUTOR (ADAPTIVE LEARNING):
-   - LOGIC: I built this to generate personalized learning paths based on real-time user feedback.
-   - INTELLIGENCE: Leverages multimodal logic to assess student progress and adapt curriculum.
-   - STACK: Python, React, Gemini 1.5 Pro, FastAPI.
+3. PROJECT REVIEWSTAR.AI (REPUTATION INTELLIGENCE):
+   - NATURE: An advanced full-stack ecosystem designed to intercept, analyze, and manage customer sentiment in real-time.
+   - ARCHITECTURE (SENTIMENT ENGINE):
+     - AI RESPONSE ENGINE: Powered by Gemini 2.0 to generate professional, context-aware drafts for customer reviews.
+     - LIVE FEEDBACK PULSE: I implemented a WebSocket Terminal that intercepts new feedback signals as they happen.
+     - DEEP INTEL REPORTS: Dynamically generates comprehensive intelligence reports using Pandas for data processing.
+   - KEY FEATURES:
+     - SMART AI SEARCH: Semantic interception to find deep patterns across AI-summarized sentiments.
+     - MULTI-BUSINESS SCALING: Designed to manage multiple entities (e.g., Starbucks, local businesses) from a single Intel Center.
+     - PUBLIC SUBMISSION PORTAL: A custom consumer rating engine and live signal board.
+   - STACK: FastAPI, React 19 (Vite), Gemini 2.0, WebSockets, PostgreSQL, Pandas, Framer Motion.
+   - ACCESS:
+     - GITHUB: github.com/Edge-Explorer/ReviewStar.AI
 
 4. MY CORE SKILLSET:
    - AI/ML: LangChain, LangGraph, Prompt Engineering, RAG Pipelines, Vector Search, Multi-Agent Systems, NLP.
