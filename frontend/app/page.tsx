@@ -5,7 +5,7 @@ import {
   Github, Linkedin, Mail, ExternalLink, Code2, Cpu, Globe, Rocket, Sparkles,
   Terminal, Database, Layout, Smartphone, Cloud, Layers, Cpu as AiIcon,
   Binary, GitBranch, Box, FileCode, Search, Server, Monitor, GraduationCap, BookOpen,
-  Activity, Zap, Instagram, X
+  Activity, Zap, Instagram, X, Download
 } from "lucide-react";
 import ChatInterface from "@/components/ChatInterface";
 import ContactModal from "@/components/ContactModal";
@@ -84,7 +84,12 @@ const projects = [
     description: "Architected a 3-tier multi-agent productivity system (Supervisor → Reasoning → Reflection) with reflection-based validation and NLP activity extraction.",
     tech: ["LangChain", "LangGraph", "FastAPI", "React Native", "PostgreSQL", "Gemini API"],
     color: "from-indigo-600 to-blue-500",
-    image: "/projects/neel-logo.png"
+    image: "/projects/neel-logo.png",
+    links: {
+      github: "https://github.com/Edge-Explorer/NEEL",
+      drive: "https://drive.google.com/file/d/19xgBoib7a0IM-4vt2OWgHXDF9khs-5vn/view?usp=drive_link"
+    },
+    highlights: ["Multi-Agent AI", "Persistent Memory", "Auto-Logging", "Behavioral Analytics"]
   },
   {
     title: "Documind-AI",
@@ -462,13 +467,57 @@ export default function Home() {
                 <div className="flex-1 w-full aspect-[4/3] rounded-[4rem] overflow-hidden relative group">
                   <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-20`} />
                   <div className="absolute inset-0 glass-vibrant" />
+
+                  {/* Interactive Hover Window */}
+                  {(project.links || project.highlights) && (
+                    <div className="absolute inset-0 z-20 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center p-8 lg:p-12">
+                      <div className="w-full h-full glass rounded-[3rem] p-8 flex flex-col justify-between border border-white/20 shadow-2xl backdrop-blur-2xl">
+                        <div className="space-y-4">
+                          <h4 className="text-sm font-black text-indigo-400 uppercase tracking-[0.3em]">Project_Pulse</h4>
+                          <div className="flex flex-wrap gap-2">
+                            {project.highlights?.map(h => (
+                              <span key={h} className="text-[10px] font-bold px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80">
+                                {h}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div className="flex flex-col gap-3">
+                          {project.links?.drive && (
+                            <a
+                              href={project.links.drive}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center justify-between p-4 rounded-2xl bg-indigo-500 hover:bg-indigo-400 text-white transition-all group/link"
+                            >
+                              <span className="text-sm font-black uppercase tracking-widest">Download APK</span>
+                              <Download size={18} className="group-hover:translate-y-0.5 transition-transform" />
+                            </a>
+                          )}
+                          {project.links?.github && (
+                            <a
+                              href={project.links.github}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center justify-between p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 text-white transition-all group/link"
+                            >
+                              <span className="text-sm font-black uppercase tracking-widest">Source_Code</span>
+                              <Github size={18} className="group-hover:rotate-12 transition-transform opacity-60 group-hover:opacity-100" />
+                            </a>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
                   <div className="absolute inset-0 flex items-center justify-center p-12">
                     {project.image ? (
                       <div className="relative w-full h-full rounded-[3rem] overflow-hidden bg-black shadow-2xl">
                         <img
                           src={project.image}
                           alt={project.title}
-                          className="w-full h-full object-cover scale-[1.05] transition-transform duration-700 group-hover:scale-110"
+                          className="w-full h-full object-cover scale-[1.05] transition-transform duration-700 group-hover:scale-110 group-hover:blur-md"
                         />
                       </div>
                     ) : (
