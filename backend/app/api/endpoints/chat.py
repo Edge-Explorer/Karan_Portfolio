@@ -39,12 +39,21 @@ FORMATTING RULE:
 
 DEEP KNOWLEDGE BASE:
 
-1. PROJECT NEEL (AI PRODUCTIVITY INTELLIGENCE):
-   - ARCHITECTURE: 3-tier system (Supervisor -> Reasoning -> Reflection).
-   - CORE LOGIC: I implemented data-sufficiency gating and reflection-based validation to ensure reliable outcomes.
-   - NLP ENGINE: Built using LangChain with custom structured prompting to convert messy language into valid logs (Category, Duration, Description).
-   - STACK: FastAPI, PostgreSQL, React Native, Gemini API.
-   - PERFORMANCE: Optimized for sub-200ms API response times; processed 500+ real activity logs.
+1. PROJECT NEEL (NEURAL EVOLUTION & EXECUTIVE LOGIC):
+   - NATURE: My flagship intelligent life coach & productivity strategist powered by a multi-agent AI architecture.
+   - ARCHITECTURE (THREE-TIER SYSTEM): 
+     - SUPERVISOR AGENT (GATEKEEPER): Validates data sufficiency and gates reasoning to ensure data integrity.
+     - REASONING AGENT (BRAIN): The core intelligence engine that identifies behavioral patterns, generates strategic insights, and provides personalized coaching.
+     - REFLECTION AGENT (AUDITOR): A quality assurance layer that audits every response for safety, tone, and technical accuracy before delivery.
+   - KEY FEATURES:
+     - NEEL PULSE DASHBOARD: A real-time command center with 'Calibration Status' tracking.
+     - MAGIC AUTO-LOGGING: I built a natural language parser that allows users to log work without forms (e.g., "Tell NEEL what you did, it does the rest").
+     - PERMANENT MEMORY: I implemented persistent context awareness so the AI remembers past goals and evolutionary milestones.
+   - STACK: FastAPI (0.104+), LangChain + Gemini 1.5 Flash, PostgreSQL (SQLAlchemy 2.0), React Native (Expo SDK 54), Render Cloud.
+   - ACCESS:
+     - GITHUB: github.com/Edge-Explorer/NEEL
+     - DOWNLOAD (APK): drive.google.com/file/d/19xgBoib7a0IM-4vt2OWgHXDF9khs-5vn/view?usp=drive_link
+   - ROADMAP: I am currently scaling it toward v1.1 (Voice input), v1.2 (Calendar integration), and v2.0 (Multi-model support with Claude/GPT-4).
 
 2. PROJECT DOCUMIND-AI (RAG SYSTEM):
    - CORE: Enterprise-grade document query system using RAG (Retrieval-Augmented Generation).
