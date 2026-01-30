@@ -135,7 +135,7 @@ export default function Home() {
   const [theme, setTheme] = useState<"neural" | "space">("neural");
 
   return (
-    <main className="min-h-screen bg-black text-white selection:bg-indigo-500/30 overflow-x-hidden relative">
+    <main className="min-h-screen bg-background text-foreground selection:bg-indigo-500/30 overflow-x-hidden relative">
       {/* Dynamic Background with Cross-fade */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -150,8 +150,8 @@ export default function Home() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Content Backdrop to ensure consistent readability */}
-      <div className="fixed inset-0 z-[1] bg-gradient-to-b from-black/20 via-transparent to-black/40 pointer-events-none" />
+      {/* Content Backdrop - Updated for light theme */}
+      <div className="fixed inset-0 z-[1] bg-gradient-to-b from-white/10 via-transparent to-white/20 pointer-events-none" />
 
       <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
       <ChatInterface isOpen={isAIChatOpen} onClose={() => setIsAIChatOpen(false)} />
@@ -197,7 +197,7 @@ export default function Home() {
                 <motion.h1
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
-                  className="text-4xl md:text-6xl lg:text-7xl xl:text-[5rem] font-black tracking-tighter leading-none bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent lg:whitespace-nowrap"
+                  className="text-4xl md:text-6xl lg:text-7xl xl:text-[5rem] font-black tracking-tighter leading-none bg-gradient-to-b from-slate-900 to-slate-500 bg-clip-text text-transparent lg:whitespace-nowrap"
                 >
                   Karan Rohidas Shelar
                 </motion.h1>
@@ -206,7 +206,7 @@ export default function Home() {
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.1 }}
-                  className="text-xl md:text-2xl lg:text-3xl text-indigo-400 font-bold tracking-[0.3em] uppercase leading-none"
+                  className="text-xl md:text-2xl lg:text-3xl text-indigo-600 font-bold tracking-[0.3em] uppercase leading-none"
                 >
                   Generative AI Developer
                 </motion.p>
@@ -293,8 +293,8 @@ export default function Home() {
         >
           <div className="space-y-6 text-left max-w-3xl">
             <h2 className="text-sm font-black text-indigo-400 uppercase tracking-[0.5em]">Introduction</h2>
-            <h3 className="text-6xl md:text-8xl font-black tracking-tighter text-white leading-none">Overview</h3>
-            <p className="text-xl md:text-2xl text-white/60 font-medium leading-relaxed">
+            <h3 className="text-6xl md:text-8xl font-black tracking-tighter text-slate-900 leading-none">Overview</h3>
+            <p className="text-xl md:text-2xl text-slate-600 font-medium leading-relaxed">
               I am a specialized Generative AI Developer dedicated to architecting the next generation of intelligent systems.
               By bridging the gap between vision and full-stack execution, I built NEEL—a live multi-agent productivity environment—using
               LangChain, FastAPI, and React Native. I thrive on designing complex agentic workflows and immersive digital experiences
@@ -325,7 +325,7 @@ export default function Home() {
                   </div>
                   <div className="space-y-2">
                     <h4 className={`text-xl font-black uppercase tracking-widest ${card.textColor}`}>{card.title}</h4>
-                    <p className="text-sm text-white/50 font-medium leading-snug">{card.desc}</p>
+                    <p className="text-sm text-slate-500 font-medium leading-snug">{card.desc}</p>
                   </div>
                 </div>
               </motion.div>
@@ -339,11 +339,11 @@ export default function Home() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="w-full max-w-7xl space-y-24 py-32 border-y border-white/5"
+          className="w-full max-w-7xl space-y-24 py-32 border-y border-slate-200"
         >
           <div className="flex flex-col items-center text-center space-y-8">
-            <h2 className="text-sm font-black text-indigo-400 uppercase tracking-[0.5em] animate-pulse">Neural_Capabilities</h2>
-            <h3 className="text-7xl md:text-9xl font-black tracking-tighter text-white">Skillset</h3>
+            <h2 className="text-sm font-black text-indigo-600 uppercase tracking-[0.5em] animate-pulse">Neural_Capabilities</h2>
+            <h3 className="text-7xl md:text-9xl font-black tracking-tighter text-slate-900">Skillset</h3>
           </div>
 
           <div className="flex flex-wrap justify-center gap-x-12 gap-y-16 px-4">
@@ -362,7 +362,7 @@ export default function Home() {
                 <div className="absolute inset-0 bg-indigo-500/5 blur-[40px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                 {/* Logo Container */}
-                <div className="relative w-20 h-20 md:w-24 md:h-24 flex items-center justify-center transition-all duration-500 group-hover:-translate-y-3 cursor-help">
+                <div className="relative w-20 h-20 md:w-24 md:h-24 flex items-center justify-center transition-all duration-500 group-hover:-translate-y-3 cursor-help bg-slate-100/50 rounded-2xl shadow-inner p-4">
                   <SkillLogo skill={skill} />
                 </div>
 
@@ -389,11 +389,11 @@ export default function Home() {
                       initial={{ opacity: 0, y: 10, scale: 0.9 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 10, scale: 0.9 }}
-                      className="absolute bottom-full mb-6 z-[200] w-56 p-5 glass rounded-3xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] pointer-events-none"
+                      className="absolute bottom-full mb-6 z-[200] w-56 p-5 glass rounded-3xl border border-black/5 shadow-[0_20px_50px_rgba(0,0,0,0.1)] pointer-events-none"
                     >
-                      <p className="text-xs font-black text-indigo-400 mb-2 uppercase tracking-widest">{skill.name}</p>
-                      <p className="text-[11px] text-white/70 leading-relaxed font-medium">{skill.info}</p>
-                      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 glass border-r border-b border-white/10 rotate-45" />
+                      <p className="text-xs font-black text-indigo-600 mb-2 uppercase tracking-widest">{skill.name}</p>
+                      <p className="text-[11px] text-slate-600 leading-relaxed font-medium">{skill.info}</p>
+                      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 glass border-r border-b border-black/5 rotate-45" />
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -438,14 +438,14 @@ export default function Home() {
                     <div className={`inline-block p-4 rounded-3xl bg-gradient-to-br ${project.color} text-white shadow-2xl`}>
                       {idx === 0 ? <Cpu size={40} /> : idx === 1 ? <Globe size={40} /> : <Rocket size={40} />}
                     </div>
-                    <h3 className="text-5xl md:text-7xl font-black tracking-tighter">{project.title}</h3>
+                    <h3 className="text-5xl md:text-7xl font-black tracking-tighter text-slate-900">{project.title}</h3>
                   </div>
-                  <p className="text-2xl text-white/60 font-light leading-snug">
+                  <p className="text-2xl text-slate-600 font-light leading-snug">
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-3">
                     {project.tech.map(t => (
-                      <span key={t} className="text-xs font-bold px-4 py-2 rounded-xl bg-white/5 border border-white/5 text-indigo-400 uppercase">
+                      <span key={t} className="text-xs font-bold px-4 py-2 rounded-xl bg-slate-100 border border-slate-200 text-indigo-600 uppercase">
                         {t}
                       </span>
                     ))}
@@ -474,12 +474,12 @@ export default function Home() {
               rel="noopener noreferrer"
               className="group inline-flex flex-col items-center gap-6"
             >
-              <p className="text-2xl md:text-3xl font-bold text-white/40 group-hover:text-indigo-400 transition-colors duration-500 max-w-2xl px-4">
+              <p className="text-2xl md:text-3xl font-bold text-slate-400 group-hover:text-indigo-600 transition-colors duration-500 max-w-2xl px-4">
                 Hungry for more? From neural architectures to full-stack pipelines, explore my complete digital laboratory.
               </p>
-              <div className="flex items-center gap-4 px-10 py-5 rounded-full glass border border-white/5 group-hover:border-indigo-500/50 group-hover:bg-indigo-500/10 transition-all duration-500 shadow-2xl">
-                <span className="text-xs font-black uppercase tracking-[0.3em] text-white/60 group-hover:text-white transition-colors">Neural Repository</span>
-                <Github size={18} className="group-hover:rotate-12 transition-transform opacity-60 group-hover:opacity-100" />
+              <div className="flex items-center gap-4 px-10 py-5 rounded-full glass border border-black/5 group-hover:border-indigo-500/50 group-hover:bg-indigo-500/10 transition-all duration-500 shadow-2xl">
+                <span className="text-xs font-black uppercase tracking-[0.3em] text-slate-500 group-hover:text-slate-900 transition-colors">Neural Repository</span>
+                <Github size={18} className="group-hover:rotate-12 transition-transform opacity-60 group-hover:opacity-100 text-slate-900" />
               </div>
             </a>
           </motion.div>

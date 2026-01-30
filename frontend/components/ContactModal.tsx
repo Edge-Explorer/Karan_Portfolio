@@ -47,7 +47,7 @@ export default function ContactModal({ isOpen, onClose }: { isOpen: boolean; onC
                         initial={{ opacity: 0, scale: 0.9, y: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                        className="relative w-full max-w-lg glass rounded-3xl border border-white/10 p-8 shadow-2xl"
+                        className="relative w-full max-w-lg glass rounded-3xl border border-black/5 p-8 shadow-2xl text-slate-900"
                     >
                         <button
                             onClick={onClose}
@@ -58,8 +58,8 @@ export default function ContactModal({ isOpen, onClose }: { isOpen: boolean; onC
 
                         <div className="space-y-6">
                             <div>
-                                <h3 className="text-2xl font-bold tracking-tight">Direct Connection</h3>
-                                <p className="text-sm text-white/40 font-mono italic">Your message will be logged in Karan&apos;s system.</p>
+                                <h3 className="text-2xl font-bold tracking-tight text-slate-900">Direct Connection</h3>
+                                <p className="text-sm text-slate-500 font-mono italic">Your message will be logged in Karan&apos;s system.</p>
                             </div>
 
                             {status === "success" ? (
@@ -72,29 +72,29 @@ export default function ContactModal({ isOpen, onClose }: { isOpen: boolean; onC
                                         <CheckCircle2 size={32} />
                                     </div>
                                     <div className="space-y-2">
-                                        <h4 className="text-xl font-semibold">Message Sent!</h4>
-                                        <p className="text-sm text-white/40">Karan has been notified. Expect a response soon.</p>
+                                        <h4 className="text-xl font-semibold text-slate-900">Message Sent!</h4>
+                                        <p className="text-sm text-slate-500">Karan has been notified. Expect a response soon.</p>
                                     </div>
                                 </motion.div>
                             ) : (
                                 <form onSubmit={handleSubmit} className="space-y-4">
                                     <div className="grid grid-cols-2 gap-4">
                                         <div className="space-y-1.5">
-                                            <label className="text-[10px] uppercase tracking-widest text-white/40 font-mono">Name</label>
+                                            <label className="text-[10px] uppercase tracking-widest text-slate-500 font-mono">Name</label>
                                             <input
                                                 required
-                                                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-sm focus:border-cyan-500/50 outline-none transition-colors"
+                                                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-sm focus:border-indigo-500/50 outline-none transition-colors text-slate-900"
                                                 placeholder="John Doe"
                                                 value={formData.name}
                                                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                             />
                                         </div>
                                         <div className="space-y-1.5">
-                                            <label className="text-[10px] uppercase tracking-widest text-white/40 font-mono">Email</label>
+                                            <label className="text-[10px] uppercase tracking-widest text-slate-500 font-mono">Email</label>
                                             <input
                                                 required
                                                 type="email"
-                                                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-sm focus:border-cyan-500/50 outline-none transition-colors"
+                                                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-sm focus:border-indigo-500/50 outline-none transition-colors text-slate-900"
                                                 placeholder="john@example.com"
                                                 value={formData.email}
                                                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -102,31 +102,33 @@ export default function ContactModal({ isOpen, onClose }: { isOpen: boolean; onC
                                         </div>
                                     </div>
                                     <div className="space-y-1.5">
-                                        <label className="text-[10px] uppercase tracking-widest text-white/40 font-mono">Subject</label>
+                                        <label className="text-[10px] uppercase tracking-widest text-slate-500 font-mono">Subject</label>
                                         <input
                                             required
-                                            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-sm focus:border-cyan-500/50 outline-none transition-colors"
-                                            placeholder="Project Opportunity"
+                                            className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-sm focus:border-indigo-500/50 outline-none transition-colors text-slate-900"
+                                            placeholder="Project Inquiries"
                                             value={formData.subject}
                                             onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                                         />
                                     </div>
                                     <div className="space-y-1.5">
-                                        <label className="text-[10px] uppercase tracking-widest text-white/40 font-mono">Message</label>
+                                        <label className="text-[10px] uppercase tracking-widest text-slate-500 font-mono">Message</label>
                                         <textarea
                                             required
                                             rows={4}
-                                            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-sm focus:border-cyan-500/50 outline-none transition-colors resize-none"
-                                            placeholder="Tell me about your project..."
+                                            className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-sm focus:border-indigo-500/50 outline-none transition-colors resize-none text-slate-900"
+                                            placeholder="Briefly describe your inquiry..."
                                             value={formData.message}
                                             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                                         />
                                     </div>
                                     <button
+                                        type="submit"
                                         disabled={status === "loading"}
-                                        className="w-full py-3 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded-xl flex items-center justify-center gap-2 transition-all disabled:opacity-50"
+                                        className="w-full bg-slate-900 text-white rounded-xl py-3 text-sm font-bold flex items-center justify-center gap-2 hover:bg-slate-800 transition-all disabled:opacity-50"
                                     >
-                                        {status === "loading" ? "Recording..." : <><Send size={18} /> Send Message</>}
+                                        <Send size={16} />
+                                        {status === "loading" ? "Transmitting..." : "Send Secure Message"}
                                     </button>
                                 </form>
                             )}

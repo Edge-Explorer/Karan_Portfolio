@@ -92,8 +92,8 @@ const NeuralBackground: React.FC = () => {
 
                     if (distance < connectionDistance) {
                         ctx.beginPath();
-                        ctx.strokeStyle = `rgba(99, 102, 241, ${1 - distance / connectionDistance})`;
-                        ctx.lineWidth = 0.5;
+                        ctx.strokeStyle = `rgba(79, 70, 229, ${0.8 * (1 - distance / connectionDistance)})`;
+                        ctx.lineWidth = 0.8;
                         ctx.moveTo(p.x, p.y);
                         ctx.lineTo(particles[j].x, particles[j].y);
                         ctx.stroke();

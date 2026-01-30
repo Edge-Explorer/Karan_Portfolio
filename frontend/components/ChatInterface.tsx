@@ -57,7 +57,7 @@ export default function ChatInterface({ isOpen, onClose }: { isOpen: boolean; on
                     initial={{ opacity: 0, scale: 0.9, y: 20 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                    className="fixed bottom-32 right-4 md:right-10 z-[200] w-[calc(100vw-2rem)] md:w-[400px] h-fit max-h-[75vh] md:h-[580px] bg-background/80 backdrop-blur-3xl rounded-[2.5rem] border border-white/10 shadow-[0_20px_80px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden"
+                    className="fixed bottom-32 right-4 md:right-10 z-[200] w-[calc(100vw-2rem)] md:w-[400px] h-fit max-h-[75vh] md:h-[580px] bg-background/90 backdrop-blur-3xl rounded-[2.5rem] border border-black/5 shadow-[0_20px_80px_rgba(0,0,0,0.1)] flex flex-col overflow-hidden text-foreground"
                 >
                     {/* Header: Humanized Branding */}
                     <div className="p-4 md:p-5 flex justify-between items-center border-b border-white/5 bg-white/5">
@@ -69,8 +69,8 @@ export default function ChatInterface({ isOpen, onClose }: { isOpen: boolean; on
                                 <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-green-500 border-2 border-background rounded-full" />
                             </div>
                             <div>
-                                <h2 className="text-base md:text-lg font-black tracking-tighter uppercase italic leading-none text-white">Karan&apos;s AI Assistant</h2>
-                                <p className="text-[9px] font-bold text-indigo-400 uppercase tracking-widest mt-1.5 line-clamp-1">Self-Learning Digital Twin</p>
+                                <h2 className="text-base md:text-lg font-black tracking-tighter uppercase italic leading-none text-slate-900">Karan&apos;s AI Assistant</h2>
+                                <p className="text-[9px] font-bold text-indigo-600 uppercase tracking-widest mt-1.5 line-clamp-1">Self-Learning Digital Twin</p>
                             </div>
                         </div>
                         <button
@@ -92,8 +92,8 @@ export default function ChatInterface({ isOpen, onClose }: { isOpen: boolean; on
                                     </div>
                                 </div>
                                 <div className="space-y-3">
-                                    <h3 className="text-2xl font-black tracking-tighter text-white">Hey! I&apos;m Karan&apos;s AI Twin.</h3>
-                                    <p className="text-xs text-white/50 font-medium leading-relaxed">
+                                    <h3 className="text-2xl font-black tracking-tighter text-slate-900">Hey! I&apos;m Karan&apos;s AI Twin.</h3>
+                                    <p className="text-xs text-slate-500 font-medium leading-relaxed">
                                         I&apos;m here to dive into my projects, engineering logic, and my journey into GenAI with you.
                                         What&apos;s on your mind?
                                     </p>
@@ -120,13 +120,15 @@ export default function ChatInterface({ isOpen, onClose }: { isOpen: boolean; on
                                 className={`flex gap-3 ${m.role === "user" ? "flex-row-reverse" : ""}`}
                             >
                                 <div className={`p-2.5 rounded-2xl h-fit border ${m.role === "user" ? "bg-purple-500 border-purple-400/50" : "bg-white/5 border-white/10"}`}>
-                                    {m.role === "user" ? <User size={16} className="text-white" /> : <Bot size={16} className="text-indigo-400" />}
+                                    {m.role === "user" ? <User size={16} className="text-slate-900" /> : <Bot size={16} className="text-indigo-400" />}
                                 </div>
-                                <div className={`max-w-[85%] p-5 rounded-3xl text-sm ${m.role === "user"
-                                    ? "bg-white/5 border border-white/5 text-white/80"
-                                    : "bg-indigo-500/5 border border-indigo-500/10 text-white/90"
-                                    }`}>
-                                    <p className="leading-relaxed whitespace-pre-wrap font-medium">{m.content}</p>
+                                <div
+                                    className={`px-6 py-4 rounded-[2rem] text-sm font-medium leading-relaxed shadow-sm transition-all ${m.role === "user"
+                                        ? "bg-indigo-600 text-white rounded-br-none"
+                                        : "bg-slate-100 text-slate-800 rounded-bl-none border border-slate-200"
+                                        }`}
+                                >
+                                    {m.content}
                                 </div>
                             </motion.div>
                         ))}
