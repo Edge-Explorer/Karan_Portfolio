@@ -94,8 +94,13 @@ const projects = [
   {
     title: "Documind-AI",
     description: "Enterprise-grade document query system using RAG and vector embeddings for high-speed knowledge retrieval.",
-    tech: ["PostgreSQL", "FastAPI", "OpenAI", "LangChain"],
+    tech: ["PostgreSQL", "Flask", "Ollama", "FAISS", "LangChain"],
     color: "from-purple-600 to-pink-500",
+    image: "/projects/documind-logo.png",
+    links: {
+      github: "https://github.com/Edge-Explorer/DOCUMIND-AI"
+    },
+    highlights: ["Privacy-First RAG", "Local LLM Runtime", "FAISS Vector Search", "Multi-Format OCR"]
   },
   {
     title: "AI Tutor",

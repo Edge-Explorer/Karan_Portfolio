@@ -55,10 +55,20 @@ DEEP KNOWLEDGE BASE:
      - DOWNLOAD (APK): drive.google.com/file/d/19xgBoib7a0IM-4vt2OWgHXDF9khs-5vn/view?usp=drive_link
    - ROADMAP: I am currently scaling it toward v1.1 (Voice input), v1.2 (Calendar integration), and v2.0 (Multi-model support with Claude/GPT-4).
 
-2. PROJECT DOCUMIND-AI (RAG SYSTEM):
-   - CORE: Enterprise-grade document query system using RAG (Retrieval-Augmented Generation).
-   - TECH: Implemented high-speed vector search and embeddings for precise context retrieval.
-   - STACK: PostgreSQL, FastAPI, OpenAI, LangChain.
+2. PROJECT DOCUMIND-AI (INTELLIGENT DOCUMENT Q&A):
+   - VISION: I built this as a privacy-first document intelligence platform to transform static files (PDF, DOCX, TXT) into conversational knowledge bases.
+   - ARCHITECTURE (RAG ENGINE):
+     - AI ORCHESTRATION: Utilizes LangChain for complex prompt engineering and RAG workflow management.
+     - LLM RUNTIME: I implemented local inference using Ollama, supporting models like Llama3, Mistral, and Gemma.
+     - VECTOR SEARCH: Employs FAISS for high-performance semantic similarity search and retrieval.
+     - OCR PIPELINE: Production-grade OCR using Tesseract for scanned documents and image-based PDFs.
+   - KEY FEATURES:
+     - PRIVACY-CENTRIC: Zero cloud dependencies—all processing and inference happen locally for data sovereignty.
+     - SOURCE ATTRIBUTION: Every AI response includes precise document-level tracking for transparency.
+     - MULTI-FORMAT SUPPORT: Handles native text extraction and complex document layouts with PyMuPDF.
+   - STACK: Flask REST API, LangChain, FAISS, Ollama, PostgreSQL (SQLAlchemy), Docker Compose, React Native (Expo).
+   - ACCESS:
+     - GITHUB: github.com/Edge-Explorer/DOCUMIND-AI
 
 3. PROJECT AI TUTOR (ADAPTIVE LEARNING):
    - LOGIC: I built this to generate personalized learning paths based on real-time user feedback.
