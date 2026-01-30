@@ -342,7 +342,6 @@ export default function Home() {
           className="w-full max-w-7xl space-y-24 py-32 border-y border-slate-200"
         >
           <div className="flex flex-col items-center text-center space-y-8">
-            <h2 className="text-sm font-black text-indigo-400 uppercase tracking-[0.5em] animate-pulse">Neural_Capabilities</h2>
             <h3 className="text-7xl md:text-9xl font-black tracking-tighter text-white">Skillset</h3>
           </div>
 
