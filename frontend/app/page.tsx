@@ -456,15 +456,26 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
                 {/* Large Certificate Preview Area */}
-                <div className="absolute top-0 left-0 w-full h-2/3 bg-black/20 flex items-center justify-center p-4 overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#030303]/80 z-10" />
-                  <img
-                    src={cert.image}
-                    alt={cert.title}
-                    className="w-full h-full object-contain filter group-hover:scale-105 transition-transform duration-1000 ease-out"
-                  />
+                <div className="absolute top-0 left-0 w-full h-[60%] flex items-center justify-center p-8 overflow-hidden bg-[#0a0a0c]">
+                  {/* Atmospheric Depth Gradients */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-transparent z-10 opacity-60" />
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-indigo-500/10 via-transparent to-transparent z-0" />
+
+                  <motion.div
+                    className="relative z-20 w-full h-full flex items-center justify-center"
+                    initial={{ scale: 0.9, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 1, ease: "easeOut" }}
+                  >
+                    <img
+                      src={cert.image}
+                      alt={cert.title}
+                      className="w-full h-full object-contain filter drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] group-hover:scale-110 transition-transform duration-1000 ease-out"
+                    />
+                  </motion.div>
+
                   {/* Neural Glow Anchor */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-indigo-500/10 blur-[80px] rounded-full pointer-events-none" />
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-indigo-500/5 blur-[100px] rounded-full pointer-events-none z-0" />
                 </div>
 
                 {/* Metadata Panel */}
