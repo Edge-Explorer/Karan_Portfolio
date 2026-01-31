@@ -118,11 +118,31 @@ const projects = [
 
 const coursework = [
   {
-    title: "Supervised Machine Learning: Regression and Classification",
+    title: "Supervised Machine Learning",
+    subtitle: "Regression and Classification",
     issuer: "Coursera | DeepLearning.AI",
     image: "/coursework/supervised-ml.png",
     link: "https://www.coursera.org/account/accomplishments/verify/2W993A8JKMBN",
-    status: "Verified"
+    status: "Verified",
+    id: "01"
+  },
+  {
+    title: "Advanced Learning Algorithms",
+    subtitle: "Neural Networks & Decision Trees",
+    issuer: "Coursera | DeepLearning.AI",
+    image: "/coursework/supervised-ml.png", // Reusing image as placeholder
+    link: "#",
+    status: "Verified",
+    id: "02"
+  },
+  {
+    title: "Unsupervised Learning",
+    subtitle: "Recommenders & Reinforcement",
+    issuer: "Coursera | DeepLearning.AI",
+    image: "/coursework/supervised-ml.png", // Reusing image as placeholder
+    link: "#",
+    status: "Verified",
+    id: "03"
   }
 ];
 
@@ -445,74 +465,87 @@ export default function Home() {
             <p className="text-xl text-white/50 max-w-2xl font-light tracking-wide uppercase italic">Evolutionary Proof of Technical Mastery</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {coursework.map((cert, i) => (
               <motion.div
                 key={cert.title}
-                whileHover={{ y: -10 }}
-                className="group relative h-[500px] glass rounded-[3.5rem] overflow-hidden border border-white/5 hover:border-indigo-500/30 transition-all duration-700"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                whileHover={{ y: -12 }}
+                className="group relative h-[560px] glass rounded-[3rem] overflow-hidden border border-white/5 hover:border-indigo-500/40 transition-all duration-700 shadow-2xl flex flex-col"
               >
-                {/* Cinematic Background Glow */}
-                <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                {/* Top Section: Immersive Certificate Display */}
+                <div className="relative h-[50%] w-full overflow-hidden bg-black/40 p-6">
+                  {/* Dynamic background glow */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-indigo-500/10 via-transparent to-black/60 z-10" />
+                  <div className="absolute -inset-20 bg-indigo-500/5 blur-[100px] rounded-full group-hover:opacity-100 opacity-0 transition-opacity duration-1000" />
 
-                {/* Large Certificate Preview Area */}
-                <div className="absolute top-0 left-0 w-full h-[60%] flex items-center justify-center p-8 overflow-hidden bg-[#0a0a0c]">
-                  {/* Atmospheric Depth Gradients */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-transparent z-10 opacity-60" />
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-indigo-500/10 via-transparent to-transparent z-0" />
-
-                  <motion.div
-                    className="relative z-20 w-full h-full flex items-center justify-center"
-                    initial={{ scale: 0.9, opacity: 0 }}
-                    whileInView={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 1, ease: "easeOut" }}
-                  >
-                    <img
+                  {/* The "Box" - Fixed to be more proportionate */}
+                  <div className="relative w-full h-full rounded-2xl overflow-hidden border border-white/10 flex items-center justify-center p-4 bg-black/20 group-hover:bg-black/10 transition-colors duration-700">
+                    <motion.img
                       src={cert.image}
                       alt={cert.title}
-                      className="w-full h-full object-contain filter drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] group-hover:scale-110 transition-transform duration-1000 ease-out"
+                      className="w-full h-full object-contain filter drop-shadow-[0_15px_35px_rgba(0,0,0,0.8)] group-hover:scale-105 transition-transform duration-1000 ease-out z-20"
                     />
-                  </motion.div>
 
-                  {/* Neural Glow Anchor */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-indigo-500/5 blur-[100px] rounded-full pointer-events-none z-0" />
+                    {/* Animated scanning line for "Verified" feel */}
+                    <motion.div
+                      animate={{ top: ["0%", "100%", "0%"] }}
+                      transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                      className="absolute left-0 w-full h-[1px] bg-indigo-500/30 blur-sm z-30 opacity-0 group-hover:opacity-100 transition-opacity"
+                    />
+                  </div>
                 </div>
 
-                {/* Metadata Panel */}
-                <div className="absolute bottom-0 left-0 w-full h-1/2 p-10 flex flex-col justify-end z-20">
+                {/* Bottom Section: Clean Metadata (No Overlap) */}
+                <div className="flex-1 p-8 md:p-10 flex flex-col justify-between relative bg-gradient-to-b from-transparent to-black/20">
                   <div className="space-y-6">
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-2xl bg-indigo-500/20 flex items-center justify-center text-indigo-400 border border-indigo-500/20">
-                        <GraduationCap size={24} />
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-400 border border-indigo-500/20 shadow-inner">
+                          <GraduationCap size={20} />
+                        </div>
+                        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40">Credential_{cert.id}</span>
                       </div>
-                      <div className="px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-[10px] font-black uppercase tracking-widest">
+                      <div className="px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-[9px] font-black uppercase tracking-widest shadow-lg">
                         {cert.status}
                       </div>
                     </div>
 
-                    <div className="space-y-2">
-                      <h3 className="text-2xl md:text-3xl font-black text-white tracking-tighter leading-[1.1]">
+                    <div className="space-y-3">
+                      <h3 className="text-2xl font-black text-white tracking-tighter leading-none group-hover:text-indigo-400 transition-colors">
                         {cert.title}
                       </h3>
-                      <p className="text-sm text-indigo-400 font-bold uppercase tracking-[0.2em]">
+                      {cert.subtitle && (
+                        <p className="text-xs font-bold text-white/50 uppercase tracking-widest lowercase italic">
+                          {cert.subtitle}
+                        </p>
+                      )}
+                      <p className="text-[10px] text-indigo-400/80 font-black uppercase tracking-[0.3em] flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse" />
                         {cert.issuer}
                       </p>
                     </div>
+                  </div>
 
-                    <div className="flex items-center justify-between pt-4 border-t border-white/5">
-                      <p className="text-[10px] font-black text-white/30 uppercase tracking-[0.3em]">Credentials Hub // 0{i + 1}</p>
-                      <a
-                        href={cert.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group/btn flex items-center gap-3 px-6 py-3 rounded-full bg-white/5 border border-white/10 hover:bg-white text-black transition-all duration-500"
-                      >
-                        <span className="text-xs font-black uppercase tracking-widest text-white group-hover/btn:text-black">Verify Card</span>
-                        <ExternalLink size={14} className="text-white group-hover/btn:text-black group-hover/btn:rotate-12 transition-all" />
-                      </a>
-                    </div>
+                  <div className="flex items-center justify-between pt-6 border-t border-white/5">
+                    <p className="text-[9px] font-bold text-white/20 uppercase tracking-[0.4em]">Auth // Ver_2026</p>
+                    <a
+                      href={cert.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group/btn flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/5 border border-white/10 hover:bg-white hover:border-white transition-all duration-500"
+                    >
+                      <span className="text-[10px] font-black uppercase tracking-widest text-white group-hover/btn:text-black">Inspect</span>
+                      <ExternalLink size={12} className="text-white group-hover/btn:text-black group-hover/btn:rotate-12 transition-all" />
+                    </a>
                   </div>
                 </div>
+
+                {/* Ornamental side glow */}
+                <div className="absolute top-0 right-0 w-1 h-full bg-gradient-to-b from-transparent via-indigo-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               </motion.div>
             ))}
           </div>
