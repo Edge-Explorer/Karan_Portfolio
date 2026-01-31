@@ -461,8 +461,7 @@ export default function Home() {
           className="w-full max-w-7xl mx-auto px-6 py-32 space-y-24"
         >
           <div className="flex flex-col items-center text-center space-y-8">
-            <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none">Verified <br /> <span className="text-indigo-400">Coursework</span></h2>
-            <p className="text-xl text-white/50 max-w-2xl font-light tracking-wide uppercase italic">Evolutionary Proof of Technical Mastery</p>
+            <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none text-indigo-400">Coursework</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
