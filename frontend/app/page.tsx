@@ -361,8 +361,18 @@ export default function Home() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="w-full max-w-7xl space-y-24 py-32 border-y border-slate-200"
         >
-          <div className="flex flex-col items-center text-center space-y-8">
-            <h3 className="text-7xl md:text-9xl font-black tracking-tighter text-white">Skillset</h3>
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-8 md:gap-12 animate-fade-in">
+            <h3 className="text-7xl md:text-9xl font-black tracking-tighter text-white order-2 lg:order-1">Skillset</h3>
+            <div className="relative order-1 lg:order-2">
+              <div className="absolute -inset-4 bg-indigo-500/20 rounded-full blur-2xl animate-pulse" />
+              <div className="relative w-32 h-32 md:w-48 md:h-48 glass rounded-[2.5rem] p-6 border border-white/10 shadow-2xl flex items-center justify-center overflow-hidden">
+                <img
+                  src="/skillset-logo.png"
+                  alt="Skillset Logo"
+                  className="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(99,102,241,0.5)] transition-transform duration-700 hover:scale-110"
+                />
+              </div>
+            </div>
           </div>
 
           <div className="flex flex-wrap justify-center gap-x-12 gap-y-16 px-4">

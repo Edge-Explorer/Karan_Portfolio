@@ -91,6 +91,11 @@ export default function Navigation({ onTerminalClick }: { onTerminalClick: () =>
                                     }`}>
                                     <img src="/karan_image.png" alt="Origin" className="w-full h-full object-cover object-top" />
                                 </div>
+                            ) : item.id === "intelligence" ? (
+                                <div className={`w-6 h-6 rounded-lg overflow-hidden border transition-all duration-300 bg-white/5 ${activeSegment === item.id ? "border-indigo-400 scale-125" : "border-white/10 group-hover:border-white"
+                                    }`}>
+                                    <img src="/skillset-logo.png" alt="Skillset" className="w-full h-full object-contain p-0.5" />
+                                </div>
                             ) : (
                                 <item.icon
                                     size={20}
