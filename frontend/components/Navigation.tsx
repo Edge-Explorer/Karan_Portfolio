@@ -111,7 +111,7 @@ export default function Navigation({ onTerminalClick }: { onTerminalClick: () =>
                     <div className="relative flex flex-col items-center">
                         <TerminalIcon size={20} className="text-white" />
                         <div className="absolute top-full mt-4 px-3 py-1.5 glass rounded-xl text-[10px] font-black uppercase tracking-widest text-indigo-400 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 whitespace-nowrap pointer-events-none border border-indigo-500/20">
-                            Terminal
+                            Karan's Twin
                         </div>
                     </div>
                 </button>
