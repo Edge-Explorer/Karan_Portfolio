@@ -94,6 +94,8 @@ export default function Navigation({ onTerminalClick }: { onTerminalClick: () =>
                                     <img src="/skillset-logo.png" alt="Skillset" className="w-full h-full object-contain p-1" />
                                 ) : item.id === "credentials" ? (
                                     <img src="/coursework-logo.jpeg" alt="Coursework" className="w-full h-full object-contain p-1" />
+                                ) : item.id === "ventures" ? (
+                                    <img src="/projects-logo.jpg" alt="Ventures" className="w-full h-full object-contain p-1" />
                                 ) : (
                                     <item.icon
                                         size={14}
