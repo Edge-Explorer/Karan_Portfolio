@@ -530,8 +530,7 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between pt-6 border-t border-white/5">
-                    <p className="text-[9px] font-bold text-white/20 uppercase tracking-[0.4em]">Auth // Ver_2026</p>
+                  <div className="flex items-center justify-end pt-6 border-t border-white/5">
                     <a
                       href={cert.link}
                       target="_blank"
