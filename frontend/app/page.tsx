@@ -445,44 +445,61 @@ export default function Home() {
             <p className="text-xl text-white/50 max-w-2xl font-light tracking-wide uppercase italic">Evolutionary Proof of Technical Mastery</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {coursework.map((cert, i) => (
               <motion.div
                 key={cert.title}
-                whileHover={{ y: -10, scale: 1.02 }}
-                className="group relative h-[350px] glass rounded-[3rem] overflow-hidden border border-white/5 hover:border-indigo-500/50 transition-all duration-500"
+                whileHover={{ y: -10 }}
+                className="group relative h-[500px] glass rounded-[3.5rem] overflow-hidden border border-white/5 hover:border-indigo-500/30 transition-all duration-700"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                {/* Cinematic Background Glow */}
+                <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
-                {/* Visual Background for Logo */}
-                <div className="absolute top-0 left-0 w-full h-32 bg-white/5 flex items-center justify-center p-8 overflow-hidden group-hover:bg-white/10 transition-colors">
+                {/* Large Certificate Preview Area */}
+                <div className="absolute top-0 left-0 w-full h-2/3 bg-black/20 flex items-center justify-center p-4 overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#030303]/80 z-10" />
                   <img
                     src={cert.image}
                     alt={cert.title}
-                    className="w-full h-full object-contain filter drop-shadow-2xl transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-full object-contain filter group-hover:scale-105 transition-transform duration-1000 ease-out"
                   />
+                  {/* Neural Glow Anchor */}
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-indigo-500/10 blur-[80px] rounded-full pointer-events-none" />
                 </div>
 
-                <div className="p-10 pt-36 h-full flex flex-col justify-between relative z-10">
-                  <div className="space-y-4">
-                    <div className="w-10 h-10 rounded-xl bg-indigo-500/20 flex items-center justify-center text-indigo-400">
-                      <GraduationCap size={20} />
+                {/* Metadata Panel */}
+                <div className="absolute bottom-0 left-0 w-full h-1/2 p-10 flex flex-col justify-end z-20">
+                  <div className="space-y-6">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-2xl bg-indigo-500/20 flex items-center justify-center text-indigo-400 border border-indigo-500/20">
+                        <GraduationCap size={24} />
+                      </div>
+                      <div className="px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-[10px] font-black uppercase tracking-widest">
+                        {cert.status}
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-lg font-black text-white uppercase tracking-tighter leading-tight line-clamp-2">{cert.title}</h3>
-                      <p className="text-xs text-indigo-400 font-bold uppercase tracking-widest mt-2">{cert.issuer}</p>
+
+                    <div className="space-y-2">
+                      <h3 className="text-2xl md:text-3xl font-black text-white tracking-tighter leading-[1.1]">
+                        {cert.title}
+                      </h3>
+                      <p className="text-sm text-indigo-400 font-bold uppercase tracking-[0.2em]">
+                        {cert.issuer}
+                      </p>
                     </div>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div className="text-[10px] font-bold text-white/40 uppercase tracking-[0.3em]">Status: {cert.status}</div>
-                    <a
-                      href={cert.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs font-black text-white flex items-center gap-2 group/btn uppercase tracking-widest opacity-60 hover:opacity-100 transition-all"
-                    >
-                      View Source <ExternalLink size={14} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
-                    </a>
+
+                    <div className="flex items-center justify-between pt-4 border-t border-white/5">
+                      <p className="text-[10px] font-black text-white/30 uppercase tracking-[0.3em]">Credentials Hub // 0{i + 1}</p>
+                      <a
+                        href={cert.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group/btn flex items-center gap-3 px-6 py-3 rounded-full bg-white/5 border border-white/10 hover:bg-white text-black transition-all duration-500"
+                      >
+                        <span className="text-xs font-black uppercase tracking-widest text-white group-hover/btn:text-black">Verify Card</span>
+                        <ExternalLink size={14} className="text-white group-hover/btn:text-black group-hover/btn:rotate-12 transition-all" />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </motion.div>
