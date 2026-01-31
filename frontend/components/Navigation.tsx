@@ -48,7 +48,7 @@ export default function Navigation({ onTerminalClick }: { onTerminalClick: () =>
 
     const navItems: NavItem[] = [
         { id: "origin", label: "Origin", icon: User, href: "#origin" },
-        { id: "intelligence", label: "Intelligence", icon: Cpu, href: "#intelligence" },
+        { id: "intelligence", label: "Skillset", icon: Cpu, href: "#intelligence" },
         { id: "credentials", label: "Credentials", icon: GraduationCap, href: "#credentials" },
         { id: "ventures", label: "Ventures", icon: Rocket, href: "#ventures" },
         { id: "pulse", label: "Neural Pulse", icon: Activity, href: "#origin" },
