@@ -310,33 +310,15 @@ export default function Home() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="w-full max-w-7xl space-y-20 pt-12 pb-24 px-4"
         >
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
-            <div className="space-y-6 text-left flex-1">
-              <h2 className="text-sm font-black text-indigo-400 uppercase tracking-[0.5em]">Introduction</h2>
-              <h3 className="text-6xl md:text-8xl font-black tracking-tighter text-white leading-none">Overview</h3>
-              <p className="text-xl md:text-2xl text-white/60 font-medium leading-relaxed">
-                I am an emerging Generative AI Developer with a mission to architect the next generation of autonomous systems.
-                I specialize in bridging the gap between ambitious AI research and practical execution, as seen in NEEL—a live
-                multi-agent productivity environment I built using LangChain, FastAPI, and React Native. I approach every challenge
-                with fresh energy and a drive to master agentic workflows, focused on solving real-world problems with neural precision.
-              </p>
-            </div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="relative shrink-0"
-            >
-              <div className="absolute -inset-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full blur-2xl opacity-20 animate-pulse" />
-              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-[4rem] overflow-hidden border-2 border-white/10 shadow-2xl glass">
-                <img
-                  src="/karan_image.png"
-                  alt="Karan"
-                  className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-110"
-                />
-              </div>
-            </motion.div>
+          <div className="space-y-6 text-left max-w-3xl">
+            <h2 className="text-sm font-black text-indigo-400 uppercase tracking-[0.5em]">Introduction</h2>
+            <h3 className="text-6xl md:text-8xl font-black tracking-tighter text-white leading-none">Overview</h3>
+            <p className="text-xl md:text-2xl text-white/60 font-medium leading-relaxed">
+              I am an emerging Generative AI Developer with a mission to architect the next generation of autonomous systems.
+              I specialize in bridging the gap between ambitious AI research and practical execution, as seen in NEEL—a live
+              multi-agent productivity environment I built using LangChain, FastAPI, and React Native. I approach every challenge
+              with fresh energy and a drive to master agentic workflows, focused on solving real-world problems with neural precision.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">

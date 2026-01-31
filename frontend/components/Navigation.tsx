@@ -86,11 +86,18 @@ export default function Navigation({ onTerminalClick }: { onTerminalClick: () =>
                         )}
 
                         <div className="relative flex flex-col items-center">
-                            <item.icon
-                                size={20}
-                                className={`transition-colors duration-300 ${activeSegment === item.id ? "text-indigo-400 scale-110" : "text-white/40 group-hover:text-white"
-                                    }`}
-                            />
+                            {item.id === "origin" ? (
+                                <div className={`w-6 h-6 rounded-full overflow-hidden border-2 transition-all duration-300 ${activeSegment === item.id ? "border-indigo-400 scale-125" : "border-white/20 group-hover:border-white"
+                                    }`}>
+                                    <img src="/karan_image.png" alt="Origin" className="w-full h-full object-cover object-top" />
+                                </div>
+                            ) : (
+                                <item.icon
+                                    size={20}
+                                    className={`transition-colors duration-300 ${activeSegment === item.id ? "text-indigo-400 scale-110" : "text-white/40 group-hover:text-white"
+                                        }`}
+                                />
+                            )}
 
                             {/* Tooltip */}
                             <div className="absolute top-full mt-4 px-3 py-1.5 glass rounded-xl text-[10px] font-black uppercase tracking-widest text-white opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 whitespace-nowrap pointer-events-none border border-white/5">
