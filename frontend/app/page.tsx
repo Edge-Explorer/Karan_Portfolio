@@ -116,6 +116,16 @@ const projects = [
   }
 ];
 
+const coursework = [
+  {
+    title: "Supervised Machine Learning: Regression and Classification",
+    issuer: "Coursera | DeepLearning.AI",
+    image: "/coursework/supervised-ml.png",
+    link: "https://www.coursera.org/account/accomplishments/verify/2W993A8JKMBN",
+    status: "Verified"
+  }
+];
+
 function SkillLogo({ skill }: { skill: any }) {
   if (skill.local) {
     return (
@@ -436,28 +446,43 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[1, 2, 3].map((_, i) => (
+            {coursework.map((cert, i) => (
               <motion.div
-                key={i}
+                key={cert.title}
                 whileHover={{ y: -10, scale: 1.02 }}
-                className="group relative h-[300px] glass rounded-[3rem] overflow-hidden border border-white/5 hover:border-indigo-500/50 transition-all duration-500"
+                className="group relative h-[350px] glass rounded-[3rem] overflow-hidden border border-white/5 hover:border-indigo-500/50 transition-all duration-500"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="p-10 h-full flex flex-col justify-between relative z-10">
+
+                {/* Visual Background for Logo */}
+                <div className="absolute top-0 left-0 w-full h-32 bg-white/5 flex items-center justify-center p-8 overflow-hidden group-hover:bg-white/10 transition-colors">
+                  <img
+                    src={cert.image}
+                    alt={cert.title}
+                    className="w-full h-full object-contain filter drop-shadow-2xl transition-transform duration-700 group-hover:scale-110"
+                  />
+                </div>
+
+                <div className="p-10 pt-36 h-full flex flex-col justify-between relative z-10">
                   <div className="space-y-4">
-                    <div className="w-12 h-12 rounded-2xl bg-indigo-500/20 flex items-center justify-center text-indigo-400">
-                      <GraduationCap size={24} />
+                    <div className="w-10 h-10 rounded-xl bg-indigo-500/20 flex items-center justify-center text-indigo-400">
+                      <GraduationCap size={20} />
                     </div>
                     <div>
-                      <h3 className="text-xl font-black text-white uppercase tracking-tighter">Certification_Placeholder</h3>
-                      <p className="text-sm text-indigo-400 font-bold uppercase tracking-widest mt-1">ISSUER_NAME</p>
+                      <h3 className="text-lg font-black text-white uppercase tracking-tighter leading-tight line-clamp-2">{cert.title}</h3>
+                      <p className="text-xs text-indigo-400 font-bold uppercase tracking-widest mt-2">{cert.issuer}</p>
                     </div>
                   </div>
                   <div className="flex items-center justify-between">
-                    <div className="text-[10px] font-bold text-white/40 uppercase tracking-[0.3em]">Status: Verified</div>
-                    <button className="text-xs font-black text-white flex items-center gap-2 group/btn uppercase tracking-widest opacity-60 group-hover:opacity-100">
+                    <div className="text-[10px] font-bold text-white/40 uppercase tracking-[0.3em]">Status: {cert.status}</div>
+                    <a
+                      href={cert.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs font-black text-white flex items-center gap-2 group/btn uppercase tracking-widest opacity-60 hover:opacity-100 transition-all"
+                    >
                       View Source <ExternalLink size={14} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
-                    </button>
+                    </a>
                   </div>
                 </div>
               </motion.div>
