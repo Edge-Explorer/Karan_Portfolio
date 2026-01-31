@@ -703,7 +703,6 @@ export default function Home() {
           transition={{ duration: 1.5 }}
           className="w-full py-20 border-t border-white/5 mt-32 text-center space-y-4"
         >
-          <p className="text-6xl font-black tracking-tighter opacity-10 uppercase">KRS 2026</p>
           <p className="text-[10px] font-bold text-white/20 uppercase tracking-[1em]">Karan Rohidas Shelar</p>
         </motion.footer>
 
