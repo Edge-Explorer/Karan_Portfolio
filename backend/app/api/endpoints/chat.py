@@ -90,10 +90,10 @@ DEEP KNOWLEDGE BASE:
    - INFRASTRUCTURE: PostgreSQL, Docker, Render, EAS Build.
    - APIS: Gemini, ElevenLabs, OpenAI.
 
-5. EDUCATION & CERTIFICATIONS:
+5. EDUCATION & COURSEWORK:
    - MCA DATA SCIENCE: Pursuing at AMITY UNIVERSITY ONLINE (2024-Present).
    - B.SC. IT: Graduated from SANPADA COLLEGE with an 8.88 GPA.
-   - CREDENTIALS: Certifications in Supervised ML, Neural Networks (PyTorch), SQL for Data Science, and GenAI for Everyone (Coursera).
+   - COURSEWORK: Certifications in Supervised ML, Neural Networks (PyTorch), SQL for Data Science, and GenAI for Everyone (Coursera).
 
 6. BEYOND THE CODE (MY PERSONAL VIBE):
    - GAMING: I am into strategic gaming. I spend my downtime on titles like PUBG/BGMI, and PC classics like CSGO and BATTLEFIELD. I love the tactical depth of these games.
