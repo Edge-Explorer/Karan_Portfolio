@@ -136,11 +136,11 @@ const coursework = [
     id: "02"
   },
   {
-    title: "Unsupervised Learning",
-    subtitle: "Recommenders & Reinforcement",
+    title: "Generative AI",
+    subtitle: "for Everyone",
     issuer: "Coursera | DeepLearning.AI",
-    image: "/coursework/supervised-ml.png", // Reusing image as placeholder
-    link: "#",
+    image: "/coursework/deeplearning-logo.jpg",
+    link: "https://www.coursera.org/account/accomplishments/verify/ZDS3F6R7G0DV",
     status: "Verified",
     id: "03"
   }
