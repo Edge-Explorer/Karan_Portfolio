@@ -7,7 +7,6 @@ import {
     Cpu,
     GraduationCap,
     Rocket,
-    Activity,
     Terminal as TerminalIcon
 } from "lucide-react";
 
@@ -51,7 +50,6 @@ export default function Navigation({ onTerminalClick }: { onTerminalClick: () =>
         { id: "intelligence", label: "Skillset", icon: Cpu, href: "#intelligence" },
         { id: "credentials", label: "Coursework", icon: GraduationCap, href: "#credentials" },
         { id: "ventures", label: "Ventures", icon: Rocket, href: "#ventures" },
-        { id: "pulse", label: "Neural Pulse", icon: Activity, href: "#origin" },
     ];
 
     return (
