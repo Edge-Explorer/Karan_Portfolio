@@ -127,11 +127,11 @@ const coursework = [
     id: "01"
   },
   {
-    title: "Advanced Learning Algorithms",
-    subtitle: "Neural Networks & Decision Trees",
-    issuer: "Coursera | DeepLearning.AI",
-    image: "/coursework/supervised-ml.png", // Reusing image as placeholder
-    link: "#",
+    title: "Databases and SQL",
+    subtitle: "for Data Science with Python",
+    issuer: "Coursera | IBM",
+    image: "/coursework/ibm-logo.jpg",
+    link: "https://www.coursera.org/account/accomplishments/verify/BGF0B85APX1L",
     status: "Verified",
     id: "02"
   },
