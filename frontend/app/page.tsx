@@ -11,6 +11,7 @@ import ChatInterface from "@/components/ChatInterface";
 import ContactModal from "@/components/ContactModal";
 import NeuralBackground from "@/components/NeuralBackground";
 import SpaceBackground from "@/components/SpaceBackground";
+import Navigation from "@/components/Navigation";
 import { useState } from "react";
 
 const skills = [
@@ -152,6 +153,8 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-transparent text-white selection:bg-indigo-500/30 overflow-x-hidden relative">
+      <Navigation onTerminalClick={() => setIsAIChatOpen(true)} />
+
       {/* Dynamic Background with Cross-fade */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -205,7 +208,7 @@ export default function Home() {
           </div>
         </motion.button>
 
-        <section className="w-full text-center lg:text-left space-y-16 mb-10 px-6">
+        <section id="hero" className="w-full text-center lg:text-left space-y-16 mb-10 px-6">
           <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between max-w-7xl mx-auto gap-12 lg:gap-16">
             {/* Identity Column */}
             <div className="flex flex-col items-center lg:items-start space-y-10 order-2 lg:order-1">
@@ -301,6 +304,7 @@ export default function Home() {
 
         {/* INTRODUCTION / OVERVIEW SECTION */}
         <motion.section
+          id="origin"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -351,6 +355,7 @@ export default function Home() {
 
         {/* Unified Skillset Section */}
         <motion.section
+          id="intelligence"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -417,6 +422,49 @@ export default function Home() {
           </div>
         </motion.section>
 
+        {/* Credentials Section (Certifications) */}
+        <motion.section
+          id="credentials"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="w-full max-w-7xl mx-auto px-6 py-32 space-y-24"
+        >
+          <div className="flex flex-col items-center text-center space-y-8">
+            <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none">Verified <br /> <span className="text-indigo-400">Credentials</span></h2>
+            <p className="text-xl text-white/50 max-w-2xl font-light tracking-wide uppercase italic">Evolutionary Proof of Technical Mastery</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[1, 2, 3].map((_, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ y: -10, scale: 1.02 }}
+                className="group relative h-[300px] glass rounded-[3rem] overflow-hidden border border-white/5 hover:border-indigo-500/50 transition-all duration-500"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="p-10 h-full flex flex-col justify-between relative z-10">
+                  <div className="space-y-4">
+                    <div className="w-12 h-12 rounded-2xl bg-indigo-500/20 flex items-center justify-center text-indigo-400">
+                      <GraduationCap size={24} />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-black text-white uppercase tracking-tighter">Certification_Placeholder</h3>
+                      <p className="text-sm text-indigo-400 font-bold uppercase tracking-widest mt-1">ISSUER_NAME</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="text-[10px] font-bold text-white/40 uppercase tracking-[0.3em]">Status: Verified</div>
+                    <button className="text-xs font-black text-white flex items-center gap-2 group/btn uppercase tracking-widest opacity-60 group-hover:opacity-100">
+                      View Source <ExternalLink size={14} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
+                    </button>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
+
         {/* Elegant Tech Divider */}
         <div className="w-full max-w-7xl mx-auto px-6 h-20 flex items-center justify-center opacity-20 pointer-events-none">
           <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-indigo-500 to-transparent relative">
@@ -428,7 +476,9 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Ventures Section (Projects) */}
         <motion.section
+          id="ventures"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
