@@ -86,23 +86,22 @@ export default function Navigation({ onTerminalClick }: { onTerminalClick: () =>
                         )}
 
                         <div className="relative flex flex-col items-center">
-                            {item.id === "origin" ? (
-                                <div className={`w-6 h-6 rounded-full overflow-hidden border-2 transition-all duration-300 ${activeSegment === item.id ? "border-indigo-400 scale-125" : "border-white/20 group-hover:border-white"
-                                    }`}>
+                            <div className={`w-8 h-8 rounded-full overflow-hidden border-2 flex items-center justify-center transition-all duration-300 ${activeSegment === item.id
+                                ? "border-indigo-400 scale-125 shadow-[0_0_15px_rgba(99,102,241,0.5)] bg-indigo-500/10"
+                                : "border-white/10 group-hover:border-white/40 bg-white/5"
+                                }`}>
+                                {item.id === "origin" ? (
                                     <img src="/karan_image.png" alt="Origin" className="w-full h-full object-cover object-top" />
-                                </div>
-                            ) : item.id === "intelligence" ? (
-                                <div className={`w-6 h-6 rounded-lg overflow-hidden border transition-all duration-300 bg-white/5 ${activeSegment === item.id ? "border-indigo-400 scale-125" : "border-white/10 group-hover:border-white"
-                                    }`}>
-                                    <img src="/skillset-logo.png" alt="Skillset" className="w-full h-full object-contain p-0.5" />
-                                </div>
-                            ) : (
-                                <item.icon
-                                    size={20}
-                                    className={`transition-colors duration-300 ${activeSegment === item.id ? "text-indigo-400 scale-110" : "text-white/40 group-hover:text-white"
-                                        }`}
-                                />
-                            )}
+                                ) : item.id === "intelligence" ? (
+                                    <img src="/skillset-logo.png" alt="Skillset" className="w-full h-full object-contain p-1" />
+                                ) : (
+                                    <item.icon
+                                        size={14}
+                                        className={`transition-colors duration-300 ${activeSegment === item.id ? "text-indigo-400" : "text-white/40 group-hover:text-white"
+                                            }`}
+                                    />
+                                )}
+                            </div>
 
                             {/* Tooltip */}
                             <div className="absolute top-full mt-4 px-3 py-1.5 glass rounded-xl text-[10px] font-black uppercase tracking-widest text-white opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 whitespace-nowrap pointer-events-none border border-white/5">
@@ -118,11 +117,11 @@ export default function Navigation({ onTerminalClick }: { onTerminalClick: () =>
                 {/* Terminal Button */}
                 <button
                     onClick={onTerminalClick}
-                    className="relative group p-3 rounded-full bg-indigo-500 hover:bg-indigo-400 transition-all duration-300 shadow-[0_0_20px_rgba(99,102,241,0.4)]"
+                    className="relative group w-8 h-8 rounded-full bg-indigo-500 hover:bg-indigo-400 transition-all duration-300 shadow-[0_0_20px_rgba(99,102,241,0.4)] flex items-center justify-center shrink-0"
                 >
                     <div className="relative flex flex-col items-center">
-                        <TerminalIcon size={20} className="text-white" />
-                        <div className="absolute top-full mt-4 px-3 py-1.5 glass rounded-xl text-[10px] font-black uppercase tracking-widest text-indigo-400 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 whitespace-nowrap pointer-events-none border border-indigo-500/20">
+                        <TerminalIcon size={14} className="text-white" />
+                        <div className="absolute top-full mt-6 px-3 py-1.5 glass rounded-xl text-[10px] font-black uppercase tracking-widest text-indigo-400 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 whitespace-nowrap pointer-events-none border border-indigo-500/20">
                             Karan's Twin
                         </div>
                     </div>
