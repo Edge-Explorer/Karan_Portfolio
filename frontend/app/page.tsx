@@ -121,7 +121,7 @@ const coursework = [
     title: "Supervised Machine Learning",
     subtitle: "Regression and Classification",
     issuer: "Coursera | DeepLearning.AI",
-    image: "/coursework/supervised-ml.png",
+    image: "/coursework/deeplearning-logo.jpg",
     link: "https://www.coursera.org/account/accomplishments/verify/2W993A8JKMBN",
     status: "Verified",
     id: "01"
