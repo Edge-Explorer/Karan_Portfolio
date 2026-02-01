@@ -5,10 +5,15 @@ from app.core.config import settings
 from app.database import engine, Base
 from app import models  # Ensure models are loaded
 
-# Create tables
-Base.metadata.create_all(bind=engine)
+from contextlib import asynccontextmanager
 
-app = FastAPI(title=settings.PROJECT_NAME)
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Create tables on startup
+    Base.metadata.create_all(bind=engine)
+    yield
+
+app = FastAPI(title=settings.PROJECT_NAME, lifespan=lifespan)
 
 # Set up CORS
 app.add_middleware(
