@@ -182,8 +182,8 @@ export default function Home() {
   const [theme, setTheme] = useState<"neural" | "space">("neural");
 
   useEffect(() => {
-    // Neural Pre-warming: Wake up the Render server as soon as the page loads
-    fetch("https://karan-portfolio-a3c3.onrender.com/").catch(() => { });
+    // Neural Pre-warming: Prime the Vercel Serverless Function on load
+    fetch("https://karan-portfolio-zhf8.vercel.app/").catch(() => { });
   }, []);
 
   return (

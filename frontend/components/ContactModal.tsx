@@ -17,7 +17,7 @@ export default function ContactModal({ isOpen, onClose }: { isOpen: boolean; onC
 
         try {
             // 1. Log to PostgreSQL via Backend
-            const response = await fetch("https://karan-portfolio-a3c3.onrender.com/api/contact/", {
+            const response = await fetch("https://karan-portfolio-zhf8.vercel.app/api/contact/", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),
@@ -41,7 +41,7 @@ export default function ContactModal({ isOpen, onClose }: { isOpen: boolean; onC
             console.error("Failed to send message", error);
 
             if (isTimeout) {
-                alert("The neural gateway timed out. The server is still waking up. Please try clicking Send again in 10 seconds!");
+                alert("The neural gateway is taking a moment. Please wait and try clicking Send again!");
             } else {
                 alert("Connection issue detected. Your message might have been delayed. Please try again!");
             }

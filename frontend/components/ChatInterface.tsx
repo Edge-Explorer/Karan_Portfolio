@@ -36,7 +36,7 @@ export default function ChatInterface({ isOpen, onClose }: { isOpen: boolean; on
         const timeoutId = setTimeout(() => controller.abort(), 90000); // 90s timeout
 
         try {
-            const response = await fetch("https://karan-portfolio-a3c3.onrender.com/api/chat/", {
+            const response = await fetch("https://karan-portfolio-zhf8.vercel.app/api/chat/", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ message: userMessage, history: messages }),
@@ -59,8 +59,8 @@ export default function ChatInterface({ isOpen, onClose }: { isOpen: boolean; on
                 {
                     role: "ai",
                     content: isTimeout
-                        ? "The neural gateway timed out. This usually happens if the server is waking up (Free Tier). Please try sending your message again!"
-                        : "Neural gateway is initializing. My server is waking up—this takes 30-50 seconds for the first request. Please try again in a moment!"
+                        ? "The neural gateway is taking longer than expected. Please try sending your message again!"
+                        : "Neural gateway is initializing. Please try again in a moment!"
                 },
             ]);
         } finally {
