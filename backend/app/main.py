@@ -47,8 +47,9 @@ app.add_middleware(
 )
 
 @app.get("/")
+@app.head("/")
 async def root():
-    return {"message": "Welcome to Karan's Portfolio API"}
+    return {"message": "Welcome to Karan's Portfolio API", "status": "active"}
 
 # Include routers
 app.include_router(chat.router, prefix="/api/chat", tags=["chat"])
