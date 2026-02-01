@@ -28,6 +28,8 @@ export default function ContactModal({ isOpen, onClose }: { isOpen: boolean; onC
 
         } catch (error) {
             console.error("Failed to send message", error);
+            alert("Neural gateway is initializing (Render Free Tier). The server is waking up, which takes 30-50 seconds for the first request. Please wait a moment and try sending your message again!");
+            setStatus("idle");
         }
     };
 
