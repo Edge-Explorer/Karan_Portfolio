@@ -2,6 +2,11 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.api.endpoints import chat, contact
 from app.core.config import settings
+from app.database import engine, Base
+from app import models  # Ensure models are loaded
+
+# Create tables
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title=settings.PROJECT_NAME)
 
