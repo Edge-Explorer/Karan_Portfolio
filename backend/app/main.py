@@ -17,17 +17,29 @@ def create_db_tables():
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Run DB creation in background thread so it doesn't block startup
+    # Run DB creation in background thread
+    print("🚀 Neural Gateway: Initializing Database...")
     thread = threading.Thread(target=create_db_tables)
+    thread.daemon = True
     thread.start()
     yield
 
 app = FastAPI(title=settings.PROJECT_NAME, lifespan=lifespan)
 
+# Logging Middleware: See every request in Render logs instantly
+@app.middleware("http")
+async def log_requests(request: Request, call_next):
+    print(f"DEBUG: Incoming {request.method} request to {request.url.path}")
+    start_time = time.time()
+    response = await call_next(request)
+    duration = time.time() - start_time
+    print(f"DEBUG: Completed {request.method} {request.url.path} in {duration:.2f}s")
+    return response
+
 # Set up CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Adjust in production
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

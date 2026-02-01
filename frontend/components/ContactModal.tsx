@@ -12,13 +12,19 @@ export default function ContactModal({ isOpen, onClose }: { isOpen: boolean; onC
         e.preventDefault();
         setStatus("loading");
 
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 90000); // 90s timeout
+
         try {
             // 1. Log to PostgreSQL via Backend
             const response = await fetch("https://karan-portfolio-a3c3.onrender.com/api/contact/", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),
+                signal: controller.signal
             });
+
+            clearTimeout(timeoutId);
 
             if (response.ok) {
                 // 2. Success state
@@ -29,9 +35,16 @@ export default function ContactModal({ isOpen, onClose }: { isOpen: boolean; onC
                 throw new Error("Backend response error");
             }
 
-        } catch (error) {
+        } catch (error: any) {
+            clearTimeout(timeoutId);
+            const isTimeout = error.name === 'AbortError';
             console.error("Failed to send message", error);
-            alert("Connection issue detected. Your message might have been delayed. Please try again or wait a moment!");
+
+            if (isTimeout) {
+                alert("The neural gateway timed out. The server is still waking up. Please try clicking Send again in 10 seconds!");
+            } else {
+                alert("Connection issue detected. Your message might have been delayed. Please try again!");
+            }
             setStatus("idle");
         }
     };
