@@ -686,7 +686,7 @@ export default function Home() {
               className="group inline-flex flex-col items-center gap-6"
             >
               <p className="text-2xl md:text-3xl font-bold text-white/40 group-hover:text-indigo-400 transition-colors duration-500 max-w-2xl px-4">
-                Hungry for more? From neural architectures to full-stack pipelines, explore my complete digital laboratory.
+                Bridging the gap between innovative vision and high-performance execution through intelligent systems engineering.
               </p>
               <div className="flex items-center gap-4 px-10 py-5 rounded-full glass border border-white/5 group-hover:border-indigo-500/50 group-hover:bg-indigo-500/10 transition-all duration-500 shadow-2xl">
                 <span className="text-xs font-black uppercase tracking-[0.3em] text-white/60 group-hover:text-white transition-colors">Neural Repository</span>
