@@ -43,7 +43,10 @@ export default function ChatInterface({ isOpen, onClose }: { isOpen: boolean; on
         } catch (error) {
             setMessages((prev) => [
                 ...prev,
-                { role: "ai", content: "Sync interrupted. Please ensure the neural gateway is active." },
+                {
+                    role: "ai",
+                    content: "Neural gateway is initializing. My server (Render Free Tier) is waking up—this usually takes 30-50 seconds for the first request. Please try sending your message again in a moment!"
+                },
             ]);
         } finally {
             setIsLoading(false);
