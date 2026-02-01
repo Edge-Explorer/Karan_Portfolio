@@ -5,12 +5,20 @@ from app.core.config import settings
 from app.database import engine, Base
 from app import models  # Ensure models are loaded
 
-from contextlib import asynccontextmanager
+import threading
+
+def create_db_tables():
+    try:
+        Base.metadata.create_all(bind=engine)
+        print("Database tables validated/created successfully.")
+    except Exception as e:
+        print(f"Database sync error (non-fatal for startup): {e}")
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Create tables on startup
-    Base.metadata.create_all(bind=engine)
+    # Run DB creation in background thread so it doesn't block startup
+    thread = threading.Thread(target=create_db_tables)
+    thread.start()
     yield
 
 app = FastAPI(title=settings.PROJECT_NAME, lifespan=lifespan)
