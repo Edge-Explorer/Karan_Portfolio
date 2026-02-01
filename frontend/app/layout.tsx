@@ -15,6 +15,9 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Karan Rohidas Shelar | Generative AI Developer",
   description: "Innovative portfolio of Karan Rohidas Shelar specializing in Generative AI and Fullstack Development.",
+  icons: {
+    icon: "/icon.png",
+  },
 };
 
 export default function RootLayout({
