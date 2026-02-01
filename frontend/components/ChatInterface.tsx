@@ -33,7 +33,7 @@ export default function ChatInterface({ isOpen, onClose }: { isOpen: boolean; on
         setIsLoading(true);
 
         try {
-            const response = await fetch("http://localhost:8000/api/chat/", {
+            const response = await fetch("https://karan-portfolio-a3c3.onrender.com/api/chat/", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ message: userMessage, history: messages }),

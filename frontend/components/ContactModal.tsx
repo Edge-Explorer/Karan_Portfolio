@@ -14,7 +14,7 @@ export default function ContactModal({ isOpen, onClose }: { isOpen: boolean; onC
 
         try {
             // 1. Log to PostgreSQL via Backend
-            await fetch("http://localhost:8000/api/contact/", {
+            await fetch("https://karan-portfolio-a3c3.onrender.com/api/contact/", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),
