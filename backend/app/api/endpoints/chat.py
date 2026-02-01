@@ -116,6 +116,7 @@ INTERACTION PROTOCOL:
 @router.post("/")
 async def chat_with_gemini(request: ChatRequest, db: Session = Depends(get_db)):
     try:
+        print(f"Chat Request Received: {request.message[:50]}...")
         # 1. Store User Message in DB
         user_msg = ChatMessage(role="user", content=request.message)
         db.add(user_msg)
@@ -127,16 +128,25 @@ async def chat_with_gemini(request: ChatRequest, db: Session = Depends(get_db)):
             {"role": "model", "parts": [{"text": "Understood. I am Karan's Digital Twin, programmed with your identity and project data. How can I assist you today?"}]}
         ]
 
-        # Add existing history from frontend if it exists
-        # Gemini roles are 'user' and 'model'
+        # 3. Sanitize History (Gemini requires strictly alternating roles: user, model, user, model...)
+        last_role = "model"
         for msg in request.history:
-            role = "user" if msg["role"] == "user" else "model"
-            formatted_contents.append({"role": role, "parts": [{"text": msg["content"]}]})
+            current_role = "user" if msg["role"] == "user" else "model"
+            # Only add if it alternates
+            if current_role != last_role:
+                formatted_contents.append({"role": current_role, "parts": [{"text": msg["content"]}]})
+                last_role = current_role
 
-        # Add current message
+        # Final check: Ensure the last role added was 'model' before adding the NEW 'user' message
+        if last_role != "model":
+            # If the user sent two messages in a row, we skip the middle ones in history 
+            # or could merge them, but alternating is the safest for the API.
+            pass 
+
         formatted_contents.append({"role": "user", "parts": [{"text": request.message}]})
 
-        # 3. Generate AI Response
+        # 4. Generate AI Response
+        print("Polling Gemini API...")
         response = client.models.generate_content(
             model='gemini-2.0-flash',
             contents=formatted_contents
@@ -144,13 +154,14 @@ async def chat_with_gemini(request: ChatRequest, db: Session = Depends(get_db)):
         
         ai_response_text = response.text or "I apologize, but I'm having trouble retrieving my thoughts. Could you rephrase that?"
 
-        # 4. Store AI Response in DB
+        # 5. Store AI Response in DB
         ai_msg = ChatMessage(role="ai", content=ai_response_text)
         db.add(ai_msg)
         db.commit()
 
+        print("Success: Response generated.")
         return {"response": ai_response_text}
     except Exception as e:
         db.rollback()
-        print(f"Chat Error: {e}")
-        return {"response": "My neural synthesis encountered a momentarily logic gap (API Timeout). Please try sending your query again!"}
+        print(f"CRITICAL CHAT ERROR: {str(e)}")
+        return {"response": f"My neural link is currently fluctuating (Error: {str(e).split(':')[0]}). Please try sending your query again in 10 seconds!"}

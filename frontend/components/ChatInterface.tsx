@@ -32,24 +32,35 @@ export default function ChatInterface({ isOpen, onClose }: { isOpen: boolean; on
         setMessages((prev) => [...prev, { role: "user", content: userMessage }]);
         setIsLoading(true);
 
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 50000); // 50s timeout
+
         try {
             const response = await fetch("https://karan-portfolio-a3c3.onrender.com/api/chat/", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ message: userMessage, history: messages }),
+                signal: controller.signal
             });
+
+            clearTimeout(timeoutId);
 
             if (!response.ok) throw new Error("AI synthesis failed");
 
             const data = await response.json();
             const aiResponse = data.response || "My neural link is currently fluctuating. Could you try that query again?";
             setMessages((prev) => [...prev, { role: "ai", content: aiResponse }]);
-        } catch (error) {
+        } catch (error: any) {
+            clearTimeout(timeoutId);
+            const isTimeout = error.name === 'AbortError';
+
             setMessages((prev) => [
                 ...prev,
                 {
                     role: "ai",
-                    content: "Neural gateway is initializing. My server (Render Free Tier) is waking up—this usually takes 30-50 seconds for the first request. Please try sending your message again in a moment!"
+                    content: isTimeout
+                        ? "The neural gateway timed out. This usually happens if the server is waking up (Free Tier). Please try sending your message again!"
+                        : "Neural gateway is initializing. My server is waking up—this takes 30-50 seconds for the first request. Please try again in a moment!"
                 },
             ]);
         } finally {
