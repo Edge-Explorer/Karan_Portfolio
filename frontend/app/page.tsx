@@ -12,7 +12,7 @@ import ContactModal from "@/components/ContactModal";
 import NeuralBackground from "@/components/NeuralBackground";
 import SpaceBackground from "@/components/SpaceBackground";
 import Navigation from "@/components/Navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const skills = [
   {
@@ -180,6 +180,11 @@ export default function Home() {
   const [isAIChatOpen, setIsAIChatOpen] = useState(false);
   const [activeSkill, setActiveSkill] = useState<any | null>(null);
   const [theme, setTheme] = useState<"neural" | "space">("neural");
+
+  useEffect(() => {
+    // Neural Pre-warming: Wake up the Render server as soon as the page loads
+    fetch("https://karan-portfolio-a3c3.onrender.com/").catch(() => { });
+  }, []);
 
   return (
     <main className="min-h-screen bg-transparent text-white selection:bg-indigo-500/30 overflow-x-hidden relative">

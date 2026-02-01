@@ -33,7 +33,7 @@ export default function ChatInterface({ isOpen, onClose }: { isOpen: boolean; on
         setIsLoading(true);
 
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 50000); // 50s timeout
+        const timeoutId = setTimeout(() => controller.abort(), 90000); // 90s timeout
 
         try {
             const response = await fetch("https://karan-portfolio-a3c3.onrender.com/api/chat/", {
