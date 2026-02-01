@@ -50,8 +50,10 @@ def send_email_notification(contact: ContactCreate):
         print(f"SMTP Error: {e}")
         return False
 
+from fastapi import APIRouter, Depends, HTTPException, BackgroundTasks
+
 @router.post("/")
-async def create_contact(contact: ContactCreate, db: Session = Depends(get_db)):
+async def create_contact(contact: ContactCreate, background_tasks: BackgroundTasks, db: Session = Depends(get_db)):
     try:
         # 1. Save to Database
         db_contact = ContactMessage(
@@ -64,13 +66,13 @@ async def create_contact(contact: ContactCreate, db: Session = Depends(get_db)):
         db.commit()
         db.refresh(db_contact)
 
-        # 2. Trigger Email Notification (Non-blocking or simple call)
-        email_sent = send_email_notification(contact)
+        # 2. Trigger Email Notification in Background (prevents UI hang)
+        background_tasks.add_task(send_email_notification, contact)
 
         return {
             "status": "success", 
             "message": "Inquiry recorded in database",
-            "email_dispatched": email_sent
+            "email_notified": "queued"
         }
     except Exception as e:
         db.rollback()

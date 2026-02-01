@@ -14,21 +14,24 @@ export default function ContactModal({ isOpen, onClose }: { isOpen: boolean; onC
 
         try {
             // 1. Log to PostgreSQL via Backend
-            await fetch("https://karan-portfolio-a3c3.onrender.com/api/contact/", {
+            const response = await fetch("https://karan-portfolio-a3c3.onrender.com/api/contact/", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),
             });
 
-            // 2. Success state
-            setStatus("success");
-
-            // Clear form
-            setFormData({ name: "", email: "", subject: "", message: "" });
+            if (response.ok) {
+                // 2. Success state
+                setStatus("success");
+                // Clear form
+                setFormData({ name: "", email: "", subject: "", message: "" });
+            } else {
+                throw new Error("Backend response error");
+            }
 
         } catch (error) {
             console.error("Failed to send message", error);
-            alert("Neural gateway is initializing (Render Free Tier). The server is waking up, which takes 30-50 seconds for the first request. Please wait a moment and try sending your message again!");
+            alert("Connection issue detected. Your message might have been delayed. Please try again or wait a moment!");
             setStatus("idle");
         }
     };

@@ -121,19 +121,30 @@ async def chat_with_gemini(request: ChatRequest, db: Session = Depends(get_db)):
         db.add(user_msg)
         db.commit()
 
-        # 2. Generate AI Response
+        # 2. Construct Conversation History for Gemini
+        formatted_contents = [
+            {"role": "user", "parts": [{"text": SYSTEM_PROMPT}]},
+            {"role": "model", "parts": [{"text": "Understood. I am Karan's Digital Twin, programmed with your identity and project data. How can I assist you today?"}]}
+        ]
+
+        # Add existing history from frontend if it exists
+        # Gemini roles are 'user' and 'model'
+        for msg in request.history:
+            role = "user" if msg["role"] == "user" else "model"
+            formatted_contents.append({"role": role, "parts": [{"text": msg["content"]}]})
+
+        # Add current message
+        formatted_contents.append({"role": "user", "parts": [{"text": request.message}]})
+
+        # 3. Generate AI Response
         response = client.models.generate_content(
             model='gemini-2.0-flash',
-            contents=[
-                {"role": "user", "parts": [{"text": SYSTEM_PROMPT}]},
-                {"role": "model", "parts": [{"text": "Understood. I am Karan's Digital Twin, ready to represent his professional portfolio."}]},
-                {"role": "user", "parts": [{"text": request.message}]}
-            ]
+            contents=formatted_contents
         )
         
-        ai_response_text = response.text
+        ai_response_text = response.text or "I apologize, but I'm having trouble retrieving my thoughts. Could you rephrase that?"
 
-        # 3. Store AI Response in DB
+        # 4. Store AI Response in DB
         ai_msg = ChatMessage(role="ai", content=ai_response_text)
         db.add(ai_msg)
         db.commit()
@@ -141,4 +152,5 @@ async def chat_with_gemini(request: ChatRequest, db: Session = Depends(get_db)):
         return {"response": ai_response_text}
     except Exception as e:
         db.rollback()
-        raise HTTPException(status_code=500, detail=str(e))
+        print(f"Chat Error: {e}")
+        return {"response": "My neural synthesis encountered a momentarily logic gap (API Timeout). Please try sending your query again!"}

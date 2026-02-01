@@ -38,8 +38,12 @@ export default function ChatInterface({ isOpen, onClose }: { isOpen: boolean; on
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ message: userMessage, history: messages }),
             });
+
+            if (!response.ok) throw new Error("AI synthesis failed");
+
             const data = await response.json();
-            setMessages((prev) => [...prev, { role: "ai", content: data.response }]);
+            const aiResponse = data.response || "My neural link is currently fluctuating. Could you try that query again?";
+            setMessages((prev) => [...prev, { role: "ai", content: aiResponse }]);
         } catch (error) {
             setMessages((prev) => [
                 ...prev,
