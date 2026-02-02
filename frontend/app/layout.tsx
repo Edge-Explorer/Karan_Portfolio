@@ -16,7 +16,10 @@ export const metadata: Metadata = {
   title: "Karan Rohidas Shelar | Generative AI Developer",
   description: "Innovative portfolio of Karan Rohidas Shelar specializing in Generative AI and Fullstack Development.",
   icons: {
-    icon: "/favicon.png",
+    icon: [
+      { url: "/favicon.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.png", sizes: "16x16", type: "image/png" },
+    ],
     shortcut: "/favicon.png",
     apple: "/favicon.png",
   },
