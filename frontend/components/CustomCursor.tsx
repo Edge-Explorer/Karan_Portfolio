@@ -42,13 +42,13 @@ export default function CustomCursor() {
         <>
             {/* Background Glow (Flashlight Effect) */}
             <motion.div
-                className="fixed top-0 left-0 w-[600px] h-[600px] rounded-full pointer-events-none z-[2] opacity-20 hidden md:block blur-[100px]"
+                className="fixed top-0 left-0 w-[800px] h-[800px] rounded-full pointer-events-none z-[2] opacity-30 hidden md:block blur-[120px]"
                 style={{
                     x: mouseX,
                     y: mouseY,
                     translateX: "-50%",
                     translateY: "-50%",
-                    background: "radial-gradient(circle, rgba(99, 102, 241, 0.4) 0%, transparent 70%)"
+                    background: "radial-gradient(circle, rgba(99, 102, 241, 0.5) 0%, transparent 75%)"
                 }}
             />
         </>
