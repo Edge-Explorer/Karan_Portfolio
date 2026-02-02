@@ -13,6 +13,7 @@ import NeuralBackground from "@/components/NeuralBackground";
 import SpaceBackground from "@/components/SpaceBackground";
 import Navigation from "@/components/Navigation";
 import NeuralReveal from "@/components/NeuralReveal";
+import PortraitReveal from "@/components/PortraitReveal";
 import { useState, useEffect, useRef } from "react";
 import { useMotionValue, useTransform, useSpring as useFramerSpring } from "framer-motion";
 
@@ -350,21 +351,8 @@ export default function Home() {
               </motion.div>
             </div>
 
-            {/* Portrait Anchor - Brought Inside */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="relative group shrink-0 order-1 lg:order-2"
-            >
-              <div className="absolute -inset-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full blur-[30px] opacity-20 group-hover:opacity-100 transition duration-1000 animate-pulse"></div>
-              <div className="relative w-52 h-52 md:w-64 md:h-64 lg:w-[21rem] lg:h-[21rem] rounded-full overflow-hidden border-2 border-white/10 shadow-[0_10px_60px_rgba(99,102,241,0.2)] bg-background">
-                <img
-                  src="/karan_image.png"
-                  alt="Karan"
-                  className="w-full h-full object-cover object-top transition-transform duration-1000 group-hover:scale-105"
-                />
-              </div>
-            </motion.div>
+            {/* Portrait Anchor - Now Dynamic and Theme-Aware */}
+            <PortraitReveal src="/karan_image.png" theme={theme} />
           </div>
         </section>
 
