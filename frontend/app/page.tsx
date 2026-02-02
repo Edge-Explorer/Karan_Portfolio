@@ -12,6 +12,7 @@ import ContactModal from "@/components/ContactModal";
 import NeuralBackground from "@/components/NeuralBackground";
 import SpaceBackground from "@/components/SpaceBackground";
 import Navigation from "@/components/Navigation";
+import ScrambleText from "@/components/ScrambleText";
 import { useState, useEffect, useRef } from "react";
 import { useMotionValue, useTransform, useSpring as useFramerSpring } from "framer-motion";
 
@@ -294,7 +295,7 @@ export default function Home() {
                   animate={{ opacity: 1, x: 0 }}
                   className="text-4xl md:text-6xl lg:text-7xl xl:text-[5rem] font-black tracking-tighter leading-none bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent lg:whitespace-nowrap"
                 >
-                  Karan Rohidas Shelar
+                  <ScrambleText text="Karan Rohidas Shelar" />
                 </motion.h1>
 
                 <motion.p
@@ -303,51 +304,51 @@ export default function Home() {
                   transition={{ delay: 0.1 }}
                   className="text-xl md:text-2xl lg:text-3xl text-indigo-400 font-bold tracking-[0.3em] uppercase leading-none"
                 >
-                  Generative AI Developer
+                  <ScrambleText text="Generative AI Developer" delay={0.5} />
                 </motion.p>
               </div>
+            </div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="flex flex-wrap justify-center lg:justify-start items-center gap-4 md:gap-6"
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="flex flex-wrap justify-center lg:justify-start items-center gap-4 md:gap-6"
+            >
+              <motion.button
+                onClick={() => setIsContactOpen(true)}
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="group relative px-10 py-5 bg-white text-black font-black uppercase tracking-widest text-[10px] rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(255,255,255,0.1)] transition-all active:scale-95"
               >
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-indigo-500/10 to-transparent -translate-x-full animate-shimmer" />
+                <div className="relative z-10 flex items-center gap-3">
+                  <Mail size={16} className="group-hover:rotate-12 transition-transform" />
+                  <span>Connect Now</span>
+                </div>
+              </motion.button>
+
+              <div className="flex flex-wrap items-center gap-3">
+                <SocialLink icon={<Github size={20} />} href="https://github.com/Edge-Explorer" label="GitHub" />
+                <SocialLink icon={<Linkedin size={20} />} href="https://linkedin.com/in/karan-shelar-779381343" label="LinkedIn" />
+                <SocialLink icon={<Instagram size={20} />} href="https://instagram.com/karan.shelar.2004" label="Instagram" />
+                <SocialLink icon={<ExternalLink size={20} />} href="https://drive.google.com/file/d/1QhYwPLs4nQjjvCFuEEjYx0Q8Gbcc7GMb/view?usp=drive_link" label="Resume" />
+
+                {/* Theme Toggle Button */}
                 <motion.button
-                  onClick={() => setIsContactOpen(true)}
+                  onClick={() => setTheme(theme === "neural" ? "space" : "neural")}
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="group relative px-10 py-5 bg-white text-black font-black uppercase tracking-widest text-[10px] rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(255,255,255,0.1)] transition-all active:scale-95"
+                  className="flex items-center gap-3 px-6 py-3 glass rounded-2xl text-indigo-400 border-indigo-500/50 hover:bg-indigo-500/10 transition-all duration-300 group"
+                  title="Switch Background Theme"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-indigo-500/10 to-transparent -translate-x-full animate-shimmer" />
-                  <div className="relative z-10 flex items-center gap-3">
-                    <Mail size={16} className="group-hover:rotate-12 transition-transform" />
-                    <span>Connect Now</span>
-                  </div>
+                  {theme === "neural" ? <Sparkles size={20} className="animate-pulse" /> : <Zap size={20} className="text-yellow-400" />}
+                  <span className="text-xs font-black uppercase tracking-widest hidden md:inline">
+                    {theme === "neural" ? "Switch to Cinematic" : "Switch to Neural"}
+                  </span>
                 </motion.button>
-
-                <div className="flex flex-wrap items-center gap-3">
-                  <SocialLink icon={<Github size={20} />} href="https://github.com/Edge-Explorer" label="GitHub" />
-                  <SocialLink icon={<Linkedin size={20} />} href="https://linkedin.com/in/karan-shelar-779381343" label="LinkedIn" />
-                  <SocialLink icon={<Instagram size={20} />} href="https://instagram.com/karan.shelar.2004" label="Instagram" />
-                  <SocialLink icon={<ExternalLink size={20} />} href="https://drive.google.com/file/d/1QhYwPLs4nQjjvCFuEEjYx0Q8Gbcc7GMb/view?usp=drive_link" label="Resume" />
-
-                  {/* Theme Toggle Button */}
-                  <motion.button
-                    onClick={() => setTheme(theme === "neural" ? "space" : "neural")}
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex items-center gap-3 px-6 py-3 glass rounded-2xl text-indigo-400 border-indigo-500/50 hover:bg-indigo-500/10 transition-all duration-300 group"
-                    title="Switch Background Theme"
-                  >
-                    {theme === "neural" ? <Sparkles size={20} className="animate-pulse" /> : <Zap size={20} className="text-yellow-400" />}
-                    <span className="text-xs font-black uppercase tracking-widest hidden md:inline">
-                      {theme === "neural" ? "Switch to Cinematic" : "Switch to Neural"}
-                    </span>
-                  </motion.button>
-                </div>
-              </motion.div>
-            </div>
+              </div>
+            </motion.div>
 
             {/* Portrait Anchor - Brought Inside */}
             <motion.div
@@ -376,7 +377,7 @@ export default function Home() {
               className="absolute top-0 w-20 h-[1px] bg-white blur-sm"
             />
           </div>
-        </div>
+        </div >
 
         {/* INTRODUCTION / OVERVIEW SECTION */}
         <motion.section
@@ -389,7 +390,9 @@ export default function Home() {
         >
           <div className="space-y-6 text-left max-w-3xl">
             <h2 className="text-sm font-black text-indigo-400 uppercase tracking-[0.5em]">Introduction</h2>
-            <h3 className="text-6xl md:text-8xl font-black tracking-tighter text-white leading-none">Overview</h3>
+            <h3 className="text-6xl md:text-8xl font-black tracking-tighter text-white leading-none">
+              <ScrambleText text="Overview" />
+            </h3>
             <p className="text-xl md:text-2xl text-white/60 font-medium leading-relaxed">
               I am an emerging Generative AI Developer with a mission to architect the next generation of autonomous systems.
               I specialize in bridging the gap between ambitious AI research and practical execution, as seen in NEEL—a live
@@ -439,7 +442,9 @@ export default function Home() {
           className="w-full max-w-7xl space-y-24 py-32 border-y border-slate-200"
         >
           <div className="flex flex-col items-center text-center space-y-8">
-            <h3 className="text-7xl md:text-9xl font-black tracking-tighter text-white">Skillset</h3>
+            <h3 className="text-7xl md:text-9xl font-black tracking-tighter text-white">
+              <ScrambleText text="Skillset" />
+            </h3>
           </div>
 
           <div className="flex flex-wrap justify-center gap-x-12 gap-y-16 px-4">
@@ -496,10 +501,10 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
-        </motion.section>
+        </motion.section >
 
         {/* Credentials Section (Certifications) */}
-        <motion.section
+        < motion.section
           id="credentials"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -507,7 +512,9 @@ export default function Home() {
           className="w-full max-w-7xl mx-auto px-6 py-32 space-y-24"
         >
           <div className="flex flex-col items-center text-center space-y-8">
-            <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none text-indigo-400">Coursework</h2>
+            <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none text-indigo-400">
+              <ScrambleText text="Coursework" />
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -593,10 +600,10 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
-        </motion.section>
+        </motion.section >
 
         {/* Elegant Tech Divider */}
-        <div className="w-full max-w-7xl mx-auto px-6 h-20 flex items-center justify-center opacity-20 pointer-events-none">
+        < div className="w-full max-w-7xl mx-auto px-6 h-20 flex items-center justify-center opacity-20 pointer-events-none" >
           <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-indigo-500 to-transparent relative">
             <motion.div
               animate={{ left: ["0%", "100%"] }}
@@ -604,10 +611,10 @@ export default function Home() {
               className="absolute top-0 w-20 h-[1px] bg-white blur-sm"
             />
           </div>
-        </div>
+        </div >
 
         {/* Ventures Section (Projects) */}
-        <motion.section
+        < motion.section
           id="ventures"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -616,7 +623,10 @@ export default function Home() {
           className="w-full max-w-6xl space-y-24 py-32"
         >
           <div className="flex flex-col items-center text-center space-y-6">
-            <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none">Featured <br /> <span className="text-indigo-400">Ventures</span></h2>
+            <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none">
+              <ScrambleText text="Featured" /> <br />
+              <span className="text-indigo-400"><ScrambleText text="Ventures" delay={0.5} /></span>
+            </h2>
           </div>
 
           <div className="space-y-32">
