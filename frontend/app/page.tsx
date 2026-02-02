@@ -295,7 +295,7 @@ export default function Home() {
                   animate={{ opacity: 1, x: 0 }}
                   className="text-4xl md:text-6xl lg:text-7xl xl:text-[5rem] font-black tracking-tighter leading-none text-white lg:whitespace-nowrap"
                 >
-                  <NeuralReveal text="Karan Rohidas Shelar" />
+                  <NeuralReveal text="Karan Rohidas Shelar" trigger="mount" />
                 </motion.h1>
 
                 <motion.p
@@ -304,7 +304,7 @@ export default function Home() {
                   transition={{ delay: 0.1 }}
                   className="text-xl md:text-2xl lg:text-3xl text-indigo-400 font-bold tracking-[0.3em] uppercase leading-none"
                 >
-                  <NeuralReveal text="Generative AI Developer" delay={0.5} />
+                  <NeuralReveal text="Generative AI Developer" delay={0.5} trigger="mount" />
                 </motion.p>
               </div>
 
@@ -501,10 +501,10 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
-        </motion.section >
+        </motion.section>
 
         {/* Credentials Section (Certifications) */}
-        < motion.section
+        <motion.section
           id="credentials"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -600,10 +600,10 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
-        </motion.section >
+        </motion.section>
 
         {/* Elegant Tech Divider */}
-        < div className="w-full max-w-7xl mx-auto px-6 h-20 flex items-center justify-center opacity-20 pointer-events-none" >
+        <div className="w-full max-w-7xl mx-auto px-6 h-20 flex items-center justify-center opacity-20 pointer-events-none">
           <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-indigo-500 to-transparent relative">
             <motion.div
               animate={{ left: ["0%", "100%"] }}
@@ -611,7 +611,7 @@ export default function Home() {
               className="absolute top-0 w-20 h-[1px] bg-white blur-sm"
             />
           </div>
-        </div >
+        </div>
 
         {/* Ventures Section (Projects) */}
         <motion.section

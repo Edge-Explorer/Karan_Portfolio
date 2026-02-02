@@ -6,10 +6,15 @@ interface NeuralRevealProps {
     text: string;
     className?: string;
     delay?: number;
+    trigger?: "mount" | "view";
 }
 
-export default function NeuralReveal({ text, className, delay = 0 }: NeuralRevealProps) {
+export default function NeuralReveal({ text, className, delay = 0, trigger = "view" }: NeuralRevealProps) {
     const words = text.split(" ");
+
+    const animationProps = trigger === "mount"
+        ? { animate: { opacity: 1, filter: "blur(0px)", y: 0, scale: 1 } }
+        : { whileInView: { opacity: 1, filter: "blur(0px)", y: 0, scale: 1 } };
 
     return (
         <div className={`inline-block ${className}`}>
@@ -19,7 +24,8 @@ export default function NeuralReveal({ text, className, delay = 0 }: NeuralRevea
                         <motion.span
                             key={charIdx}
                             initial={{ opacity: 0, filter: "blur(12px)", y: 10, scale: 1.2 }}
-                            animate={{ opacity: 1, filter: "blur(0px)", y: 0, scale: 1 }}
+                            {...animationProps}
+                            viewport={{ once: false, amount: 0.3 }}
                             transition={{
                                 duration: 0.8,
                                 delay: delay + (wordIdx * 0.1) + (charIdx * 0.03),
