@@ -19,8 +19,7 @@ export default function NeuralReveal({ text, className, delay = 0 }: NeuralRevea
                         <motion.span
                             key={charIdx}
                             initial={{ opacity: 0, filter: "blur(12px)", y: 10, scale: 1.2 }}
-                            whileInView={{ opacity: 1, filter: "blur(0px)", y: 0, scale: 1 }}
-                            viewport={{ once: true }}
+                            animate={{ opacity: 1, filter: "blur(0px)", y: 0, scale: 1 }}
                             transition={{
                                 duration: 0.8,
                                 delay: delay + (wordIdx * 0.1) + (charIdx * 0.03),

@@ -293,7 +293,7 @@ export default function Home() {
                 <motion.h1
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
-                  className="text-4xl md:text-6xl lg:text-7xl xl:text-[5rem] font-black tracking-tighter leading-none bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent lg:whitespace-nowrap"
+                  className="text-4xl md:text-6xl lg:text-7xl xl:text-[5rem] font-black tracking-tighter leading-none text-white lg:whitespace-nowrap"
                 >
                   <NeuralReveal text="Karan Rohidas Shelar" />
                 </motion.h1>
