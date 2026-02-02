@@ -12,7 +12,7 @@ import ContactModal from "@/components/ContactModal";
 import NeuralBackground from "@/components/NeuralBackground";
 import SpaceBackground from "@/components/SpaceBackground";
 import Navigation from "@/components/Navigation";
-import ScrambleText from "@/components/ScrambleText";
+import NeuralReveal from "@/components/NeuralReveal";
 import { useState, useEffect, useRef } from "react";
 import { useMotionValue, useTransform, useSpring as useFramerSpring } from "framer-motion";
 
@@ -295,7 +295,7 @@ export default function Home() {
                   animate={{ opacity: 1, x: 0 }}
                   className="text-4xl md:text-6xl lg:text-7xl xl:text-[5rem] font-black tracking-tighter leading-none bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent lg:whitespace-nowrap"
                 >
-                  <ScrambleText text="Karan Rohidas Shelar" />
+                  <NeuralReveal text="Karan Rohidas Shelar" />
                 </motion.h1>
 
                 <motion.p
@@ -304,7 +304,7 @@ export default function Home() {
                   transition={{ delay: 0.1 }}
                   className="text-xl md:text-2xl lg:text-3xl text-indigo-400 font-bold tracking-[0.3em] uppercase leading-none"
                 >
-                  <ScrambleText text="Generative AI Developer" delay={0.5} />
+                  <NeuralReveal text="Generative AI Developer" delay={0.5} />
                 </motion.p>
               </div>
 
@@ -391,7 +391,7 @@ export default function Home() {
           <div className="space-y-6 text-left max-w-3xl">
             <h2 className="text-sm font-black text-indigo-400 uppercase tracking-[0.5em]">Introduction</h2>
             <h3 className="text-6xl md:text-8xl font-black tracking-tighter text-white leading-none">
-              <ScrambleText text="Overview" />
+              <NeuralReveal text="Overview" />
             </h3>
             <p className="text-xl md:text-2xl text-white/60 font-medium leading-relaxed">
               I am an emerging Generative AI Developer with a mission to architect the next generation of autonomous systems.
@@ -443,7 +443,7 @@ export default function Home() {
         >
           <div className="flex flex-col items-center text-center space-y-8">
             <h3 className="text-7xl md:text-9xl font-black tracking-tighter text-white">
-              <ScrambleText text="Skillset" />
+              <NeuralReveal text="Skillset" />
             </h3>
           </div>
 
@@ -513,7 +513,7 @@ export default function Home() {
         >
           <div className="flex flex-col items-center text-center space-y-8">
             <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none text-indigo-400">
-              <ScrambleText text="Coursework" />
+              <NeuralReveal text="Coursework" />
             </h2>
           </div>
 
@@ -614,7 +614,7 @@ export default function Home() {
         </div >
 
         {/* Ventures Section (Projects) */}
-        < motion.section
+        <motion.section
           id="ventures"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -624,8 +624,8 @@ export default function Home() {
         >
           <div className="flex flex-col items-center text-center space-y-6">
             <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none">
-              <ScrambleText text="Featured" /> <br />
-              <span className="text-indigo-400"><ScrambleText text="Ventures" delay={0.5} /></span>
+              <NeuralReveal text="Featured" /> <br />
+              <span className="text-indigo-400"><NeuralReveal text="Ventures" delay={0.5} /></span>
             </h2>
           </div>
 
