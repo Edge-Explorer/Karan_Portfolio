@@ -307,48 +307,48 @@ export default function Home() {
                   <ScrambleText text="Generative AI Developer" delay={0.5} />
                 </motion.p>
               </div>
-            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="flex flex-wrap justify-center lg:justify-start items-center gap-4 md:gap-6"
-            >
-              <motion.button
-                onClick={() => setIsContactOpen(true)}
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="group relative px-10 py-5 bg-white text-black font-black uppercase tracking-widest text-[10px] rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(255,255,255,0.1)] transition-all active:scale-95"
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="flex flex-wrap justify-center lg:justify-start items-center gap-4 md:gap-6"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-indigo-500/10 to-transparent -translate-x-full animate-shimmer" />
-                <div className="relative z-10 flex items-center gap-3">
-                  <Mail size={16} className="group-hover:rotate-12 transition-transform" />
-                  <span>Connect Now</span>
-                </div>
-              </motion.button>
-
-              <div className="flex flex-wrap items-center gap-3">
-                <SocialLink icon={<Github size={20} />} href="https://github.com/Edge-Explorer" label="GitHub" />
-                <SocialLink icon={<Linkedin size={20} />} href="https://linkedin.com/in/karan-shelar-779381343" label="LinkedIn" />
-                <SocialLink icon={<Instagram size={20} />} href="https://instagram.com/karan.shelar.2004" label="Instagram" />
-                <SocialLink icon={<ExternalLink size={20} />} href="https://drive.google.com/file/d/1QhYwPLs4nQjjvCFuEEjYx0Q8Gbcc7GMb/view?usp=drive_link" label="Resume" />
-
-                {/* Theme Toggle Button */}
                 <motion.button
-                  onClick={() => setTheme(theme === "neural" ? "space" : "neural")}
+                  onClick={() => setIsContactOpen(true)}
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="flex items-center gap-3 px-6 py-3 glass rounded-2xl text-indigo-400 border-indigo-500/50 hover:bg-indigo-500/10 transition-all duration-300 group"
-                  title="Switch Background Theme"
+                  className="group relative px-10 py-5 bg-white text-black font-black uppercase tracking-widest text-[10px] rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(255,255,255,0.1)] transition-all active:scale-95"
                 >
-                  {theme === "neural" ? <Sparkles size={20} className="animate-pulse" /> : <Zap size={20} className="text-yellow-400" />}
-                  <span className="text-xs font-black uppercase tracking-widest hidden md:inline">
-                    {theme === "neural" ? "Switch to Cinematic" : "Switch to Neural"}
-                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-indigo-500/10 to-transparent -translate-x-full animate-shimmer" />
+                  <div className="relative z-10 flex items-center gap-3">
+                    <Mail size={16} className="group-hover:rotate-12 transition-transform" />
+                    <span>Connect Now</span>
+                  </div>
                 </motion.button>
-              </div>
-            </motion.div>
+
+                <div className="flex flex-wrap items-center gap-3">
+                  <SocialLink icon={<Github size={20} />} href="https://github.com/Edge-Explorer" label="GitHub" />
+                  <SocialLink icon={<Linkedin size={20} />} href="https://linkedin.com/in/karan-shelar-779381343" label="LinkedIn" />
+                  <SocialLink icon={<Instagram size={20} />} href="https://instagram.com/karan.shelar.2004" label="Instagram" />
+                  <SocialLink icon={<ExternalLink size={20} />} href="https://drive.google.com/file/d/1QhYwPLs4nQjjvCFuEEjYx0Q8Gbcc7GMb/view?usp=drive_link" label="Resume" />
+
+                  {/* Theme Toggle Button */}
+                  <motion.button
+                    onClick={() => setTheme(theme === "neural" ? "space" : "neural")}
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex items-center gap-3 px-6 py-3 glass rounded-2xl text-indigo-400 border-indigo-500/50 hover:bg-indigo-500/10 transition-all duration-300 group"
+                    title="Switch Background Theme"
+                  >
+                    {theme === "neural" ? <Sparkles size={20} className="animate-pulse" /> : <Zap size={20} className="text-yellow-400" />}
+                    <span className="text-xs font-black uppercase tracking-widest hidden md:inline">
+                      {theme === "neural" ? "Switch to Cinematic" : "Switch to Neural"}
+                    </span>
+                  </motion.button>
+                </div>
+              </motion.div>
+            </div>
 
             {/* Portrait Anchor - Brought Inside */}
             <motion.div
@@ -377,7 +377,7 @@ export default function Home() {
               className="absolute top-0 w-20 h-[1px] bg-white blur-sm"
             />
           </div>
-        </div >
+        </div>
 
         {/* INTRODUCTION / OVERVIEW SECTION */}
         <motion.section
