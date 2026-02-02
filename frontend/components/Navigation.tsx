@@ -60,9 +60,10 @@ export default function Navigation({ onTerminalClick }: { onTerminalClick: () =>
                 x: "-50%",
                 opacity: isVisible ? 1 : 0
             }}
+            transition={{ type: "spring", damping: 30, stiffness: 200 }}
             className="fixed top-0 left-1/2 z-[500] pointer-events-auto"
         >
-            <div className="glass px-2 py-2 rounded-full border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.3)] backdrop-blur-3xl flex items-center gap-1">
+            <div className="bg-slate-900/40 backdrop-blur-2xl px-2 py-2 rounded-full border border-white/20 shadow-[0_25px_80px_rgba(0,0,0,0.5)] flex items-center gap-1.5 ring-1 ring-white/10">
                 {navItems.map((item) => (
                     <a
                         key={item.id}
@@ -73,58 +74,60 @@ export default function Navigation({ onTerminalClick }: { onTerminalClick: () =>
                                 document.getElementById(item.id)?.scrollIntoView({ behavior: "smooth" });
                             }
                         }}
-                        className="relative group p-3 rounded-full transition-all duration-300"
+                        className="relative group px-1.5 py-1.5 rounded-full transition-all duration-500"
                     >
                         {activeSegment === item.id && (
                             <motion.div
-                                layoutId="active-pill"
-                                className="absolute inset-0 bg-indigo-500/20 border border-indigo-500/50 rounded-full"
-                                transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
+                                layoutId="nav-active-bg"
+                                className="absolute inset-0 bg-indigo-500/10 border border-indigo-500/30 rounded-full shadow-[inset_0_0_20px_rgba(99,102,241,0.1)]"
+                                transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                             />
                         )}
 
                         <div className="relative flex flex-col items-center">
-                            <div className={`w-8 h-8 rounded-full overflow-hidden border-2 flex items-center justify-center transition-all duration-300 ${activeSegment === item.id
-                                ? "border-indigo-400 scale-125 shadow-[0_0_15px_rgba(99,102,241,0.5)] bg-indigo-500/10"
-                                : "border-white/10 group-hover:border-white/40 bg-white/5"
+                            <div className={`w-10 h-10 rounded-full overflow-hidden border-2 flex items-center justify-center transition-all duration-500 ease-out ${activeSegment === item.id
+                                ? "border-indigo-400/80 scale-110 shadow-[0_0_25px_rgba(99,102,241,0.4)] bg-indigo-500/10"
+                                : "border-white/5 group-hover:border-white/20 bg-white/5 group-hover:bg-white/10"
                                 }`}>
                                 {item.id === "origin" ? (
-                                    <img src="/karan_image.png" alt="Origin" className="w-full h-full object-cover object-top" />
+                                    <img src="/karan_image.png" alt="Origin" className={`w-full h-full object-cover object-top transition-all duration-700 ${activeSegment === item.id ? 'scale-110' : 'grayscale group-hover:grayscale-0'}`} />
                                 ) : item.id === "intelligence" ? (
-                                    <img src="/skillset-logo.png" alt="Skillset" className="w-full h-full object-contain p-1" />
+                                    <img src="/skillset-logo.png" alt="Skillset" className={`w-full h-full object-contain p-2 transition-all duration-700 ${activeSegment === item.id ? 'scale-110' : 'grayscale group-hover:grayscale-0'}`} />
                                 ) : item.id === "credentials" ? (
-                                    <img src="/coursework-logo.jpeg" alt="Coursework" className="w-full h-full object-contain p-1" />
+                                    <img src="/coursework-logo.jpeg" alt="Coursework" className={`w-full h-full object-contain p-2 transition-all duration-700 ${activeSegment === item.id ? 'scale-110' : 'grayscale group-hover:grayscale-0'}`} />
                                 ) : item.id === "ventures" ? (
-                                    <img src="/projects-logo.jpg" alt="Ventures" className="w-full h-full object-contain p-1" />
+                                    <img src="/projects-logo.jpg" alt="Ventures" className={`w-full h-full object-contain p-2 transition-all duration-700 ${activeSegment === item.id ? 'scale-110' : 'grayscale group-hover:grayscale-0'}`} />
                                 ) : (
                                     <item.icon
-                                        size={14}
-                                        className={`transition-colors duration-300 ${activeSegment === item.id ? "text-indigo-400" : "text-white/40 group-hover:text-white"
+                                        size={18}
+                                        className={`transition-colors duration-500 ${activeSegment === item.id ? "text-indigo-400" : "text-white/30 group-hover:text-white"
                                             }`}
                                     />
                                 )}
                             </div>
 
-                            {/* Tooltip */}
-                            <div className="absolute top-full mt-4 px-3 py-1.5 glass rounded-xl text-[10px] font-black uppercase tracking-widest text-white opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 whitespace-nowrap pointer-events-none border border-white/5">
+                            {/* Enhanced Tooltip */}
+                            <div className="absolute top-full mt-5 px-4 py-2 bg-slate-900/80 backdrop-blur-xl rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] text-indigo-400 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0 whitespace-nowrap pointer-events-none border border-white/10 shadow-2xl">
                                 {item.label}
+                                <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-slate-900 rotate-45 border-l border-t border-white/10" />
                             </div>
                         </div>
                     </a>
                 ))}
 
-                {/* Separator */}
-                <div className="w-[1px] h-6 bg-white/10 mx-2" />
+                {/* Vertical Separator */}
+                <div className="w-[1px] h-8 bg-white/10 mx-1" />
 
-                {/* Terminal Button */}
+                {/* Terminal Button: High-Tech Interaction */}
                 <button
                     onClick={onTerminalClick}
-                    className="relative group w-8 h-8 rounded-full bg-indigo-500 hover:bg-indigo-400 transition-all duration-300 shadow-[0_0_20px_rgba(99,102,241,0.4)] flex items-center justify-center shrink-0"
+                    className="relative group w-10 h-10 rounded-full bg-indigo-600 hover:bg-indigo-500 transition-all duration-500 shadow-[0_10px_30px_rgba(99,102,241,0.4)] flex items-center justify-center shrink-0 active:scale-90"
                 >
                     <div className="relative flex flex-col items-center">
-                        <TerminalIcon size={14} className="text-white" />
-                        <div className="absolute top-full mt-6 px-3 py-1.5 glass rounded-xl text-[10px] font-black uppercase tracking-widest text-indigo-400 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 whitespace-nowrap pointer-events-none border border-indigo-500/20">
-                            Karan's Twin
+                        <TerminalIcon size={18} className="text-white group-hover:rotate-12 transition-transform duration-500" />
+                        <div className="absolute top-full mt-7 px-4 py-2 bg-indigo-600/90 backdrop-blur-xl rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] text-white opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0 whitespace-nowrap pointer-events-none border border-white/20 shadow-2xl">
+                            Karan's Twin 🤖
+                            <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-indigo-600 rotate-45" />
                         </div>
                     </div>
                 </button>

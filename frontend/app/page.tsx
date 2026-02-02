@@ -12,7 +12,48 @@ import ContactModal from "@/components/ContactModal";
 import NeuralBackground from "@/components/NeuralBackground";
 import SpaceBackground from "@/components/SpaceBackground";
 import Navigation from "@/components/Navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useMotionValue, useTransform, useSpring as useFramerSpring } from "framer-motion";
+
+function Tilt({ children, className }: { children: React.ReactNode, className?: string }) {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const rotateX = useTransform(y, [-100, 100], [10, -10]);
+  const rotateY = useTransform(x, [-100, 100], [-10, 10]);
+
+  const springConfig = { damping: 20, stiffness: 300 };
+  const springX = useFramerSpring(rotateX, springConfig);
+  const springY = useFramerSpring(rotateY, springConfig);
+
+  function handleMouseMove(event: React.MouseEvent<HTMLDivElement>) {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    x.set(event.clientX - centerX);
+    y.set(event.clientY - centerY);
+  }
+
+  function handleMouseLeave() {
+    x.set(0);
+    y.set(0);
+  }
+
+  return (
+    <motion.div
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        rotateX: springX,
+        rotateY: springY,
+        transformStyle: "preserve-3d",
+      }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 const skills = [
   {
@@ -613,14 +654,14 @@ export default function Home() {
                     ))}
                   </div>
                 </div>
-                <div className="flex-1 w-full aspect-[4/3] rounded-[4rem] overflow-hidden relative group">
+                <Tilt className="flex-1 w-full aspect-[4/3] rounded-[4rem] overflow-hidden relative group cursor-pointer">
                   <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-20`} />
                   <div className="absolute inset-0 glass-vibrant" />
 
                   {/* Interactive Hover Window */}
                   {(project.links || project.highlights) && (
-                    <div className="absolute inset-0 z-20 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center p-8 lg:p-12">
-                      <div className="w-full h-full glass rounded-[3rem] p-8 flex flex-col justify-between border border-white/20 shadow-2xl backdrop-blur-2xl">
+                    <div className="absolute inset-0 z-20 opacity-0 group-hover:opacity-100 transition-all duration-700 flex items-center justify-center p-8 lg:p-12">
+                      <div className="w-full h-full glass rounded-[3rem] p-8 flex flex-col justify-between border border-white/20 shadow-2xl backdrop-blur-3xl">
                         <div className="space-y-4">
                           <h4 className="text-sm font-black text-indigo-400 uppercase tracking-[0.3em]">Project_Pulse</h4>
                           <div className="flex flex-wrap gap-2">
@@ -638,7 +679,7 @@ export default function Home() {
                               href={project.links.drive}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="flex items-center justify-between p-4 rounded-2xl bg-indigo-500 hover:bg-indigo-400 text-white transition-all group/link"
+                              className="flex items-center justify-between p-4 rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white transition-all group/link shadow-xl shadow-indigo-500/20"
                             >
                               <span className="text-sm font-black uppercase tracking-widest">Download APK</span>
                               <Download size={18} className="group-hover:translate-y-0.5 transition-transform" />
@@ -662,18 +703,18 @@ export default function Home() {
 
                   <div className="absolute inset-0 flex items-center justify-center p-12">
                     {project.image ? (
-                      <div className="relative w-full h-full rounded-[3rem] overflow-hidden bg-black shadow-2xl">
+                      <div className="relative w-full h-full rounded-[3rem] overflow-hidden bg-black shadow-2xl border border-white/5">
                         <img
                           src={project.image}
                           alt={project.title}
-                          className="w-full h-full object-cover scale-[1.05] transition-transform duration-700 group-hover:scale-110 group-hover:blur-md"
+                          className="w-full h-full object-cover scale-[1.05] transition-transform duration-1000 group-hover:scale-125 group-hover:blur-xl"
                         />
                       </div>
                     ) : (
                       <div className="text-[12px] font-bold text-white font-black uppercase tracking-[0.5em] opacity-30 italic">Render_Matrix</div>
                     )}
                   </div>
-                </div>
+                </Tilt>
               </motion.div>
             ))}
           </div>
