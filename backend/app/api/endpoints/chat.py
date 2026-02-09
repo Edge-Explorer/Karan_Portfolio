@@ -39,19 +39,27 @@ FORMATTING RULE:
 
 DEEP KNOWLEDGE BASE:
 
-1. PROJECT INTERVIEWAI (AI-POWERED INTERVIEW SIMULATION) - TOP PRIORITY:
-   - STATUS: THIS IS MY MAIN FOCUS RIGHT NOW.
-   - NATURE: My premium AI-powered interview simulation platform designed to provide realistic, industry-level mock interviews using advanced AI personas.
-   - ARCHITECTURE (INTERVIEW SYSTEM):
-     - AI PERSONAS: Powered by Gemini 2.0 Flash (e.g., ADINATH - strict/fundamentals-focused, VEDA - insightful/vision-driven).
-     - CONTEXTUAL INTELLIGENCE: I implemented dynamic question generation based on resume (PDF parsing) and specific company contexts.
-     - MULTI-DIMENSIONAL EVALUATION: The system analyzes confidence, hesitation, assertiveness, and communication style alongside technical accuracy.
-   - KEY FEATURES (v1.0.1):
-     - LIVE SIMULATION: Real-time voice interaction (Web Speech API) with a premium video-meeting style UI.
+1. PROJECT INTERVIEWAI (PREMIUM AI-POWERED INTERVIEW SIMULATION) - TOP PRIORITY:
+   - STATUS: v1.0.1 - THIS IS MY MAIN FOCUS AND ACTIVE SAAS PROJECT.
+   - NATURE: A premium industry-level mock interview platform designed to provide deep, adaptive, and context-aware simulations with professional, no-sugarcoating feedback.
+   - AI INTERVIEWERS (PERSONAS): 
+     - ADINATH: Strict, direct, and focuses heavily on technical fundamentals.
+     - VEDA: Insightful and observant, focusing on clarity of vision and communication style.
+   - INTERVIEW CAPABILITIES:
+     - CONTEXTUAL INTELLIGENCE: Dynamic question generation based on PDF resume parsing and company-specific environments (Google, Amazon, Microsoft, etc.).
+     - DIFFICULTY LEVELS: Adjustable settings for Junior (1), Mid (2), and Senior (3) roles.
+     - PANEL MODE: Supports simulations with multiple AI interviewers simultaneously.
+     - LOGIC: Mandatory minimum of 5 questions before providing a final evaluation.
+   - CORE FEATURES:
+     - LIVE SIMULATION: Real-time voice interaction (Web Speech API) with a professional video-meeting style glassmorphism UI.
+     - INTELLIGENT EVALUATION: Scores out of 10 with deep behavioral vibe analysis (Confidence, Hesitation, Assertiveness).
      - RESUME ATS ANALYSIS: Backend-ready scoring (0-100), gap analysis vs job descriptions, and actionable improvement tips.
-     - PROFESSIONAL FEEDBACK: I designed it to provide direct, no-sugarcoating performance reports after a mandatory 5-question logic.
-   - STACK: FastAPI, React 18 (Vite), Gemini 2.0 Flash, Web Speech API, PyPDF, PostgreSQL (SQLAlchemy).
-   - ROADMAP: I am scaling this toward multi-round interviews, advanced voice analytics (tone/filler words), and a direct UPI-based subscription model.
+   - STACK: FastAPI, React 18.3, Vite, Gemini 2.0 Flash, Web Speech API, PyPDF, PostgreSQL (SQLAlchemy), Alembic.
+   - ROADMAP: Multi-round interviews (HR, System Design), non-technical domains (Healthcare, Legal), advanced voice tone analytics, and direct UPI-based payments.
+   - BUSINESS MODEL:
+     - FREE: 1 interview every 2 weeks.
+     - PRO (₹199): Unlimited interviews.
+     - ELITE (₹499): Panel mode, advanced analytics, and personalized learning roadmaps.
 
 2. PROJECT NEEL (NEURAL EVOLUTION & EXECUTIVE LOGIC):
    - STATUS: COMPLETED & FULLY FUNCTIONAL.
