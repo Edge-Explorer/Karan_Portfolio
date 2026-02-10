@@ -74,7 +74,7 @@ const skills = [
       { name: "Next.js", info: "Modern fullstack framework with SSR/SSG.", icon: "nextjs", color: "#ffffff" },
       { name: "Tailwind CSS", info: "Rapid styling with utility-first CSS.", icon: "tailwindcss", color: "#06b6d4" },
       { name: "React Native", info: "Cross-platform native mobile applications.", icon: "react", color: "#61dafb" },
-      { name: "Expo", info: "Accelerated development for React Native.", local: "/skills/expo.png", color: "#000020" },
+      { name: "Expo", info: "Accelerated development for React Native.", local: "/skills/expo.png", color: "#00E0FF" },
       { name: "Android", info: "Native mobile development for Android devices.", icon: "android", color: "#3ddc84" }
     ]
   },
@@ -92,7 +92,7 @@ const skills = [
   {
     group: "Generative AI",
     items: [
-      { name: "LangChain", info: "Framework for building LLM-powered apps.", local: "/skills/langchain.png", color: "#1c3c3c" },
+      { name: "LangChain", info: "Framework for building LLM-powered apps.", local: "/skills/langchain.png", color: "#00F5A0" },
       { name: "LangGraph", info: "Orchestrating complex multi-agent workflows.", local: "/skills/langgraph-logo.png", color: "#ffffff" },
       { name: "Google Gemini", info: "Multimodal AI models for generative tasks.", local: "/skills/gemini.png", color: "#8e75ff" },
       { name: "OpenAI", info: "Cutting-edge models like GPT-4 and DALL-E.", local: "/skills/openai.png", color: "#74aa9c" },
@@ -106,7 +106,7 @@ const skills = [
       { name: "TensorFlow", info: "Open-source platform for end-to-end ML.", icon: "tensorflow", color: "#ff6f00" },
       { name: "PyTorch", info: "Flexible deep learning for research and prod.", icon: "pytorch", color: "#ee4c2c" },
       { name: "Scikit Learn", info: "Simple and efficient tools for predictive data.", local: "/skills/scikitlearn.jpg", color: "#f7931e" },
-      { name: "Pandas", info: "Powerful data manipulation and analysis.", icon: "pandas", color: "#150458" },
+      { name: "Pandas", info: "Powerful data manipulation and analysis.", icon: "pandas", color: "#FF007A" },
       { name: "NumPy", info: "Fundamental package for scientific computing.", icon: "numpy", color: "#4d77cf" },
       { name: "Matplotlib", info: "Comprehensive library for static/animated plots.", local: "/skills/matplotlib.png", color: "#ffffff" }
     ]
