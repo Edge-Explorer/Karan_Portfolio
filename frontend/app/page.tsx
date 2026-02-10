@@ -389,7 +389,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { title: "Generative AI", desc: "Crafting advanced LLM solutions & neural agents.", img: "/overview/generative_ai.png", color: "from-blue-500/20 to-indigo-500/20", borderColor: "border-blue-500/30", textColor: "text-blue-400" },
               { title: "Data Science", desc: "Extracting insights from complex neural datasets.", img: "/overview/data_science.png", color: "from-purple-500/20 to-pink-500/20", borderColor: "border-purple-500/30", textColor: "text-purple-400" },
@@ -403,15 +403,15 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
                 whileHover={{ y: -10 }}
-                className={`group p-10 rounded-[3rem] glass border ${card.borderColor} bg-gradient-to-br ${card.color} hover:shadow-2xl transition-all duration-500 relative overflow-hidden`}
+                className={`group p-8 rounded-[2.5rem] glass border ${card.borderColor} bg-gradient-to-br ${card.color} hover:shadow-2xl transition-all duration-500 relative overflow-hidden`}
               >
                 <div className="absolute -inset-10 bg-white/5 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="space-y-8 relative z-10">
-                  <div className="w-16 h-16 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 rounded-2xl overflow-hidden bg-white/5 p-2">
+                <div className="space-y-6 relative z-10">
+                  <div className="w-12 h-12 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 rounded-2xl overflow-hidden bg-white/5 p-2">
                     <img src={card.img} alt={card.title} className="w-full h-full object-contain filter drop-shadow-2xl" />
                   </div>
                   <div className="space-y-2">
-                    <h4 className={`text-xl font-black uppercase tracking-widest ${card.textColor}`}>{card.title}</h4>
+                    <h4 className={`text-lg font-black uppercase tracking-widest ${card.textColor}`}>{card.title}</h4>
                     <p className="text-sm text-white/50 font-medium leading-snug">{card.desc}</p>
                   </div>
                 </div>
