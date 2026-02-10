@@ -381,7 +381,7 @@ export default function Home() {
             <h3 className="text-6xl md:text-8xl font-black tracking-tighter text-white leading-none">
               <NeuralReveal text="Overview" />
             </h3>
-            <p className="text-xl md:text-2xl text-white/60 font-medium leading-relaxed">
+            <p className="text-xl md:text-2xl text-white/60 font-medium leading-relaxed text-justify">
               I am an emerging Generative AI Developer with a mission to architect the next generation of autonomous systems.
               I specialize in bridging the gap between ambitious AI research and practical execution, as seen in NEEL—a live
               multi-agent productivity environment I built using LangChain, FastAPI, and React Native. I approach every challenge
