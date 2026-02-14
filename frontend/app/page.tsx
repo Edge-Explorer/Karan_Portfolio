@@ -57,7 +57,21 @@ function Tilt({ children, className }: { children: React.ReactNode, className?: 
   );
 }
 
-const skills = [
+interface Skill {
+  name: string;
+  info: string;
+  color: string;
+  icon?: string;
+  local?: string;
+  lucide?: any;
+}
+
+interface SkillGroup {
+  group: string;
+  items: Skill[];
+}
+
+const skills: SkillGroup[] = [
   {
     group: "Core",
     items: [
@@ -190,7 +204,7 @@ const coursework = [
   }
 ];
 
-function SkillLogo({ skill }: { skill: any }) {
+function SkillLogo({ skill }: { skill: Skill }) {
   if (skill.local) {
     return (
       <img
@@ -222,7 +236,7 @@ function SkillLogo({ skill }: { skill: any }) {
 export default function Home() {
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isAIChatOpen, setIsAIChatOpen] = useState(false);
-  const [activeSkill, setActiveSkill] = useState<any | null>(null);
+  const [activeSkill, setActiveSkill] = useState<Skill | null>(null);
   const [theme, setTheme] = useState<"neural" | "space">("neural");
 
   useEffect(() => {
@@ -437,7 +451,7 @@ export default function Home() {
           </div>
 
           <div className="flex flex-wrap justify-center gap-x-12 gap-y-16 px-4">
-            {skills.flatMap(group => group.items).map((skill, i) => (
+            {(skills.flatMap(group => group.items) as Skill[]).map((skill, i) => (
               <motion.div
                 key={skill.name}
                 initial={{ opacity: 0, scale: 0.8 }}
