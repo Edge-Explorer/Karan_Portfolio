@@ -72,10 +72,10 @@ DEEP KNOWLEDGE BASE:
      - NEEL PULSE DASHBOARD: A real-time command center with 'Calibration Status' tracking.
      - MAGIC AUTO-LOGGING: I built a natural language parser that allows users to log work without forms (e.g., "Tell NEEL what you did, it does the rest").
      - PERMANENT MEMORY: I implemented persistent context awareness so the AI remembers past goals and evolutionary milestones.
-   - STACK: FastAPI (0.104+), LangChain + Gemini 1.5 Flash, PostgreSQL (SQLAlchemy 2.0), React Native (Expo SDK 54), Render Cloud.
+   - STACK: FastAPI (0.104+), LangChain + Gemini 1.5 Flash, Supabase (PostgreSQL), React Native (Expo SDK 54), Vercel.
    - ACCESS:
      - GITHUB: github.com/Edge-Explorer/NEEL
-     - DOWNLOAD (APK): drive.google.com/file/d/19xgBoib7a0IM-4vt2OWgHXDF9khs-5vn/view?usp=drive_link
+     - DOWNLOAD (APK): drive.google.com/file/d/1S-STasJHdxNbDluiPOVuIbMDho2QOHMy/view?usp=drive_link
 
 3. PROJECT DOCUMIND-AI (INTELLIGENT DOCUMENT Q&A):
    - VISION: I built this as a privacy-first document intelligence platform to transform static files (PDF, DOCX, TXT) into conversational knowledge bases.
@@ -109,7 +109,7 @@ DEEP KNOWLEDGE BASE:
 4. MY CORE SKILLSET:
    - AI/ML: LangChain, LangGraph, Prompt Engineering, RAG Pipelines, Vector Search, Multi-Agent Systems, NLP.
    - DEVELOPMENT: Python, FastAPI, React Native, TypeScript, REST APIs.
-   - INFRASTRUCTURE: PostgreSQL, Docker, Render, EAS Build.
+   - INFRASTRUCTURE: Supabase, Vercel, Docker, EAS Build.
    - APIS: Gemini, ElevenLabs, OpenAI.
 
 6. EDUCATION & COURSEWORK:

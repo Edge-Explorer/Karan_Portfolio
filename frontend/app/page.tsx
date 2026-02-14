@@ -82,10 +82,11 @@ const skills = [
     group: "Backend & Cloud",
     items: [
       { name: "FastAPI", info: "High-performance Python API development.", icon: "fastapi", color: "#05998b" },
-      { name: "PostgreSQL", info: "Robust, open-source relational database.", icon: "postgresql", color: "#4169e1" },
+      { name: "PostgreSQL", info: "Robust, open-source relational database (Supabase).", icon: "postgresql", color: "#4169e1" },
       { name: "Docker", info: "Containerization for consistent deployments.", icon: "docker", color: "#2496ed" },
       { name: "Google Cloud", info: "Scalable cloud infrastructure and AI hosting.", icon: "googlecloud", color: "#4285f4" },
-      { name: "Render", info: "Fast, simple cloud platform for web apps.", local: "/skills/render.jpg", color: "#46e3b7" },
+      { name: "Supabase", info: "The open source Firebase alternative for DB & Auth.", local: "/skills/supabase.png", color: "#3ECF8E" },
+      { name: "Vercel", info: "Fast, simple cloud platform for web apps.", icon: "vercel", color: "#ffffff" },
       { name: "Alembic", info: "Database migration tool for SQLAlchemy.", lucide: Database, color: "#ed2124" }
     ]
   },
@@ -126,12 +127,12 @@ const projects = [
   {
     title: "NEEL",
     description: "Architected a 3-tier multi-agent productivity system (Supervisor → Reasoning → Reflection) with reflection-based validation and NLP activity extraction.",
-    tech: ["LangChain", "LangGraph", "FastAPI", "React Native", "PostgreSQL", "Gemini API"],
+    tech: ["LangChain", "LangGraph", "FastAPI", "React Native", "Supabase", "Vercel", "Gemini API"],
     color: "from-indigo-600 to-blue-500",
     image: "/projects/neel-logo.png",
     links: {
       github: "https://github.com/Edge-Explorer/NEEL",
-      drive: "https://drive.google.com/file/d/19xgBoib7a0IM-4vt2OWgHXDF9khs-5vn/view?usp=drive_link"
+      drive: "https://drive.google.com/file/d/1S-STasJHdxNbDluiPOVuIbMDho2QOHMy/view?usp=drive_link"
     },
     highlights: ["Multi-Agent AI", "Persistent Memory", "Auto-Logging", "Behavioral Analytics"]
   },
