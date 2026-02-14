@@ -85,7 +85,7 @@ const skills = [
       { name: "PostgreSQL", info: "Robust, open-source relational database (Supabase).", icon: "postgresql", color: "#4169e1" },
       { name: "Docker", info: "Containerization for consistent deployments.", icon: "docker", color: "#2496ed" },
       { name: "Google Cloud", info: "Scalable cloud infrastructure and AI hosting.", icon: "googlecloud", color: "#4285f4" },
-      { name: "Supabase", info: "The open source Firebase alternative for DB & Auth.", local: "/skills/supabase.png", color: "#3ECF8E" },
+      { name: "Supabase", info: "The open source Firebase alternative for DB & Auth.", icon: "supabase", color: "#3ECF8E" },
       { name: "Vercel", info: "Fast, simple cloud platform for web apps.", icon: "vercel", color: "#ffffff" },
       { name: "Alembic", info: "Database migration tool for SQLAlchemy.", lucide: Database, color: "#ed2124" }
     ]
