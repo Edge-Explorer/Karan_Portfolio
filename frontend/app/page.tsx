@@ -332,15 +332,19 @@ export default function Home() {
               >
                 <motion.button
                   onClick={() => setIsContactOpen(true)}
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="group relative px-10 py-5 bg-white text-black font-black uppercase tracking-widest text-[10px] rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(255,255,255,0.1)] transition-all active:scale-95"
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="flex items-center gap-3 px-6 py-3 glass rounded-2xl hover:text-indigo-400 hover:border-indigo-500/50 transition-all duration-300 group relative overflow-hidden shadow-2xl"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-indigo-500/10 to-transparent -translate-x-full animate-shimmer" />
-                  <div className="relative z-10 flex items-center gap-3">
-                    <Mail size={16} className="group-hover:rotate-12 transition-transform" />
-                    <span>Connect Now</span>
-                  </div>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:animate-shimmer"
+                  />
+                  <span className="text-white/40 group-hover:text-indigo-400 transition-colors relative z-10">
+                    <Mail size={20} className="group-hover:rotate-12 transition-transform" />
+                  </span>
+                  <span className="text-sm font-bold text-white/60 group-hover:text-white transition-colors uppercase tracking-widest relative z-10">
+                    Connect Now
+                  </span>
                 </motion.button>
 
                 <div className="flex flex-wrap items-center gap-3">
