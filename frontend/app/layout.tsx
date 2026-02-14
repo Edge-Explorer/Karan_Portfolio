@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import CustomCursor from "@/components/CustomCursor";
 import "./globals.css";
 
@@ -35,6 +36,7 @@ export default function RootLayout({
       >
         <CustomCursor />
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
