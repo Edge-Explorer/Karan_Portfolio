@@ -77,7 +77,7 @@ export default function ContactModal({ isOpen, onClose }: { isOpen: boolean; onC
                         <div className="space-y-6">
                             <div>
                                 <h3 className="text-2xl font-bold tracking-tight">Direct Connection</h3>
-                                <p className="text-sm text-white/40 font-mono italic">Your message will be logged in Karan&apos;s system.</p>
+                                <p className="text-sm text-white/40 font-mono italic">Signal received. Your message will be encrypted & transmitted to my neural inbox.</p>
                             </div>
 
                             {status === "success" ? (
@@ -102,7 +102,7 @@ export default function ContactModal({ isOpen, onClose }: { isOpen: boolean; onC
                                             <input
                                                 required
                                                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-sm focus:border-cyan-500/50 outline-none transition-colors"
-                                                placeholder="John Doe"
+                                                placeholder="Your Name"
                                                 value={formData.name}
                                                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                             />
@@ -113,7 +113,7 @@ export default function ContactModal({ isOpen, onClose }: { isOpen: boolean; onC
                                                 required
                                                 type="email"
                                                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-sm focus:border-cyan-500/50 outline-none transition-colors"
-                                                placeholder="john@example.com"
+                                                placeholder="your@email.com"
                                                 value={formData.email}
                                                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                             />
