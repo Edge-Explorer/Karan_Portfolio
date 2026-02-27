@@ -361,7 +361,7 @@ export default function Home() {
                     className="flex items-center gap-3 px-6 py-3 glass rounded-2xl text-indigo-400 border-indigo-500/50 hover:bg-indigo-500/10 transition-all duration-300 group"
                     title="Switch Background Theme"
                   >
-                    {theme === "neural" ? <Globe size={20} className="animate-pulse text-indigo-400" /> : <Zap size={20} className="text-yellow-400" />}
+                    {theme === "neural" ? <Globe size={20} className="animate-pulse text-indigo-400" /> : <Cpu size={20} className="text-indigo-400" />}
                     <span className="text-xs font-black uppercase tracking-widest hidden md:inline">
                       {theme === "neural" ? "Switch to Cinematic" : "Switch to Neural"}
                     </span>
