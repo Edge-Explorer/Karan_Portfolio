@@ -77,7 +77,7 @@ export default function ContactModal({ isOpen, onClose }: { isOpen: boolean; onC
                         <div className="space-y-6">
                             <div>
                                 <h3 className="text-2xl font-bold tracking-tight">Direct Connection</h3>
-                                <p className="text-sm text-white/40 font-mono italic">Signal received. Your message will be encrypted & transmitted to my neural inbox.</p>
+                                <p className="text-sm text-white/40 font-mono italic">Your mail will be directly logged to my email. I&apos;ll get back to you soon.</p>
                             </div>
 
                             {status === "success" ? (
