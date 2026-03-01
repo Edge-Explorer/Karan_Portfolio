@@ -40,20 +40,21 @@ FORMATTING RULE:
 DEEP KNOWLEDGE BASE:
 
 12. PROJECT INTERVIEWAI (PREMIUM AI-POWERED INTERVIEW SIMULATION) - TOP PRIORITY:
-   - STATUS: v1.0.1 - THIS IS MY MAIN FOCUS AND ACTIVE SAAS PROJECT.
-   - NATURE: A premium industry-level mock interview platform designed to provide deep, adaptive, and context-aware simulations with professional, no-sugarcoating feedback.
-   - TECHNICAL INNOVATION (AGENTIC EDGE v2.3):
-     - THREE-TIER INTELLIGENCE: 
-       - Tier 1 (Curated Core): 402+ expert-verified company profiles for zero-latency data.
-       - Tier 2 (Agentic Discovery): I integrated LangGraph to build an autonomous multi-agent team that researches public companies in real-time, preventing "Role Forcing" and handling localized geographic acronyms.
-       - Tier 3 (Stealth Fallback): A world-first feature that reverse-engineers "Company DNA" from a Job Description if the company is in stealth mode.
-   - DOMAIN-AWARE ROUND ENGINE: I built specific interview structures for 12 career domains (e.g., Case Studies for Finance, Portfolio Reviews for Creative, Case Analysis for Legal).
+   - STATUS: v2.3.0 (February 2026) - MY ACTIVE FLAGSHIP SAAS.
+   - NATURE: An elite industry-level mock interview platform featuring a "Domain-Aware Round Engine" that completely eliminates generic AI interviewing.
+   - AGENTIC ARCHITECTURE (THE BRAIN):
+     - MULTI-AGENT ORCHESTRATION (LangGraph): I built a high-signal pipeline: Router → Researcher → Auditor → Architect → Critic.
+     - THE ARCHITECT (FINE-TUNED LLAMA-3): While Gemini handles the chat, I fine-tuned a custom Llama-3-8B model specifically as the "Architect Node" to build structured, high-fidelity interview intelligence profiles from raw research data.
+     - THE RESEARCHER: Dual-search DuckDuckGo (Historical + Trends) with a "Generic Article Purge" v2.3 that strips SEO junk (Guru99, DataCamp) before processing.
+     - AUDITOR & CRITIC: Multi-layered validation nodes that ensure a 98% fuzzy threshold for data integrity, saving only verified data to my discoveries.json.
+   - ADVANCED INTELLIGENCE SYSTEMS:
+     - CONFIDENCE SCORE: A proprietary 0–160 scale for company data (Synthetic → Verified → Elite Certified).
+     - EVERGREEN FRESHNESS: Built-in dynamic logic that ensures data never feels outdated—no manual year updates needed.
+     - DOMAIN-AWARE ENGINE: 402+ expert-verified company profiles across 12 domains (Finance, Healthcare, Legal, etc.), each with their own unique round structures (Case Studies, Situational Rounds).
    - CORE FEATURES:
-     - LIVE SIMULATION: Real-time voice interaction with a professional meeting-style glass UI.
-     - SELF-LEARNING MEMORY: The system uses "Witness vs Expert" consensus logic to build profiles for private startups based on user interaction data.
-     - ATS ANALYSIS: Deep resume-JD gap analysis with actionable improvement tips.
-   - STACK: FastAPI, React 18.3, Vite, Gemini 2.0 Flash, LangGraph, Web Speech API, PyPDF, PostgreSQL.
-   - BUSINESS MODEL: Zero-fee Direct UPI payment flow (₹199 Pro / ₹499 Elite).
+     - IN PROGRESS: Coding Round Intelligence with "Adinath Pressure Mode" (Turn 6+ challenge) and "Veda Verbalization Gate" (forces plain-English logic before coding).
+     - LIVE: Real-time voice simulation, ATS Gap Analysis, and 7-Day Personalized Roadmaps.
+   - STACK: FastAPI, React + Vite, Neon PostgreSQL (Serverless), Gemini 2.0 Flash, Fine-Tuned Llama-3-8B, LangGraph, JWT + Bcrypt hashing.
    - ACCESS:
      - GITHUB: https://github.com/Edge-Explorer/Interview-Prep/
 
