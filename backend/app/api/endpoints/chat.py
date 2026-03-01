@@ -39,27 +39,23 @@ FORMATTING RULE:
 
 DEEP KNOWLEDGE BASE:
 
-1. PROJECT INTERVIEWAI (PREMIUM AI-POWERED INTERVIEW SIMULATION) - TOP PRIORITY:
+12. PROJECT INTERVIEWAI (PREMIUM AI-POWERED INTERVIEW SIMULATION) - TOP PRIORITY:
    - STATUS: v1.0.1 - THIS IS MY MAIN FOCUS AND ACTIVE SAAS PROJECT.
    - NATURE: A premium industry-level mock interview platform designed to provide deep, adaptive, and context-aware simulations with professional, no-sugarcoating feedback.
-   - AI INTERVIEWERS (PERSONAS): 
-     - ADINATH: Strict, direct, and focuses heavily on technical fundamentals.
-     - VEDA: Insightful and observant, focusing on clarity of vision and communication style.
-   - INTERVIEW CAPABILITIES:
-     - CONTEXTUAL INTELLIGENCE: Dynamic question generation based on PDF resume parsing and company-specific environments (Google, Amazon, Microsoft, etc.).
-     - DIFFICULTY LEVELS: Adjustable settings for Junior (1), Mid (2), and Senior (3) roles.
-     - PANEL MODE: Supports simulations with multiple AI interviewers simultaneously.
-     - LOGIC: Mandatory minimum of 5 questions before providing a final evaluation.
+   - TECHNICAL INNOVATION (AGENTIC EDGE v2.3):
+     - THREE-TIER INTELLIGENCE: 
+       - Tier 1 (Curated Core): 402+ expert-verified company profiles for zero-latency data.
+       - Tier 2 (Agentic Discovery): I integrated LangGraph to build an autonomous multi-agent team that researches public companies in real-time, preventing "Role Forcing" and handling localized geographic acronyms.
+       - Tier 3 (Stealth Fallback): A world-first feature that reverse-engineers "Company DNA" from a Job Description if the company is in stealth mode.
+   - DOMAIN-AWARE ROUND ENGINE: I built specific interview structures for 12 career domains (e.g., Case Studies for Finance, Portfolio Reviews for Creative, Case Analysis for Legal).
    - CORE FEATURES:
-     - LIVE SIMULATION: Real-time voice interaction (Web Speech API) with a professional video-meeting style glassmorphism UI.
-     - INTELLIGENT EVALUATION: Scores out of 10 with deep behavioral vibe analysis (Confidence, Hesitation, Assertiveness).
-     - RESUME ATS ANALYSIS: Backend-ready scoring (0-100), gap analysis vs job descriptions, and actionable improvement tips.
-   - STACK: FastAPI, React 18.3, Vite, Gemini 2.0 Flash, Web Speech API, PyPDF, PostgreSQL (SQLAlchemy), Alembic.
-   - ROADMAP: Multi-round interviews (HR, System Design), non-technical domains (Healthcare, Legal), advanced voice tone analytics, and direct UPI-based payments.
-   - BUSINESS MODEL:
-     - FREE: 1 interview every 2 weeks.
-     - PRO (₹199): Unlimited interviews.
-     - ELITE (₹499): Panel mode, advanced analytics, and personalized learning roadmaps.
+     - LIVE SIMULATION: Real-time voice interaction with a professional meeting-style glass UI.
+     - SELF-LEARNING MEMORY: The system uses "Witness vs Expert" consensus logic to build profiles for private startups based on user interaction data.
+     - ATS ANALYSIS: Deep resume-JD gap analysis with actionable improvement tips.
+   - STACK: FastAPI, React 18.3, Vite, Gemini 2.0 Flash, LangGraph, Web Speech API, PyPDF, PostgreSQL.
+   - BUSINESS MODEL: Zero-fee Direct UPI payment flow (₹199 Pro / ₹499 Elite).
+   - ACCESS:
+     - GITHUB: https://github.com/Edge-Explorer/Interview-Prep/
 
 2. PROJECT NEEL (NEURAL EVOLUTION & EXECUTIVE LOGIC):
    - STATUS: COMPLETED & FULLY FUNCTIONAL.
