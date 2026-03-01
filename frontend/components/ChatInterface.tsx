@@ -149,7 +149,24 @@ export default function ChatInterface({ isOpen, onClose }: { isOpen: boolean; on
                                     ? "bg-white/5 border border-white/10 text-white/80 rounded-tr-sm backdrop-blur-md shadow-xl"
                                     : "bg-indigo-500/10 border border-indigo-500/20 text-white/90 rounded-tl-sm backdrop-blur-md shadow-2xl"
                                     }`}>
-                                    <p className="whitespace-pre-wrap font-medium">{m.content}</p>
+                                    <p className="whitespace-pre-wrap font-medium">
+                                        {m.content.split(/(https?:\/\/[^\s]+)/g).map((part, index) => {
+                                            if (part.match(/^https?:\/\//)) {
+                                                return (
+                                                    <a
+                                                        key={index}
+                                                        href={part}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/50 hover:decoration-indigo-400 transition-all font-black break-all"
+                                                    >
+                                                        {part}
+                                                    </a>
+                                                );
+                                            }
+                                            return part;
+                                        })}
+                                    </p>
                                 </div>
                             </motion.div>
                         ))}
