@@ -145,7 +145,7 @@ export default function ChatInterface({ isOpen, onClose }: { isOpen: boolean; on
                                 <div className={`p-3 rounded-2xl h-fit border shadow-xl backdrop-blur-md ${m.role === "user" ? "bg-purple-600/20 border-purple-500/30" : "bg-white/5 border-white/10"}`}>
                                     {m.role === "user" ? <User size={18} className="text-white" /> : <Bot size={18} className="text-indigo-400" />}
                                 </div>
-                                <div className={`max-w-[80%] p-6 rounded-[2rem] text-[14px] leading-relaxed relative ${m.role === "user"
+                                <div className={`max-w-[80%] p-6 rounded-[2rem] text-[14px] leading-relaxed relative break-words ${m.role === "user"
                                     ? "bg-white/5 border border-white/10 text-white/80 rounded-tr-sm backdrop-blur-md shadow-xl"
                                     : "bg-indigo-500/10 border border-indigo-500/20 text-white/90 rounded-tl-sm backdrop-blur-md shadow-2xl"
                                     }`}>
