@@ -151,17 +151,23 @@ export default function ChatInterface({ isOpen, onClose }: { isOpen: boolean; on
                                     }`}>
                                     <p className="whitespace-pre-wrap font-medium">
                                         {m.content.split(/(https?:\/\/[^\s]+)/g).map((part, index) => {
-                                            if (part.match(/^https?:\/\//)) {
+                                            // Precise URL matching to exclude trailing punctuation like periods or commas
+                                            const urlMatch = part.match(/^(https?:\/\/[^\s,;)]+)([.,;)]+)?$/);
+                                            if (urlMatch) {
+                                                const url = urlMatch[1];
+                                                const punctuation = urlMatch[2] || "";
                                                 return (
-                                                    <a
-                                                        key={index}
-                                                        href={part}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/50 hover:decoration-indigo-400 transition-all font-black break-all"
-                                                    >
-                                                        {part}
-                                                    </a>
+                                                    <span key={index}>
+                                                        <a
+                                                            href={url}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/50 hover:decoration-indigo-400 transition-all font-black break-all"
+                                                        >
+                                                            {url}
+                                                        </a>
+                                                        {punctuation}
+                                                    </span>
                                                 );
                                             }
                                             return part;
