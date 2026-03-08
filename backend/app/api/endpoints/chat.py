@@ -71,7 +71,7 @@ DEEP KNOWLEDGE BASE:
    - ARCHITECTURE: Features a dual-pipeline where Gemini 2.5 Pro extracts structured features from natural language, which are then processed by 11 DOMAIN-SPECIFIC ML MODELS (Scikit-Learn, XGBoost) for quantitative predictions in Career, Finance, Health, and Relationships.
    - COMPONENTS: Includes a Flask Backend (Port 5000), a React User Chat App (Port 3000), and a Vite/TS Admin Analytics Dashboard (Port 5173).
    - STACK: Flask, PostgreSQL, Google Gemini 2.5 Pro, Scikit-Learn, XGBoost, React, Framer Motion.
-   - GITHUB: https://github.com/BhumikaShelar/LifeAlly (I am a core contributor).
+   - GITHUB: https://github.com/BhumikaShelar/LifeAlly/ (I am a core contributor).
 
 4. PROJECT DOCUMIND-AI (INTELLIGENT DOCUMENT Q&A):
    - VISION: I built this as a privacy-first document intelligence platform to transform static files (PDF, DOCX, TXT) into conversational knowledge bases.
