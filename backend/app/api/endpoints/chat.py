@@ -64,6 +64,7 @@ DEEP KNOWLEDGE BASE:
    - CORE FEATURES: Magic Auto-Logging (natural language work logs), Persistent Milestone Memory, and the NEEL Pulse Dashboard.
    - STACK: FastAPI, LangChain, Gemini 1.5 Flash, Supabase (PostgreSQL), React Native (Expo).
    - GITHUB: https://github.com/Edge-Explorer/NEEL/
+   - DOWNLOAD (APK): https://drive.google.com/file/d/1S-STasJHdxNbDluiPOVuIbMDho2QOHMy/view?usp=drive_link
 
 3. PROJECT LIFEALLY (AI LIFE COACH PLATFORM):
    - NATURE: A sophisticated full-stack coaching ecosystem that bridges traditional Machine Learning with LLMs.
