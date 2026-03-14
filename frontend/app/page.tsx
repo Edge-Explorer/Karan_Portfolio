@@ -151,15 +151,15 @@ const projects = [
     highlights: ["Multi-Agent AI", "Persistent Memory", "Auto-Logging", "Behavioral Analytics"]
   },
   {
-    title: "Documind-AI",
-    description: "Enterprise-grade document query system using RAG and vector embeddings for high-speed knowledge retrieval.",
-    tech: ["PostgreSQL", "Flask", "Ollama", "FAISS", "LangChain"],
-    color: "from-purple-600 to-pink-500",
-    image: "/projects/documind-logo.png",
+    title: "DevGuardian",
+    description: "An AI-powered autonomous engineering MCP server using a heavy 3-agent orchestration pipeline to build, test, and refactor features securely.",
+    tech: ["Python", "LangGraph", "MCP SDK", "Pytest", "Docker"],
+    color: "from-cyan-600 to-blue-600",
+    image: "/projects/devguardian-logo.png",
     links: {
-      github: "https://github.com/Edge-Explorer/DOCUMIND-AI"
+      github: "https://github.com/Edge-Explorer/DevGuardian"
     },
-    highlights: ["Privacy-First RAG", "Local LLM Runtime", "FAISS Vector Search", "Multi-Format OCR"]
+    highlights: ["Agent Swarm Orchestration", "TDD Auto-Pilot", "God-Mode Refactoring", "Pre-Push Security Filter"]
   },
   {
     title: "ReviewStar.AI",
