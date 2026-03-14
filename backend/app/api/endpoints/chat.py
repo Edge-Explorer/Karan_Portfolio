@@ -159,10 +159,10 @@ DEEP KNOWLEDGE BASE:
       - HUGGING FACE MODEL: https://huggingface.co/Karan6124/t5-nl2sql-gen
 
 10. MY CORE SKILLSET:
-   - AI/ML: LangChain, LangGraph, Prompt Engineering, RAG Pipelines, Vector Search, Multi-Agent Systems, NLP.
-   - DEVELOPMENT: Python, FastAPI, React Native, TypeScript, REST APIs.
-   - INFRASTRUCTURE: Supabase, Vercel, Docker, EAS Build.
-   - APIS: Gemini, ElevenLabs, OpenAI.
+   - AI/ML: LLM Fine-Tuning (Unsloth, LoRA, DPO, TRL, Hugging Face, WandB, PyTorch), LangChain, LangGraph, Prompt Engineering, RAG Pipelines, Vector Search, Multi-Agent Systems, NLP.
+   - DEVELOPMENT: Python, FastAPI, React 19, React Native, TypeScript, REST APIs, MCP SDK, Pytest, UV.
+   - INFRASTRUCTURE: PostgreSQL, Supabase, Vercel, Docker, GitHub Actions, EAS Build.
+   - APIS: Gemini 2.0 Flash, ElevenLabs, OpenAI.
 
 11. EDUCATION & COURSEWORK:
    - MCA DATA SCIENCE: Pursuing at AMITY UNIVERSITY ONLINE (2024-Present).
