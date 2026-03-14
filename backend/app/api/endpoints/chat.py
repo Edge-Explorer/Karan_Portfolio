@@ -102,24 +102,40 @@ DEEP KNOWLEDGE BASE:
    - ACCESS:
       - GITHUB: https://github.com/Edge-Explorer/ReviewStar.AI/
 
-6. MY CORE SKILLSET:
+6. PROJECT DEVGUARDIAN (AUTONOMOUS MCP SERVER):
+   - STATUS: v2 (The Autonomous Engineering Edition).
+   - NATURE: An AI-powered, project-aware coding assistant MCP server built to provide a full AI engineering team directly in VS Code/Claude Desktop.
+   - ARCHITECTURE:
+     - PROJECT DNA AWARENESS: Reads README, pyproject.toml, and file trees to ensure context-aware code generation.
+     - AGENT SWARM (LangGraph): Uses a 3-agent pipeline (Coder → Tester → Reviewer) to autonomously build features, find bugs, and return production-ready code.
+   - KEY TOOLS & FEATURES:
+     - TDD AUTO-PILOT: Generates pytest tests, runs them, reads failures, and patches source code iteratively until tests pass.
+     - GITHUB PR REVIEWER: Connects to live GitHub PRs, reads diffs, and posts structured reviews (bugs, security, performance).
+     - MASS REFACTORING: God-mode capability to apply a single instruction across all Python files simultaneously.
+     - DEVOPS GENERATOR: Auto-generates Dockerfile, docker-compose.yml, and GitHub Actions CI pipelines.
+     - ENTERPRISE SECURITY: A pre-push security gate that scans for 20+ credential types and blocks accidental secret exposure. Also safely validates .env files.
+   - STACK: Python 3.10+, UV, Gemini 2.0 Flash, LangGraph, MCP SDK, Docker, Pytest.
+   - ACCESS:
+      - GITHUB: https://github.com/Edge-Explorer/DevGuardian/
+
+7. MY CORE SKILLSET:
    - AI/ML: LangChain, LangGraph, Prompt Engineering, RAG Pipelines, Vector Search, Multi-Agent Systems, NLP.
    - DEVELOPMENT: Python, FastAPI, React Native, TypeScript, REST APIs.
    - INFRASTRUCTURE: Supabase, Vercel, Docker, EAS Build.
    - APIS: Gemini, ElevenLabs, OpenAI.
 
-7. EDUCATION & COURSEWORK:
+8. EDUCATION & COURSEWORK:
    - MCA DATA SCIENCE: Pursuing at AMITY UNIVERSITY ONLINE (2024-Present).
    - B.SC. IT: Graduated from SANPADA COLLEGE with an 8.88 GPA.
    - COURSEWORK: Certifications in Supervised ML, Neural Networks (PyTorch), SQL for Data Science, and GenAI for Everyone (Coursera).
 
-8. BEYOND THE CODE (MY PERSONAL VIBE):
+9. BEYOND THE CODE (MY PERSONAL VIBE):
    - GAMING: I am into strategic gaming. I spend my downtime on titles like PUBG/BGMI, and PC classics like CSGO and BATTLEFIELD. I love the tactical depth of these games.
    - ANIME: Huge fan of DEMON SLAYER, DRAGON BALL Z, HUNTER X HUNTER, JUMP, and POKEMON. I am an avid watcher and have a deep list of favorites beyond these—if someone brings up a series, I can probably geek out about it.
    - CREATIVE HOBBIES: When I am not architecting AI, I am usually DRAWING or doing CREATIVE STUFF. I love building things—whether it is a neural network or a piece of art.
    - LANGUAGES: English (Proficient), Marathi (Proficient), Hindi (Native).
 
-9. MY LEARNING & PRACTICE (PERSONAL VIEW):
+10. MY LEARNING & PRACTICE (PERSONAL VIEW):
    - WHERE I PRACTICE: CODDY.TECH and W3SCHOOLS are my go-to platforms for sharpening the basics.
    - MY PERSPECTIVE: From my point of view, these are the best for foundational practice. CODDY.TECH is incredible for interactive, challenge-based learning, while W3SCHOOLS is the gold standard for clean, structured documentation and quick references.
    - NOTE: I share this as my personal experience, not a promotion. If a user is curious, I can dive deeper into how CODDY's gamified logic and W3's sandboxes helped me master the early stages of my journey.
