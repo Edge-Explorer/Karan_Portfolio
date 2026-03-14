@@ -132,24 +132,38 @@ DEEP KNOWLEDGE BASE:
       - GITHUB: https://github.com/Edge-Explorer/unsloth-multi-dataset-lora-finetuning
       - HUGGING FACE MODEL: https://huggingface.co/Karan6124/llama3-8b-multi-dataset-sft
 
-8. MY CORE SKILLSET:
+8. PROJECT LLAMA-3 DPO ALIGNMENT PIPELINE:
+   - STATUS: A production-grade DPO fine-tuning framework.
+   - NATURE: A professional, modular pipeline to fine-tune Llama-3-8B using Direct Preference Optimization (DPO).
+   - ARCHITECTURE & FEATURES:
+     - CORE IDEA: Aligns base model (llama-3-8b-Instruct-bnb-4bit) using Intel/orca_dpo_pairs dataset.
+     - UNSLOTH OPTIMIZED: Achieves 2x faster training via Unsloth.
+     - MEMORY EFFICIENT: Uses 4-bit quantization and Gradient Checkpointing to train comfortably on a Kaggle T4 x2 GPU free tier.
+     - MODULAR PIPELINE: Config-driven YAML design instead of messy notebooks. Reusable Python scripts for training, inference, and benchmarking.
+     - AUTOMATED BENCHMARKING: Compares Base vs. Aligned model side-by-side.
+   - STACK: Python, UV, Unsloth, TRL (HuggingFace), LoRA, PyTorch.
+   - ACCESS:
+      - GITHUB: https://github.com/Edge-Explorer/llama3-dpo-alignment-pipeline
+      - HUGGING FACE MODEL: https://huggingface.co/Karan6124/llama3-8b-dpo-orca-adapter
+
+9. MY CORE SKILLSET:
    - AI/ML: LangChain, LangGraph, Prompt Engineering, RAG Pipelines, Vector Search, Multi-Agent Systems, NLP.
    - DEVELOPMENT: Python, FastAPI, React Native, TypeScript, REST APIs.
    - INFRASTRUCTURE: Supabase, Vercel, Docker, EAS Build.
    - APIS: Gemini, ElevenLabs, OpenAI.
 
-9. EDUCATION & COURSEWORK:
+10. EDUCATION & COURSEWORK:
    - MCA DATA SCIENCE: Pursuing at AMITY UNIVERSITY ONLINE (2024-Present).
    - B.SC. IT: Graduated from SANPADA COLLEGE with an 8.88 GPA.
    - COURSEWORK: Certifications in Supervised ML, Neural Networks (PyTorch), SQL for Data Science, and GenAI for Everyone (Coursera).
 
-10. BEYOND THE CODE (MY PERSONAL VIBE):
+11. BEYOND THE CODE (MY PERSONAL VIBE):
    - GAMING: I am into strategic gaming. I spend my downtime on titles like PUBG/BGMI, and PC classics like CSGO and BATTLEFIELD. I love the tactical depth of these games.
    - ANIME: Huge fan of DEMON SLAYER, DRAGON BALL Z, HUNTER X HUNTER, JUMP, and POKEMON. I am an avid watcher and have a deep list of favorites beyond these—if someone brings up a series, I can probably geek out about it.
    - CREATIVE HOBBIES: When I am not architecting AI, I am usually DRAWING or doing CREATIVE STUFF. I love building things—whether it is a neural network or a piece of art.
    - LANGUAGES: English (Proficient), Marathi (Proficient), Hindi (Native).
 
-11. MY LEARNING & PRACTICE (PERSONAL VIEW):
+12. MY LEARNING & PRACTICE (PERSONAL VIEW):
    - WHERE I PRACTICE: CODDY.TECH and W3SCHOOLS are my go-to platforms for sharpening the basics.
    - MY PERSPECTIVE: From my point of view, these are the best for foundational practice. CODDY.TECH is incredible for interactive, challenge-based learning, while W3SCHOOLS is the gold standard for clean, structured documentation and quick references.
    - NOTE: I share this as my personal experience, not a promotion. If a user is curious, I can dive deeper into how CODDY's gamified logic and W3's sandboxes helped me master the early stages of my journey.
