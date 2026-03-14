@@ -349,7 +349,11 @@ export default function Home() {
 
                 <div className="flex flex-wrap items-center gap-3">
                   <SocialLink icon={<Github size={20} />} href="https://github.com/Edge-Explorer" label="GitHub" />
-                  <SocialLink icon={<Brain size={20} />} href="https://huggingface.co/Karan6124" label="Hugging Face" />
+                  <SocialLink 
+                    icon={<img src="/skills/huggingface.png" alt="Hugging Face" className="w-[18px] h-[18px] object-contain grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" />} 
+                    href="https://huggingface.co/Karan6124" 
+                    label="Hugging Face" 
+                  />
                   <SocialLink icon={<Linkedin size={20} />} href="https://linkedin.com/in/karan-shelar-779381343" label="LinkedIn" />
                   <SocialLink icon={<Instagram size={20} />} href="https://instagram.com/karan.shelar.2004" label="Instagram" />
                   <SocialLink icon={<ExternalLink size={20} />} href="https://drive.google.com/file/d/1QhYwPLs4nQjjvCFuEEjYx0Q8Gbcc7GMb/view?usp=drive_link" label="Resume" />
