@@ -680,7 +680,7 @@ export default function Home() {
                     <div className="absolute inset-0 z-20 opacity-0 group-hover:opacity-100 transition-all duration-700 flex items-center justify-center p-8 lg:p-12 bg-black/60">
                       <div className="w-full h-full glass rounded-[3rem] p-8 flex flex-col justify-between border border-white/20 shadow-2xl backdrop-blur-3xl">
                         <div className="space-y-4">
-                          <h4 className="text-sm font-black text-indigo-400 uppercase tracking-[0.3em]">Project_Pulse</h4>
+                          <h4 className="text-sm font-black text-indigo-400 uppercase tracking-[0.3em]">{project.title}</h4>
                           <div className="flex flex-wrap gap-2">
                             {project.highlights?.map(h => (
                               <span key={h} className="text-[10px] font-bold px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80">
