@@ -340,7 +340,7 @@ export default function Home() {
                     className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:animate-shimmer"
                   />
                   <span className="text-white/40 transition-colors relative z-10">
-                    <svg viewBox="0 0 24 24" width="20" height="20" className="grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300 group-hover:rotate-12 outline-none border-none"><path fill="#ea4335" d="M24 5.4 12 14.4 0 5.4V18.6h4.8V9.6l7.2 5.4 7.2-5.4v9h4.8V5.4z"/></svg>
+                    <svg viewBox="0 0 24 24" width="20" height="20" className="grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300 outline-none border-none"><path fill="#ea4335" d="M24 5.4 12 14.4 0 5.4V18.6h4.8V9.6l7.2 5.4 7.2-5.4v9h4.8V5.4z"/></svg>
                   </span>
                   <span className="text-sm font-bold text-white/60 group-hover:text-white transition-colors uppercase tracking-widest relative z-10">
                     Connect Now
