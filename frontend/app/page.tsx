@@ -677,7 +677,7 @@ export default function Home() {
 
                   {/* Interactive Hover Window */}
                   {(project.links || project.highlights) && (
-                    <div className="absolute inset-0 z-20 opacity-0 group-hover:opacity-100 transition-all duration-700 flex items-center justify-center p-8 lg:p-12">
+                    <div className="absolute inset-0 z-20 opacity-0 group-hover:opacity-100 transition-all duration-700 flex items-center justify-center p-8 lg:p-12 bg-black/60">
                       <div className="w-full h-full glass rounded-[3rem] p-8 flex flex-col justify-between border border-white/20 shadow-2xl backdrop-blur-3xl">
                         <div className="space-y-4">
                           <h4 className="text-sm font-black text-indigo-400 uppercase tracking-[0.3em]">Project_Pulse</h4>
