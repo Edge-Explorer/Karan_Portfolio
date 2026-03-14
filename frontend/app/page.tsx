@@ -350,7 +350,7 @@ export default function Home() {
                 <div className="flex flex-wrap items-center gap-3">
                   <SocialLink icon={<Github size={20} />} href="https://github.com/Edge-Explorer" label="GitHub" />
                   <SocialLink 
-                    icon={<img src="/skills/huggingface.png" alt="Hugging Face" className="w-[18px] h-[18px] object-contain grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" />} 
+                    icon={<span className="text-[20px] leading-none grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300">🤗</span>} 
                     href="https://huggingface.co/Karan6124" 
                     label="Hugging Face" 
                   />
