@@ -222,7 +222,7 @@ async def chat_with_gemini(request: ChatRequest, db: Session = Depends(get_db)):
         # 4. Generate AI Response
         print("Polling Gemini API...")
         response = client.models.generate_content(
-            model='gemini-2.0-flash',
+            model='gemini-2.5-flash',
             contents=formatted_contents
         )
         
