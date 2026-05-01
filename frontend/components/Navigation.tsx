@@ -63,7 +63,7 @@ export default function Navigation({ onTerminalClick }: { onTerminalClick: () =>
             transition={{ type: "spring", damping: 30, stiffness: 200 }}
             className="fixed top-0 left-1/2 z-[500] pointer-events-auto"
         >
-            <div className="bg-slate-900/40 backdrop-blur-2xl px-2 py-2 rounded-full border border-white/20 shadow-[0_25px_80px_rgba(0,0,0,0.5)] flex items-center gap-1.5 ring-1 ring-white/10">
+            <div className="bg-slate-900/40 backdrop-blur-2xl px-1.5 sm:px-2 py-1.5 sm:py-2 rounded-full border border-white/20 shadow-[0_25px_80px_rgba(0,0,0,0.5)] flex items-center gap-1 sm:gap-1.5 ring-1 ring-white/10">
                 {navItems.map((item) => (
                     <a
                         key={item.id}
@@ -74,7 +74,7 @@ export default function Navigation({ onTerminalClick }: { onTerminalClick: () =>
                                 document.getElementById(item.id)?.scrollIntoView({ behavior: "smooth" });
                             }
                         }}
-                        className="relative group px-1.5 py-1.5 rounded-full transition-all duration-500"
+                        className="relative group px-1 sm:px-1.5 py-1 sm:py-1.5 rounded-full transition-all duration-500"
                     >
                         {activeSegment === item.id && (
                             <motion.div
@@ -85,21 +85,21 @@ export default function Navigation({ onTerminalClick }: { onTerminalClick: () =>
                         )}
 
                         <div className="relative flex flex-col items-center">
-                            <div className={`w-10 h-10 rounded-full overflow-hidden border-2 flex items-center justify-center transition-all duration-500 ease-out ${activeSegment === item.id
+                            <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden border-2 flex items-center justify-center transition-all duration-500 ease-out ${activeSegment === item.id
                                 ? "border-indigo-400/80 scale-110 shadow-[0_0_25px_rgba(99,102,241,0.4)] bg-indigo-500/10"
                                 : "border-white/5 group-hover:border-white/20 bg-white/5 group-hover:bg-white/10"
                                 }`}>
                                 {item.id === "origin" ? (
                                     <img src="/karan_image.png" alt="Origin" className={`w-full h-full object-cover object-top transition-all duration-700 ${activeSegment === item.id ? 'scale-110' : 'grayscale group-hover:grayscale-0'}`} />
                                 ) : item.id === "intelligence" ? (
-                                    <img src="/skillset-logo.png" alt="Skillset" className={`w-full h-full object-contain p-2 transition-all duration-700 ${activeSegment === item.id ? 'scale-110' : 'grayscale group-hover:grayscale-0'}`} />
+                                    <img src="/skillset-logo.png" alt="Skillset" className={`w-full h-full object-contain p-1.5 sm:p-2 transition-all duration-700 ${activeSegment === item.id ? 'scale-110' : 'grayscale group-hover:grayscale-0'}`} />
                                 ) : item.id === "credentials" ? (
-                                    <img src="/coursework-logo.jpeg" alt="Coursework" className={`w-full h-full object-contain p-2 transition-all duration-700 ${activeSegment === item.id ? 'scale-110' : 'grayscale group-hover:grayscale-0'}`} />
+                                    <img src="/coursework-logo.jpeg" alt="Coursework" className={`w-full h-full object-contain p-1.5 sm:p-2 transition-all duration-700 ${activeSegment === item.id ? 'scale-110' : 'grayscale group-hover:grayscale-0'}`} />
                                 ) : item.id === "ventures" ? (
-                                    <img src="/projects-logo.jpg" alt="Ventures" className={`w-full h-full object-contain p-2 transition-all duration-700 ${activeSegment === item.id ? 'scale-110' : 'grayscale group-hover:grayscale-0'}`} />
+                                    <img src="/projects-logo.jpg" alt="Ventures" className={`w-full h-full object-contain p-1.5 sm:p-2 transition-all duration-700 ${activeSegment === item.id ? 'scale-110' : 'grayscale group-hover:grayscale-0'}`} />
                                 ) : (
                                     <item.icon
-                                        size={18}
+                                        size={16}
                                         className={`transition-colors duration-500 ${activeSegment === item.id ? "text-indigo-400" : "text-white/30 group-hover:text-white"
                                             }`}
                                     />

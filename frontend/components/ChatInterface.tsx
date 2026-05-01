@@ -76,10 +76,10 @@ export default function ChatInterface({ isOpen, onClose }: { isOpen: boolean; on
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.95, y: 30 }}
                     transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                    className="fixed bottom-32 right-4 md:right-10 z-[200] w-[calc(100vw-2rem)] md:w-[420px] h-fit max-h-[75vh] md:h-[620px] bg-slate-900/40 backdrop-blur-2xl rounded-[3rem] border border-white/20 shadow-[0_25px_100px_rgba(0,0,0,0.7)] flex flex-col overflow-hidden"
+                    className="fixed bottom-24 right-4 md:bottom-32 md:right-10 z-[200] w-[calc(100vw-2rem)] md:w-[420px] h-fit max-h-[80vh] md:h-[620px] bg-slate-900/40 backdrop-blur-2xl rounded-[2rem] md:rounded-[3rem] border border-white/20 shadow-[0_25px_100px_rgba(0,0,0,0.7)] flex flex-col overflow-hidden"
                 >
                     {/* Header: Humanized Branding */}
-                    <div className="p-5 md:p-6 flex justify-between items-center border-b border-white/10 bg-white/5 backdrop-blur-md">
+                    <div className="p-4 md:p-6 flex justify-between items-center border-b border-white/10 bg-white/5 backdrop-blur-md">
                         <div className="flex items-center gap-4">
                             <div className="relative">
                                 <div className="w-14 h-14 rounded-2xl overflow-hidden border-2 border-indigo-500/30 shadow-2xl shadow-indigo-500/20">
@@ -101,7 +101,7 @@ export default function ChatInterface({ isOpen, onClose }: { isOpen: boolean; on
                     </div>
 
                     {/* Messages Area: Humanized Flow */}
-                    <div ref={scrollRef} className="flex-1 overflow-y-auto px-6 py-6 space-y-8 scroll-smooth scrollbar-hide">
+                    <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 md:px-6 py-6 space-y-6 md:space-y-8 scroll-smooth scrollbar-hide">
                         {messages.length === 0 && (
                             <motion.div
                                 initial={{ opacity: 0, y: 10 }}
@@ -193,7 +193,7 @@ export default function ChatInterface({ isOpen, onClose }: { isOpen: boolean; on
                     </div>
 
                     {/* Input Area: Re-engineered Flow */}
-                    <div className="p-6 bg-slate-900/30 backdrop-blur-3xl border-t border-white/10 mb-4">
+                    <div className="p-4 md:p-6 bg-slate-900/30 backdrop-blur-3xl border-t border-white/10 mb-2 md:mb-4">
                         <form onSubmit={handleSubmit} className="relative group">
                             <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500/50 to-purple-500/50 rounded-[1.8rem] opacity-0 group-focus-within:opacity-100 blur-xl transition duration-500" />
                             <div className="relative">

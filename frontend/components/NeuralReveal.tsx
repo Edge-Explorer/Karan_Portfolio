@@ -19,7 +19,7 @@ export default function NeuralReveal({ text, className, delay = 0, trigger = "vi
     return (
         <div className={`inline-block ${className}`}>
             {words.map((word, wordIdx) => (
-                <span key={wordIdx} className="inline-block whitespace-nowrap">
+                <span key={wordIdx} className="inline-block">
                     {word.split("").map((char, charIdx) => (
                         <motion.span
                             key={charIdx}

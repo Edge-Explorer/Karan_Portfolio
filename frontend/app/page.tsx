@@ -268,7 +268,7 @@ export default function Home() {
       <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
       <ChatInterface isOpen={isAIChatOpen} onClose={() => setIsAIChatOpen(false)} />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-12 lg:py-32 flex flex-col items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 py-12 lg:py-32 flex flex-col items-center">
 
         <motion.button
           onClick={() => setIsAIChatOpen(!isAIChatOpen)}
@@ -279,7 +279,7 @@ export default function Home() {
             rotate: 0
           }}
           whileHover={{ scale: 1.05 }}
-          className="fixed bottom-10 right-10 z-[250] group transition-all duration-500"
+          className="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[250] group transition-all duration-500"
         >
           {/* Active State Halo */}
           {isAIChatOpen && (
@@ -309,7 +309,7 @@ export default function Home() {
                 <motion.h1
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
-                  className="text-4xl md:text-6xl lg:text-7xl xl:text-[5rem] font-black tracking-tighter leading-none text-white lg:whitespace-nowrap"
+                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5rem] font-black tracking-tighter leading-[1.1] text-white lg:whitespace-nowrap text-balance"
                 >
                   <NeuralReveal text="Karan Rohidas Shelar" trigger="mount" />
                 </motion.h1>
@@ -318,7 +318,7 @@ export default function Home() {
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.1 }}
-                  className="text-xl md:text-2xl lg:text-3xl text-indigo-400 font-bold tracking-[0.3em] uppercase leading-none"
+                  className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-indigo-400 font-bold tracking-[0.2em] sm:tracking-[0.3em] uppercase leading-none"
                 >
                   <NeuralReveal text="Generative AI Developer" delay={0.5} trigger="mount" />
                 </motion.p>
@@ -328,7 +328,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="flex flex-wrap justify-center lg:justify-start items-center gap-4 md:gap-6"
+                className="flex flex-wrap justify-center lg:justify-start items-center gap-3 sm:gap-6"
               >
                 <motion.button
                   onClick={() => setIsContactOpen(true)}
@@ -417,11 +417,11 @@ export default function Home() {
           className="w-full max-w-7xl space-y-20 pt-12 pb-24 px-4"
         >
           <div className="space-y-6 text-left max-w-3xl">
-            <h2 className="text-sm font-black text-indigo-400 uppercase tracking-[0.5em]">Introduction</h2>
-            <h3 className="text-6xl md:text-8xl font-black tracking-tighter text-white leading-none">
+            <h2 className="text-sm font-black text-indigo-400 uppercase tracking-[0.3em] sm:tracking-[0.5em]">Introduction</h2>
+            <h3 className="text-5xl md:text-8xl font-black tracking-tighter text-white leading-tight">
               <NeuralReveal text="Overview" />
             </h3>
-            <p className="text-xl md:text-2xl text-white/60 font-medium leading-relaxed text-justify">
+            <p className="text-lg md:text-2xl text-white/60 font-medium leading-relaxed text-justify">
               I am an emerging Generative AI Developer with a mission to architect the next generation of autonomous systems.
               I specialize in bridging the gap between ambitious AI research and practical execution, as seen in NEEL—a live
               multi-agent productivity environment I built using LangChain, FastAPI, and React Native. I approach every challenge
@@ -470,12 +470,12 @@ export default function Home() {
           className="w-full max-w-7xl space-y-24 py-32 border-y border-slate-200"
         >
           <div className="flex flex-col items-center text-center space-y-8">
-            <h3 className="text-7xl md:text-9xl font-black tracking-tighter text-white">
+            <h3 className="text-6xl md:text-9xl font-black tracking-tighter text-white">
               <NeuralReveal text="Skillset" />
             </h3>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-x-12 gap-y-16 px-4">
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-12 sm:gap-x-12 sm:gap-y-16 px-4">
             {(skills.flatMap(group => group.items) as Skill[]).map((skill, i) => (
               <motion.div
                 key={skill.name}
@@ -485,13 +485,13 @@ export default function Home() {
                 transition={{ delay: i * 0.02 }}
                 onMouseEnter={() => setActiveSkill(skill)}
                 onMouseLeave={() => setActiveSkill(null)}
-                className="flex flex-col items-center gap-6 group relative w-24 md:w-32"
+                className="flex flex-col items-center gap-4 sm:gap-6 group relative w-20 sm:w-32"
               >
                 {/* Improved Hover Glow */}
                 <div className="absolute inset-0 bg-indigo-500/5 blur-[40px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                 {/* Logo Container */}
-                <div className="relative w-20 h-20 md:w-24 md:h-24 flex items-center justify-center transition-all duration-500 group-hover:-translate-y-3 cursor-help bg-slate-100/50 rounded-2xl shadow-inner p-4">
+                <div className="relative w-16 h-16 sm:w-24 sm:h-24 flex items-center justify-center transition-all duration-500 group-hover:-translate-y-3 cursor-help bg-slate-100/50 rounded-2xl shadow-inner p-3 sm:p-4">
                   <SkillLogo skill={skill} />
                 </div>
 
@@ -679,9 +679,9 @@ export default function Home() {
                         </div>
                       )}
                     </div>
-                    <h3 className="text-5xl md:text-7xl font-black tracking-tighter text-white">{project.title}</h3>
+                    <h3 className="text-4xl md:text-7xl font-black tracking-tighter text-white">{project.title}</h3>
                   </div>
-                  <p className="text-2xl text-white/60 font-light leading-snug">
+                  <p className="text-lg md:text-2xl text-white/60 font-light leading-snug">
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-3">
