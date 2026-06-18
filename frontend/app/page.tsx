@@ -139,6 +139,18 @@ const skills: SkillGroup[] = [
 
 const projects = [
   {
+    title: "AgentBond AI",
+    description: "A production-grade, full-stack multi-agent system that decomposes open-ended problems into hypotheses, investigates them against live web data, and verifies findings for hallucination and context drift.",
+    tech: ["FastAPI", "React (Vite)", "Celery", "Upstash Redis", "PostgreSQL", "Gemini API", "Prometheus", "Grafana Cloud", "Docker"],
+    color: "from-emerald-600 to-teal-500",
+    image: "/projects/agentbond-logo.png",
+    links: {
+      github: "https://github.com/Edge-Explorer/AgentBond-AI",
+      live: "https://agent-bond-ai.vercel.app"
+    },
+    highlights: ["Orchestration Engine", "Verifier Agent", "Shared Context Store", "Prometheus & Grafana"]
+  },
+  {
     title: "NEEL",
     description: "Architected a 3-tier multi-agent productivity system (Supervisor → Reasoning → Reflection) with reflection-based validation and NLP activity extraction.",
     tech: ["LangChain", "LangGraph", "FastAPI", "React Native", "Supabase", "Vercel", "Gemini API"],
@@ -712,6 +724,17 @@ export default function Home() {
                         </div>
 
                         <div className="flex flex-col gap-3">
+                          {project.links?.live && (
+                            <a
+                              href={project.links.live}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center justify-between p-4 rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white transition-all group/link shadow-xl shadow-indigo-500/20"
+                            >
+                              <span className="text-sm font-black uppercase tracking-widest">Live Demo</span>
+                              <ExternalLink size={18} className="group-hover:translate-x-0.5 transition-transform" />
+                            </a>
+                          )}
                           {project.links?.drive && (
                             <a
                               href={project.links.drive}

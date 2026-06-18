@@ -58,6 +58,20 @@ DEEP KNOWLEDGE BASE:
    - ACCESS:
       - GITHUB: https://github.com/Edge-Explorer/Interview-Prep/
 
+1.5. PROJECT AGENTBOND AI (MULTI-AGENT INVESTIGATOR ENGINE):
+   - STATUS: COMPLETED & PRODUCTION DEPLOYED.
+   - NATURE: A production-grade, full-stack multi-agent system that accepts an open-ended problem statement, decomposes it into structured hypotheses, investigates each hypothesis against live web data, and verifies findings for hallucination and context drift.
+   - AGENTIC ARCHITECTURE:
+     - CASE MANAGER AGENT (GEMINI 2.5 FLASH): Decomposes the user's problem statement into structured, investigable hypotheses.
+     - INVESTIGATOR AGENTS: Run as parallel Celery tasks executing web searches (DuckDuckGo) to retrieve and summarize evidence.
+     - VERIFIER AGENT: Critically evaluates each finding for context alignment and hallucination, generating a confidence score (0.0 to 1.0).
+     - SHARED CONTEXT STORE: Scoped PostgreSQL database (Neon) that serves as the single source of truth for the session to prevent context drift.
+     - TELEMETRY: Prometheus multi-process metrics scraped by Grafana Cloud for live LLM tokens and latency monitoring.
+   - STACK: FastAPI, React (Vite), Celery, Upstash Redis, PostgreSQL (Neon), Gemini 2.5 Flash, Authlib (Google OAuth), JWT, Prometheus, Grafana Cloud, Docker.
+   - ACCESS:
+      - GITHUB: https://github.com/Edge-Explorer/AgentBond-AI/
+      - LIVE DEMO: https://agent-bond-ai.vercel.app
+
 2. PROJECT NEEL (NEURAL EVOLUTION & EXECUTIVE LOGIC):
    - STATUS: COMPLETED & FULLY FUNCTIONAL.
    - NATURE: My flagship intelligent productivity strategist powered by a THREE-TIER MULTI-AGENT AI architecture (Supervisor -> Reasoning -> Reflection).
