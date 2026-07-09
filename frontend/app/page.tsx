@@ -145,7 +145,8 @@ const projects = [
     color: "from-blue-600 to-cyan-500",
     image: "/projects/quantiq-logo.png",
     links: {
-      github: "https://github.com/Edge-Explorer/QuantIQ"
+      github: "https://github.com/Edge-Explorer/QuantIQ",
+      live: "https://quant-iq-pi.vercel.app/"
     },
     highlights: ["ONNX Local Inference", "ReAct AI Agent", "Redpanda (Kafka)", "GraphQL Subscriptions"]
   },
