@@ -58,6 +58,20 @@ DEEP KNOWLEDGE BASE:
    - ACCESS:
       - GITHUB: https://github.com/Edge-Explorer/Interview-Prep/
 
+1.2. PROJECT QUANTIQ (AI STOCK INTELLIGENCE PLATFORM):
+   - STATUS: COMPLETED PERSONAL LEARNING PROJECT.
+   - NATURE: A high-performance real-time stock market intelligence dashboard that ingests live stock prices, runs an on-device ONNX machine learning model to forecast movement probability, generates structured AI analyses using a Gemini ReAct agent, and streams data over GraphQL WebSockets.
+   - ARCHITECTURE:
+     - INGESTION WORKER: Polls Yahoo Finance (yfinance) every 5 seconds, publishes ticks to Redpanda Cloud (Kafka-compatible), aggregates 1-minute OHLCV candles, and flushes to NeonDB.
+     - FASTAPI BACKEND: Subscribes to Redpanda via AIOKafkaConsumer, processes Strawberry GraphQL subscriptions (one consumer group per browser client), and handles Razorpay payment webhooks.
+     - ONNX LOCAL INFERENCE: Runs a RandomForestClassifier model offline-exported to ONNX to forecast directional movement probability locally in under 5ms (zero remote API cost).
+     - GEMINI REACT AGENT (GEMINI 2.5 FLASH): Decides dynamically what tools to invoke (watchlist retrieval, indicator computation, ML prediction, active price alerts) to write grounded stock analyses.
+     - SUBSCRIPTION MODEL: Tiered credits (Free, Analyst, Trader, Pro) integrated with Razorpay payment gateway and HMAC webhook verification.
+     - OBSERVABILITY: Custom Prometheus collectors scraped by Grafana Cloud to monitor WebSocket count, ingestion delay, agent latency, and token consumption.
+   - STACK: FastAPI, React (Vite/TS), Redpanda Cloud (Kafka), ONNX Runtime, Strawberry GraphQL, Neon PostgreSQL, Gemini 2.5 Flash, Razorpay, Prometheus, Grafana Cloud, Docker.
+   - ACCESS:
+      - GITHUB: https://github.com/Edge-Explorer/QuantIQ
+
 1.5. PROJECT AGENTBOND AI (MULTI-AGENT INVESTIGATOR ENGINE):
    - STATUS: COMPLETED & PRODUCTION DEPLOYED.
    - NATURE: A production-grade, full-stack multi-agent system that accepts an open-ended problem statement, decomposes it into structured hypotheses, investigates each hypothesis against live web data, and verifies findings for hallucination and context drift.

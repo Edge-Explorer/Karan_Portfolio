@@ -139,6 +139,17 @@ const skills: SkillGroup[] = [
 
 const projects = [
   {
+    title: "QuantIQ",
+    description: "A real-time AI stock intelligence platform that aggregates live stock prices, runs an on-device ONNX ML prediction model, executes a Gemini ReAct analysis agent, and streams data over GraphQL WebSockets.",
+    tech: ["FastAPI", "React (Vite)", "Redpanda (Kafka)", "ONNX Runtime", "Strawberry GraphQL", "Gemini API", "Prometheus", "Grafana Cloud", "Neon DB"],
+    color: "from-blue-600 to-cyan-500",
+    image: "/projects/quantiq-logo.png",
+    links: {
+      github: "https://github.com/Edge-Explorer/QuantIQ"
+    },
+    highlights: ["ONNX Local Inference", "ReAct AI Agent", "Redpanda (Kafka)", "GraphQL Subscriptions"]
+  },
+  {
     title: "AgentBond AI",
     description: "A production-grade, full-stack multi-agent system that decomposes open-ended problems into hypotheses, investigates them against live web data, and verifies findings for hallucination and context drift.",
     tech: ["FastAPI", "React (Vite)", "Celery", "Upstash Redis", "PostgreSQL", "Gemini API", "Prometheus", "Grafana Cloud", "Docker"],
