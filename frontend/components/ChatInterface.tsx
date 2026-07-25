@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Send, User, Bot, Loader2, X, Sparkles, Zap, Cpu } from "lucide-react";
+import { Send, User, Bot, Loader2, X, Zap, Cpu } from "lucide-react";
 
 export default function ChatInterface({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
     const [messages, setMessages] = useState<{ role: string; content: string }[]>([]);
@@ -108,12 +108,6 @@ export default function ChatInterface({ isOpen, onClose }: { isOpen: boolean; on
                                 animate={{ opacity: 1, y: 0 }}
                                 className="min-h-[380px] flex flex-col items-center justify-center text-center space-y-6 px-4 py-4"
                             >
-                                <div className="relative">
-                                    <div className="absolute -inset-10 bg-indigo-500/20 blur-[60px] rounded-full animate-pulse" />
-                                    <div className="relative w-20 h-20 bg-white/5 rounded-[2rem] flex items-center justify-center text-indigo-400 border border-white/10 shadow-2xl backdrop-blur-xl">
-                                        <Sparkles size={40} />
-                                    </div>
-                                </div>
                                 <div className="space-y-3">
                                     <h3 className="text-3xl font-black tracking-tight text-white leading-tight">Neural Link Established.</h3>
                                     <p className="text-sm text-white/50 font-medium leading-relaxed max-w-[280px] mx-auto">
