@@ -106,7 +106,7 @@ export default function ChatInterface({ isOpen, onClose }: { isOpen: boolean; on
                             <motion.div
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                className="h-full flex flex-col items-center justify-center text-center space-y-6 px-4 py-10"
+                                className="min-h-[380px] flex flex-col items-center justify-center text-center space-y-6 px-4 py-4"
                             >
                                 <div className="relative">
                                     <div className="absolute -inset-10 bg-indigo-500/20 blur-[60px] rounded-full animate-pulse" />
