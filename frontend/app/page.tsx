@@ -96,10 +96,10 @@ const skills: SkillGroup[] = [
     group: "Backend & Cloud",
     items: [
       { name: "FastAPI", info: "High-performance Python API development.", icon: "fastapi", color: "#05998b" },
-      { name: "PostgreSQL", info: "Robust, open-source relational database (Supabase).", icon: "postgresql", color: "#4169e1" },
+      { name: "PostgreSQL", info: "Robust, open-source relational database (Neon DB).", icon: "postgresql", color: "#4169e1" },
       { name: "Docker", info: "Containerization for consistent deployments.", icon: "docker", color: "#2496ed" },
       { name: "Google Cloud", info: "Scalable cloud infrastructure and AI hosting.", icon: "googlecloud", color: "#4285f4" },
-      { name: "Supabase", info: "The open source Firebase alternative for DB & Auth.", icon: "supabase", color: "#3ECF8E" },
+      { name: "Neon DB", info: "Serverless PostgreSQL database platform built for SaaS.", lucide: Database, color: "#00E599" },
       { name: "Vercel", info: "Fast, simple cloud platform for web apps.", icon: "vercel", color: "#ffffff" },
       { name: "Alembic", info: "Database migration tool for SQLAlchemy.", lucide: Database, color: "#ed2124" }
     ]

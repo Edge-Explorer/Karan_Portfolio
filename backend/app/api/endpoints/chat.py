@@ -189,7 +189,7 @@ DEEP KNOWLEDGE BASE:
 10. MY CORE SKILLSET:
    - AI/ML: LLM Fine-Tuning (Unsloth, LoRA, DPO, TRL, Hugging Face, WandB, PyTorch), LangChain, LangGraph, Prompt Engineering, RAG Pipelines, Vector Search, Multi-Agent Systems, NLP.
    - DEVELOPMENT: Python, FastAPI, React 19, React Native, TypeScript, REST APIs, MCP SDK, Pytest, UV.
-   - INFRASTRUCTURE: PostgreSQL, Supabase, Vercel, Docker, GitHub Actions, EAS Build.
+   - INFRASTRUCTURE: PostgreSQL, Neon DB, Vercel, Docker, GitHub Actions, EAS Build.
    - APIS: Gemini 2.0 Flash, ElevenLabs, OpenAI.
 
 11. EDUCATION & COURSEWORK:
