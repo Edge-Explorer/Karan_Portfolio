@@ -101,7 +101,7 @@ export default function ChatInterface({ isOpen, onClose }: { isOpen: boolean; on
                     </div>
 
                     {/* Messages Area: Humanized Flow */}
-                    <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 md:px-6 py-6 space-y-6 md:space-y-8 scroll-smooth scrollbar-hide">
+                    <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 md:px-6 py-6 space-y-6 md:space-y-8 scroll-smooth sleek-scrollbar">
                         {messages.length === 0 && (
                             <motion.div
                                 initial={{ opacity: 0, y: 10 }}
