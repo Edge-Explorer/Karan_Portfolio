@@ -394,7 +394,7 @@ export default function Home() {
                   />
                   <SocialLink 
                     icon={<svg viewBox="0 0 24 24" width="20" height="20" className="grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"><path fill="#ffffff" d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" points="14 2 14 8 20 8"></polyline><line fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" x1="16" y1="13" x2="8" y2="13"></line><line fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" x1="16" y1="17" x2="8" y2="17"></line><polyline fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" points="10 9 9 9 8 9"></polyline></svg>} 
-                    href="https://drive.google.com/file/d/1Xi5XVCEjLsbePaW76ipwh_bSfJHEbwJS/view?usp=drive_link" 
+                    href="https://drive.google.com/file/d/1zwf8oKxJUntkBNMS4GgYWkO3IHjlOrmq/view?usp=drive_link" 
                     label="Resume" 
                   />
 
