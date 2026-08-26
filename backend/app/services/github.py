@@ -2,8 +2,8 @@ import time
 import requests
 from app.core.config import settings
 
-# In-memory cache to prevent rate-limiting (TTL: 6 hours = 21600 seconds)
-CACHE_TTL = 21600
+# In-memory cache to prevent rate-limiting (TTL: 5 minutes = 300 seconds)
+CACHE_TTL = 300
 _stats_cache = {
     "data": None,
     "timestamp": 0
