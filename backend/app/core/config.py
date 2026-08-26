@@ -7,6 +7,7 @@ class Settings:
     PROJECT_NAME: str = "Karan Portfolio API"
     DATABASE_URL: str = os.getenv("DATABASE_URL")
     GEMINI_API_KEY: str = os.getenv("GEMINI_API_KEY")
+    GITHUB_TOKEN: str = os.getenv("KARAN_PORTFOLIO_CONTRIBUTION_TOKEN")
     
     # Email Settings
     SMTP_SERVER: str = os.getenv("SMTP_SERVER", "smtp.gmail.com")

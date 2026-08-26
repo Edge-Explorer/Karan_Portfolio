@@ -2,7 +2,7 @@ from fastapi import FastAPI, Request
 import time
 from contextlib import asynccontextmanager
 from fastapi.middleware.cors import CORSMiddleware
-from app.api.endpoints import chat, contact
+from app.api.endpoints import chat, contact, github
 from app.core.config import settings
 from app.database import engine, Base
 from app import models  # Ensure models are loaded
@@ -54,3 +54,4 @@ async def root():
 # Include routers
 app.include_router(chat.router, prefix="/api/chat", tags=["chat"])
 app.include_router(contact.router, prefix="/api/contact", tags=["contact"])
+app.include_router(github.router, prefix="/api/github", tags=["github"])

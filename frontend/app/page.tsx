@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import ChatInterface from "@/components/ChatInterface";
 import ContactModal from "@/components/ContactModal";
+import GithubContributions from "@/components/GithubContributions";
 import NeuralBackground from "@/components/NeuralBackground";
 import SpaceBackground from "@/components/SpaceBackground";
 import Navigation from "@/components/Navigation";
@@ -554,6 +555,9 @@ export default function Home() {
             ))}
           </div>
         </motion.section>
+
+        {/* GitHub Contributions Section */}
+        <GithubContributions />
 
         {/* Credentials Section (Certifications) */}
         <motion.section
