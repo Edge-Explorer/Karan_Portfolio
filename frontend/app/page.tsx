@@ -793,31 +793,33 @@ export default function Home() {
             ))}
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="pt-32 text-center"
-          >
-            <a
-              href="https://github.com/Edge-Explorer"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex flex-col items-center gap-6"
-            >
-              <p className="text-2xl md:text-3xl font-bold text-white/40 group-hover:text-indigo-400 transition-colors duration-500 max-w-2xl px-4">
-                Bridging the gap between innovative vision and high-performance execution through intelligent systems engineering.
-              </p>
-              <div className="flex items-center gap-4 px-10 py-5 rounded-full glass border border-white/5 group-hover:border-indigo-500/50 group-hover:bg-indigo-500/10 transition-all duration-500 shadow-2xl">
-                <span className="text-xs font-black uppercase tracking-[0.3em] text-white/60 group-hover:text-white transition-colors">Neural Repository</span>
-                <Github size={18} className="group-hover:rotate-12 transition-transform opacity-60 group-hover:opacity-100 text-white" />
-              </div>
-            </a>
-          </motion.div>
         </motion.section>
 
         {/* GitHub Contributions Section */}
         <GithubContributions />
+
+        {/* Neural Repository Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="pt-32 text-center"
+        >
+          <a
+            href="https://github.com/Edge-Explorer"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex flex-col items-center gap-6"
+          >
+            <p className="text-2xl md:text-3xl font-bold text-white/40 group-hover:text-indigo-400 transition-colors duration-500 max-w-2xl px-4">
+              Bridging the gap between innovative vision and high-performance execution through intelligent systems engineering.
+            </p>
+            <div className="flex items-center gap-4 px-10 py-5 rounded-full glass border border-white/5 group-hover:border-indigo-500/50 group-hover:bg-indigo-500/10 transition-all duration-500 shadow-2xl">
+              <span className="text-xs font-black uppercase tracking-[0.3em] text-white/60 group-hover:text-white transition-colors">Neural Repository</span>
+              <Github size={18} className="group-hover:rotate-12 transition-transform opacity-60 group-hover:opacity-100 text-white" />
+            </div>
+          </a>
+        </motion.div>
 
         <motion.footer
           initial={{ opacity: 0 }}
