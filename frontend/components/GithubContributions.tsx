@@ -97,11 +97,11 @@ export default function GithubContributions() {
 
   // Custom mapping to force GitHub dark theme colors
   const getGithubColor = (count: number) => {
-    if (count === 0) return "#161b22";
-    if (count <= 3) return "#0e4429";
-    if (count <= 6) return "#006d32";
-    if (count <= 9) return "#26a641";
-    return "#39d353";
+    if (count === 0) return "rgba(255, 255, 255, 0.05)"; // Blends perfectly with the glassmorphic container
+    if (count <= 3) return "#004d26";  // Deep forest emerald
+    if (count <= 6) return "#007a3e";  // Medium emerald
+    if (count <= 9) return "#00ab55";  // Vibrant emerald
+    return "#00e575";                 // Super bright neon green
   };
 
   // Activity ratios
@@ -134,17 +134,24 @@ export default function GithubContributions() {
       </div>
 
       {/* Main Glass Card (Matching Featured Ventures & Skillset design) */}
-      <div className="glass rounded-[3rem] p-8 md:p-12 border border-white/10 shadow-2xl backdrop-blur-3xl space-y-8">
+      <div className="glass rounded-[3rem] p-8 md:p-12 border border-white/10 shadow-2xl backdrop-blur-3xl space-y-8 relative overflow-hidden shadow-[0_0_60px_rgba(99,102,241,0.08)]">
         
+        {/* Spotlight background glows */}
+        <div className="absolute -left-20 -top-20 w-80 h-80 bg-indigo-500/10 blur-[80px] rounded-full pointer-events-none" />
+        <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-emerald-500/5 blur-[80px] rounded-full pointer-events-none" />
+
         {/* Header statistics info */}
-        <div className="flex justify-between items-center text-xs text-white/50">
-          <span className="text-sm font-bold text-white/80">
-            {stats.total_contributions.toLocaleString()} contributions in 2026
+        <div className="flex justify-between items-center text-xs text-white/50 relative z-10">
+          <span className="text-sm font-medium text-white/80">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 font-black text-xl mr-1.5">
+              {stats.total_contributions.toLocaleString()}
+            </span>
+            contributions in 2026
           </span>
         </div>
 
         {/* Scrollable grid area */}
-        <div className="relative overflow-x-auto pb-4 scrollbar-hide">
+        <div className="relative overflow-x-auto pb-4 scrollbar-hide relative z-10">
           <div className="flex gap-[4px] min-w-[980px] select-none">
             
             {/* Day Labels Column */}
@@ -191,14 +198,14 @@ export default function GithubContributions() {
 
           {/* Tooltip Box */}
           {hoveredDay && (
-            <div className="absolute top-[-36px] left-1/2 -translate-x-1/2 z-50 bg-[#161b22] border border-white/10 px-3 py-1 rounded-md text-[10px] font-mono text-[#c9d1d9] shadow-2xl pointer-events-none whitespace-nowrap">
+            <div className="absolute top-[-36px] left-1/2 -translate-x-1/2 z-50 bg-[#0f172a] border border-white/10 px-3 py-1.5 rounded-xl text-[10px] font-mono text-white/95 shadow-2xl pointer-events-none whitespace-nowrap">
               {hoveredDay.count} {hoveredDay.count === 1 ? "contribution" : "contributions"} on {formatDate(hoveredDay.date)}
             </div>
           )}
         </div>
 
         {/* Bottom bar of calendar */}
-        <div className="flex justify-between items-center text-[10px] text-white/40 border-t border-white/10 pt-4">
+        <div className="flex justify-between items-center text-[10px] text-white/40 border-t border-white/10 pt-4 relative z-10">
           <a 
             href="https://docs.github.com/articles/why-are-my-contributions-not-showing-up-on-my-profile" 
             target="_blank" 
@@ -209,11 +216,11 @@ export default function GithubContributions() {
           </a>
           <div className="flex items-center gap-1.5">
             <span>Less</span>
-            <div className="w-[14px] h-[14px] bg-[#161b22] rounded-[2px]" />
-            <div className="w-[14px] h-[14px] bg-[#0e4429] rounded-[2px]" />
-            <div className="w-[14px] h-[14px] bg-[#006d32] rounded-[2px]" />
-            <div className="w-[14px] h-[14px] bg-[#26a641] rounded-[2px]" />
-            <div className="w-[14px] h-[14px] bg-[#39d353] rounded-[2px]" />
+            <div className="w-[14px] h-[14px] bg-white/5 border border-white/5 rounded-[2px]" />
+            <div className="w-[14px] h-[14px] bg-[#004d26] rounded-[2px]" />
+            <div className="w-[14px] h-[14px] bg-[#007a3e] rounded-[2px]" />
+            <div className="w-[14px] h-[14px] bg-[#00ab55] rounded-[2px]" />
+            <div className="w-[14px] h-[14px] bg-[#00e575] rounded-[2px]" />
             <span>More</span>
           </div>
         </div>
