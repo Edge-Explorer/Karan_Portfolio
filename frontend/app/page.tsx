@@ -404,13 +404,10 @@ export default function Home() {
                     onClick={() => setTheme(theme === "neural" ? "space" : "neural")}
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex items-center gap-3 px-6 py-3 glass rounded-2xl text-indigo-400 border-indigo-500/50 hover:bg-indigo-500/10 transition-all duration-300 group"
-                    title="Switch Background Theme"
+                    className="flex items-center justify-center p-3.5 glass rounded-2xl text-indigo-400 border-indigo-500/50 hover:bg-indigo-500/10 transition-all duration-300 group"
+                    title={theme === "neural" ? "Switch to Cinematic" : "Switch to Neural"}
                   >
                     {theme === "neural" ? <Globe size={20} className="animate-pulse text-indigo-400" /> : <Cpu size={20} className="text-indigo-400" />}
-                    <span className="text-xs font-black uppercase tracking-widest hidden md:inline">
-                      {theme === "neural" ? "Switch to Cinematic" : "Switch to Neural"}
-                    </span>
                   </motion.button>
                 </div>
               </motion.div>
