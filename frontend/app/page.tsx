@@ -556,9 +556,6 @@ export default function Home() {
           </div>
         </motion.section>
 
-        {/* GitHub Contributions Section */}
-        <GithubContributions />
-
         {/* Credentials Section (Certifications) */}
         <motion.section
           id="credentials"
@@ -818,6 +815,9 @@ export default function Home() {
             </a>
           </motion.div>
         </motion.section>
+
+        {/* GitHub Contributions Section */}
+        <GithubContributions />
 
         <motion.footer
           initial={{ opacity: 0 }}
