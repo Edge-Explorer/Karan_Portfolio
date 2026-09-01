@@ -142,14 +142,14 @@ body {
 .animate-marquee {
   display: flex;
   width: max-content;
-  animation: marquee 35s linear infinite;
+  animation: marquee 45s linear infinite;
   will-change: transform;
 }
 
 .animate-marquee-reverse {
   display: flex;
   width: max-content;
-  animation: marquee-reverse 35s linear infinite;
+  animation: marquee-reverse 48s linear infinite;
   will-change: transform;
 }
 

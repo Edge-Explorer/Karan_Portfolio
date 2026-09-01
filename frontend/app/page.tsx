@@ -302,29 +302,29 @@ const skillsTrack2: Skill[] = [
 function SkillMarqueeCard({ skill }: { skill: Skill }) {
   return (
     <div
-      className="group relative flex items-center gap-3.5 px-6 py-3.5 rounded-2xl glass border border-white/10 hover:border-indigo-500/50 bg-white/[0.03] hover:bg-white/[0.08] transition-all duration-300 shadow-xl hover:shadow-[0_0_25px_rgba(99,102,241,0.25)] hover:scale-105 cursor-pointer whitespace-nowrap select-none"
+      className="group relative flex items-center gap-4 sm:gap-5 px-7 py-4 sm:px-9 sm:py-5 rounded-[2rem] glass border border-white/10 hover:border-indigo-500/60 bg-white/[0.03] hover:bg-white/[0.08] backdrop-blur-2xl transition-all duration-300 shadow-2xl hover:shadow-[0_0_40px_rgba(99,102,241,0.35)] hover:scale-105 cursor-pointer whitespace-nowrap select-none"
     >
-      {/* Background glow on hover */}
+      {/* Background radial glow on hover */}
       <div
-        className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl pointer-events-none"
+        className="absolute inset-0 rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl pointer-events-none"
         style={{ backgroundColor: `${skill.color}25` }}
       />
 
-      {/* Icon */}
-      <div className="relative w-8 h-8 flex items-center justify-center">
-        <SkillLogo skill={skill} className="w-7 h-7" />
+      {/* Icon Container with subtle glass framing */}
+      <div className="relative w-11 h-11 sm:w-14 sm:h-14 flex items-center justify-center p-2 rounded-2xl bg-white/[0.04] border border-white/10 group-hover:border-white/25 transition-all duration-300 shadow-inner">
+        <SkillLogo skill={skill} className="w-8 h-8 sm:w-10 sm:h-10" />
       </div>
 
-      {/* Label */}
-      <span className="text-xs md:text-sm font-bold text-white/80 group-hover:text-white transition-colors">
-        {skill.name}
-      </span>
-
-      {/* Subtle brand color accent dot */}
-      <div
-        className="w-1.5 h-1.5 rounded-full opacity-60 group-hover:opacity-100 transition-opacity"
-        style={{ backgroundColor: skill.color }}
-      />
+      {/* Label & Accent Dot */}
+      <div className="flex items-center gap-3">
+        <span className="text-base sm:text-lg md:text-xl font-extrabold text-white/90 group-hover:text-white transition-colors tracking-tight">
+          {skill.name}
+        </span>
+        <div
+          className="w-2.5 h-2.5 rounded-full opacity-60 group-hover:opacity-100 transition-all duration-300 group-hover:scale-125"
+          style={{ backgroundColor: skill.color, boxShadow: `0 0 10px ${skill.color}` }}
+        />
+      </div>
     </div>
   );
 }
@@ -561,8 +561,12 @@ export default function Home() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="w-full py-32 space-y-16 relative overflow-hidden"
         >
+          {/* Ambient Background Spotlights */}
+          <div className="absolute left-1/4 top-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-500/10 blur-[120px] rounded-full pointer-events-none" />
+          <div className="absolute right-1/4 top-1/2 -translate-y-1/2 w-96 h-96 bg-purple-500/10 blur-[120px] rounded-full pointer-events-none" />
+
           {/* Header */}
-          <div className="flex flex-col items-center text-center space-y-6 px-6">
+          <div className="flex flex-col items-center text-center space-y-6 px-6 relative z-10">
             <p className="text-xs md:text-sm font-black tracking-[0.4em] uppercase text-indigo-400/90">
               POWERED BY MODERN TECH STACK
             </p>
@@ -575,14 +579,16 @@ export default function Home() {
           </div>
 
           {/* Marquee Moving Bands Strip */}
-          <div className="space-y-6 relative overflow-hidden marquee-container py-6">
-            {/* Left & Right Ambient Gradient Fade Masks */}
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-24 sm:w-56 bg-gradient-to-r from-[#020617] via-[#020617]/90 to-transparent z-20" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-24 sm:w-56 bg-gradient-to-l from-[#020617] via-[#020617]/90 to-transparent z-20" />
-
+          <div
+            className="space-y-8 sm:space-y-10 relative overflow-hidden marquee-container py-8 relative z-10"
+            style={{
+              maskImage: "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
+              WebkitMaskImage: "linear-gradient(to right, transparent, black 12%, black 88%, transparent)"
+            }}
+          >
             {/* Track 1: AI, LLMs, Backend & Databases (Moving Left) */}
             <div className="flex overflow-hidden">
-              <div className="animate-marquee flex items-center gap-4 sm:gap-6 py-2">
+              <div className="animate-marquee flex items-center gap-6 sm:gap-8 py-3">
                 {[...skillsTrack1, ...skillsTrack1].map((skill, idx) => (
                   <SkillMarqueeCard key={`${skill.name}-t1-${idx}`} skill={skill} />
                 ))}
@@ -591,7 +597,7 @@ export default function Home() {
 
             {/* Track 2: Frontend, Mobile, Cloud, MLOps & DevTools (Moving Right) */}
             <div className="flex overflow-hidden">
-              <div className="animate-marquee-reverse flex items-center gap-4 sm:gap-6 py-2">
+              <div className="animate-marquee-reverse flex items-center gap-6 sm:gap-8 py-3">
                 {[...skillsTrack2, ...skillsTrack2].map((skill, idx) => (
                   <SkillMarqueeCard key={`${skill.name}-t2-${idx}`} skill={skill} />
                 ))}
