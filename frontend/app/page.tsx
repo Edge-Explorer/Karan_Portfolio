@@ -7,6 +7,7 @@ import {
   Binary, GitBranch, Box, FileCode, Search, Server, Monitor, GraduationCap, BookOpen,
   Activity, Zap, Instagram, X, Download, Brain, Network
 } from "lucide-react";
+import SpaceIntroLoader from "@/components/SpaceIntroLoader";
 import ChatInterface from "@/components/ChatInterface";
 import ContactModal from "@/components/ContactModal";
 import GithubContributions from "@/components/GithubContributions";
@@ -364,6 +365,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-transparent text-white selection:bg-indigo-500/30 overflow-x-hidden relative">
+      <SpaceIntroLoader />
       <Navigation onTerminalClick={() => setIsAIChatOpen(true)} />
 
       {/* Dynamic Background with Cross-fade */}
