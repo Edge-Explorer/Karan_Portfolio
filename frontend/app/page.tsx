@@ -356,7 +356,7 @@ function SkillMarqueeCard({ skill }: { skill: Skill }) {
 export default function Home() {
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isAIChatOpen, setIsAIChatOpen] = useState(false);
-  const [theme, setTheme] = useState<"neural" | "space">("neural");
+  const [theme, setTheme] = useState<"neural" | "space">("space");
 
   useEffect(() => {
     // Neural Pre-warming: Prime the Vercel Serverless Function on load
@@ -496,13 +496,17 @@ export default function Home() {
 
                   {/* Theme Toggle Button */}
                   <motion.button
-                    onClick={() => setTheme(theme === "neural" ? "space" : "neural")}
+                    onClick={() => setTheme(theme === "space" ? "neural" : "space")}
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                     className="flex items-center justify-center p-3.5 glass rounded-2xl text-indigo-400 border-indigo-500/50 hover:bg-indigo-500/10 transition-all duration-300 group"
-                    title={theme === "neural" ? "Switch to Cinematic" : "Switch to Neural"}
+                    title={theme === "space" ? "Switch to Neural" : "Switch to Cinematic"}
                   >
-                    {theme === "neural" ? <Globe size={20} className="animate-pulse text-indigo-400" /> : <Cpu size={20} className="text-indigo-400" />}
+                    {theme === "space" ? (
+                      <Cpu size={20} className="text-indigo-400 animate-pulse" />
+                    ) : (
+                      <Globe size={20} className="text-indigo-400 animate-pulse" />
+                    )}
                   </motion.button>
                 </div>
               </motion.div>
