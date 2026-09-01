@@ -140,7 +140,7 @@ const skills: SkillGroup[] = [
       { name: "Docker", info: "Containerization and multi-stage container builds.", icon: "docker", color: "#2496ed" },
       { name: "Git", info: "Distributed version control and branch management.", icon: "git", color: "#f05032" },
       { name: "Vercel", info: "Edge deployments, preview URLs, and serverless hosting.", icon: "vercel", color: "#ffffff" },
-      { name: "Prometheus", info: "Time-series monitoring and operational metric telemetry.", lucide: Activity, color: "#E6522C" },
+      { name: "Prometheus", info: "Time-series monitoring and operational metric telemetry.", local: "/skills/prometheus.png", color: "#E6522C" },
       { name: "Grafana", info: "Real-time observability dashboards and alerts.", icon: "grafana", color: "#F46800" },
       { name: "Postman", info: "API testing, automated workflows, and documentation.", local: "/skills/postman.jpg", color: "#ff6c37" }
     ]
@@ -309,7 +309,7 @@ const skillsTrack2: Skill[] = [
   { name: "Prompt Engineering", info: "ReAct, Few-Shot, and Chain-of-Thought prompting.", lucide: Terminal, color: "#10B981" },
   { name: "Supabase", info: "Open-source Firebase alternative with Postgres Auth.", icon: "supabase", color: "#3ECF8E" },
   { name: "Docker", info: "Containerization and multi-stage container builds.", icon: "docker", color: "#2496ed" },
-  { name: "Prometheus", info: "Time-series monitoring & operational metric telemetry.", lucide: Activity, color: "#E6522C" },
+  { name: "Prometheus", info: "Time-series monitoring & operational metric telemetry.", local: "/skills/prometheus.png", color: "#E6522C" },
   { name: "Grafana", info: "Real-time observability dashboards and alerts.", icon: "grafana", color: "#F46800" },
   { name: "Git", info: "Distributed version control and branch management.", icon: "git", color: "#f05032" },
   { name: "Vercel", info: "Edge deployments and serverless cloud hosting.", icon: "vercel", color: "#ffffff" },
