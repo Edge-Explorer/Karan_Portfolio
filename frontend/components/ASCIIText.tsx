@@ -50,7 +50,7 @@ function mapRange(n: number, start: number, stop: number, start2: number, stop2:
   return ((n - start) / (stop - start)) * (stop2 - start2) + start2;
 }
 
-const PX_RATIO = typeof window !== "undefined" ? window.devicePixelRatio : 1;
+const PX_RATIO = typeof window !== "undefined" ? Math.min(2, window.devicePixelRatio || 1) : 1;
 
 interface AsciiFilterOptions {
   fontSize?: number;
@@ -85,6 +85,9 @@ class AsciiFilter {
     this.domElement.style.left = "0";
     this.domElement.style.width = "100%";
     this.domElement.style.height = "100%";
+    this.domElement.style.display = "flex";
+    this.domElement.style.alignItems = "center";
+    this.domElement.style.justifyContent = "center";
 
     this.pre = document.createElement("pre");
     this.domElement.appendChild(this.pre);
@@ -95,8 +98,8 @@ class AsciiFilter {
 
     this.deg = 0;
     this.invert = invert ?? true;
-    this.fontSize = fontSize ?? 10;
-    this.fontFamily = fontFamily ?? "'Courier New', monospace";
+    this.fontSize = fontSize ?? 8;
+    this.fontFamily = fontFamily ?? "'IBM Plex Mono', 'Courier New', monospace";
     this.charset = charset ?? " .'`^\",:;Il!i~+_-?][}{1)(|/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$";
 
     if (this.context) {
@@ -120,10 +123,10 @@ class AsciiFilter {
   reset() {
     if (!this.context) return;
     this.context.font = `${this.fontSize}px ${this.fontFamily}`;
-    const charWidth = this.context.measureText("A").width;
+    const charWidth = Math.max(4, this.context.measureText("A").width);
 
-    this.cols = Math.max(1, Math.floor(this.width / (this.fontSize * (charWidth / this.fontSize))));
-    this.rows = Math.max(1, Math.floor(this.height / this.fontSize));
+    this.cols = Math.max(10, Math.floor(this.width / charWidth));
+    this.rows = Math.max(8, Math.floor(this.height / this.fontSize));
 
     this.canvas.width = this.cols;
     this.canvas.height = this.rows;
@@ -131,13 +134,14 @@ class AsciiFilter {
     this.pre.style.fontSize = `${this.fontSize}px`;
     this.pre.style.margin = "0";
     this.pre.style.padding = "0";
-    this.pre.style.lineHeight = "1em";
-    this.pre.style.position = "absolute";
-    this.pre.style.left = "0";
-    this.pre.style.top = "0";
+    this.pre.style.lineHeight = "1.05em";
+    this.pre.style.position = "relative";
+    this.pre.style.textAlign = "center";
     this.pre.style.zIndex = "9";
-    this.pre.style.backgroundAttachment = "fixed";
-    this.pre.style.mixBlendMode = "difference";
+    this.pre.style.color = "#c7d2fe";
+    this.pre.style.backgroundImage = "linear-gradient(135deg, #a5b4fc 0%, #c084fc 50%, #38bdf8 100%)";
+    this.pre.style.webkitBackgroundClip = "text";
+    this.pre.style.webkitTextFillColor = "transparent";
   }
 
   render(scene: THREE.Scene, camera: THREE.Camera) {
@@ -212,7 +216,7 @@ class CanvasTxt {
   color: string;
   font: string;
 
-  constructor(txt: string, { fontSize = 200, fontFamily = "Arial", color = "#fdf9f3" } = {}) {
+  constructor(txt: string, { fontSize = 200, fontFamily = "IBM Plex Mono, monospace", color = "#ffffff" } = {}) {
     this.canvas = document.createElement("canvas");
     this.context = this.canvas.getContext("2d");
     this.txt = txt;
@@ -318,9 +322,10 @@ class CanvAscii {
   async init() {
     try {
       if (document.fonts) {
-        await document.fonts.load('600 200px "IBM Plex Mono"');
-        await document.fonts.load('500 12px "IBM Plex Mono"');
-        await document.fonts.ready;
+        await Promise.race([
+          document.fonts.load('600 200px "IBM Plex Mono"'),
+          new Promise((resolve) => setTimeout(resolve, 800))
+        ]);
       }
     } catch {
       // Font loading fallback
@@ -333,7 +338,7 @@ class CanvAscii {
   setMesh() {
     this.textCanvas = new CanvasTxt(this.textString, {
       fontSize: this.textFontSize,
-      fontFamily: "IBM Plex Mono, monospace",
+      fontFamily: '"IBM Plex Mono", "Courier New", monospace',
       color: this.textColor
     });
     this.textCanvas.resize();
@@ -365,12 +370,13 @@ class CanvAscii {
   }
 
   setRenderer() {
-    this.renderer = new THREE.WebGLRenderer({ antialias: false, alpha: true });
+    // preserveDrawingBuffer is required for mobile GPU drawImage framebuffer capture
+    this.renderer = new THREE.WebGLRenderer({ antialias: false, alpha: true, preserveDrawingBuffer: true });
     this.renderer.setPixelRatio(1);
     this.renderer.setClearColor(0x000000, 0);
 
     this.filter = new AsciiFilter(this.renderer, {
-      fontFamily: "IBM Plex Mono, monospace",
+      fontFamily: '"IBM Plex Mono", "Courier New", monospace',
       fontSize: this.asciiFontSize,
       invert: true
     });
@@ -396,9 +402,9 @@ class CanvAscii {
         : 3.5;
     const planeW = this.planeBaseHeight * textAspect;
     const fovRad = (this.camera.fov * Math.PI) / 180;
-    const requiredZForWidth = planeW / 2 / (Math.tan(fovRad / 2) * aspect) + 6;
-    const requiredZForHeight = this.planeBaseHeight / 2 / Math.tan(fovRad / 2) + 6;
-    this.camera.position.z = Math.max(28, Math.max(requiredZForWidth, requiredZForHeight));
+    const requiredZForWidth = planeW / 2 / (Math.tan(fovRad / 2) * aspect) + 5;
+    const requiredZForHeight = this.planeBaseHeight / 2 / Math.tan(fovRad / 2) + 5;
+    this.camera.position.z = Math.max(26, Math.max(requiredZForWidth, requiredZForHeight));
 
     this.camera.updateProjectionMatrix();
     this.filter.setSize(this.width, this.height);
@@ -490,7 +496,7 @@ interface ASCIITextProps {
 export default function ASCIIText({
   text = "Karan Shelar",
   asciiFontSize = 7,
-  textFontSize = 200,
+  textFontSize = 180,
   textColor = "#ffffff",
   planeBaseHeight = 8,
   enableWaves = true
@@ -505,9 +511,20 @@ export default function ASCIIText({
     let observer: IntersectionObserver | null = null;
     let ro: ResizeObserver | null = null;
 
+    const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
+    const effectiveAsciiSize = isMobile ? Math.min(asciiFontSize, 6) : asciiFontSize;
+    const effectiveTextSize = isMobile ? Math.min(textFontSize, 140) : textFontSize;
+
     const createAndInit = async (container: HTMLElement, w: number, h: number) => {
       const instance = new CanvAscii(
-        { text, asciiFontSize, textFontSize, textColor, planeBaseHeight, enableWaves },
+        {
+          text,
+          asciiFontSize: effectiveAsciiSize,
+          textFontSize: effectiveTextSize,
+          textColor,
+          planeBaseHeight,
+          enableWaves
+        },
         container,
         w,
         h
@@ -583,7 +600,10 @@ export default function ASCIIText({
         position: "relative",
         width: "100%",
         height: "100%",
-        overflow: "hidden"
+        overflow: "hidden",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center"
       }}
     >
       <style>{`
@@ -597,23 +617,22 @@ export default function ASCIIText({
           height: 100%;
           image-rendering: optimizeSpeed;
           image-rendering: pixelated;
+          opacity: 0;
+          pointer-events: none;
         }
 
         .ascii-text-container pre {
           margin: 0;
           user-select: none;
           padding: 0;
-          line-height: 1em;
-          text-align: left;
-          position: absolute;
-          left: 0;
-          top: 0;
-          background-image: radial-gradient(circle, #818cf8 0%, #c084fc 40%, #38bdf8 100%);
-          background-attachment: fixed;
-          -webkit-text-fill-color: transparent;
+          line-height: 1.05em;
+          text-align: center;
+          position: relative;
+          color: #c7d2fe;
+          background-image: linear-gradient(135deg, #a5b4fc 0%, #c084fc 50%, #38bdf8 100%);
           -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
           z-index: 9;
-          mix-blend-mode: difference;
         }
       `}</style>
     </div>
