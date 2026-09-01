@@ -566,16 +566,10 @@ export default function Home() {
           <div className="absolute right-1/4 top-1/2 -translate-y-1/2 w-96 h-96 bg-purple-500/10 blur-[120px] rounded-full pointer-events-none" />
 
           {/* Header */}
-          <div className="flex flex-col items-center text-center space-y-6 px-6 relative z-10">
-            <p className="text-xs md:text-sm font-black tracking-[0.4em] uppercase text-indigo-400/90">
-              POWERED BY MODERN TECH STACK
-            </p>
-            <h3 className="text-6xl md:text-8xl font-black tracking-tighter text-white">
-              <NeuralReveal text="Unified Skillset" />
-            </h3>
-            <p className="text-sm md:text-base text-white/50 max-w-2xl font-medium leading-relaxed">
-              Core technologies, distributed systems, and generative AI engines powering production deployments.
-            </p>
+          <div className="flex flex-col items-center text-center space-y-8 px-6 relative z-10">
+            <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none text-indigo-400">
+              <NeuralReveal text="Skillset" />
+            </h2>
           </div>
 
           {/* Marquee Moving Bands Strip */}
