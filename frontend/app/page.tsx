@@ -399,7 +399,7 @@ export default function Home() {
             rotate: 0
           }}
           whileHover={{ scale: 1.05 }}
-          className="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[250] group transition-all duration-500"
+          className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 md:bottom-10 md:right-10 z-[250] group transition-all duration-500"
         >
           {/* Active State Halo */}
           {isAIChatOpen && (
@@ -412,10 +412,10 @@ export default function Home() {
 
           <div className={`absolute -inset-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full blur-2xl transition-opacity duration-500 ${isAIChatOpen ? 'opacity-80 scale-110' : 'opacity-40'} group-hover:opacity-100 animate-pulse`} />
 
-          <div className={`relative w-24 h-24 rounded-full overflow-hidden border-4 ${isAIChatOpen ? 'border-white/80 shadow-[0_0_20px_rgba(255,255,255,0.3)]' : 'border-white/20'} glass shadow-2xl transition-all duration-500`}>
+          <div className={`relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 sm:border-4 ${isAIChatOpen ? 'border-white/80 shadow-[0_0_20px_rgba(255,255,255,0.3)]' : 'border-white/20'} glass shadow-2xl transition-all duration-500`}>
             <img src="/karan_image.png" alt="AI Agent" className="w-full h-full object-cover object-top" />
             <div className={`absolute inset-0 ${isAIChatOpen ? 'bg-transparent' : 'bg-indigo-500/20'} group-hover:bg-transparent transition-colors`} />
-            <div className={`absolute bottom-1 right-1 w-6 h-6 ${isAIChatOpen ? 'bg-indigo-500' : 'bg-green-500'} border-2 border-white rounded-full transition-colors flex items-center justify-center`}>
+            <div className={`absolute bottom-1 right-1 w-5 h-5 sm:w-6 sm:h-6 ${isAIChatOpen ? 'bg-indigo-500' : 'bg-green-500'} border-2 border-white rounded-full transition-colors flex items-center justify-center`}>
               {isAIChatOpen && <X size={10} className="text-white" />}
             </div>
           </div>
@@ -652,7 +652,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
                 whileHover={{ y: -12 }}
-                className="group relative h-[560px] glass rounded-[3rem] overflow-hidden border border-white/5 hover:border-indigo-500/40 transition-all duration-700 shadow-2xl flex flex-col"
+                className="group relative min-h-[520px] md:h-[560px] glass rounded-[2.5rem] sm:rounded-[3rem] overflow-hidden border border-white/5 hover:border-indigo-500/40 transition-all duration-700 shadow-2xl flex flex-col"
               >
                 {/* Top Section: Immersive Certificate Display */}
                 <div className="relative h-[50%] w-full overflow-hidden bg-black/40 p-6">
@@ -678,7 +678,7 @@ export default function Home() {
                 </div>
 
                 {/* Bottom Section: Clean Metadata (No Overlap) */}
-                <div className="flex-1 p-8 md:p-10 flex flex-col justify-between relative bg-gradient-to-b from-transparent to-black/20">
+                <div className="flex-1 p-6 sm:p-8 md:p-10 flex flex-col justify-between relative bg-gradient-to-b from-transparent to-black/20">
                   <div className="space-y-6">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
@@ -762,9 +762,9 @@ export default function Home() {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true, margin: "-100px" }}
-                className={`flex flex-col ${idx % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-16 items-center`}
+                className={`flex flex-col ${idx % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 lg:gap-16 items-center`}
               >
-                <div className="flex-1 space-y-8 text-left">
+                <div className="flex-1 space-y-6 sm:space-y-8 text-left w-full">
                   <div className="space-y-4">
                     <div className={`inline-block p-1 rounded-3xl bg-black shadow-2xl relative overflow-hidden group/project-icon`}>
                       {project.image ? (
@@ -779,15 +779,52 @@ export default function Home() {
                     </div>
                     <h3 className="text-4xl md:text-7xl font-black tracking-tighter text-white">{project.title}</h3>
                   </div>
-                  <p className="text-lg md:text-2xl text-white/60 font-light leading-snug">
+                  <p className="text-base sm:text-lg md:text-2xl text-white/60 font-light leading-snug">
                     {project.description}
                   </p>
-                  <div className="flex flex-wrap gap-3">
+                  <div className="flex flex-wrap gap-2.5 sm:gap-3">
                     {project.tech.map(t => (
-                      <span key={t} className="text-xs font-bold px-4 py-2 rounded-xl bg-slate-100 border border-slate-200 text-indigo-600 uppercase">
+                      <span key={t} className="text-xs font-bold px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-slate-100 border border-slate-200 text-indigo-600 uppercase">
                         {t}
                       </span>
                     ))}
+                  </div>
+
+                  {/* Mobile Direct Action Links (Visible on Mobile & Tablet) */}
+                  <div className="flex flex-wrap items-center gap-3 pt-2 lg:hidden">
+                    {project.links?.live && (
+                      <a
+                        href={project.links.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold uppercase tracking-wider shadow-lg shadow-indigo-500/20 active:scale-95 transition-all"
+                      >
+                        <span>Live Demo</span>
+                        <ExternalLink size={14} />
+                      </a>
+                    )}
+                    {project.links?.drive && (
+                      <a
+                        href={project.links.drive}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold uppercase tracking-wider shadow-lg shadow-indigo-500/20 active:scale-95 transition-all"
+                      >
+                        <span>{project.title.includes("Kavach") ? "Download APK" : "Preview"}</span>
+                        <Download size={14} />
+                      </a>
+                    )}
+                    {project.links?.github && (
+                      <a
+                        href={project.links.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2.5 rounded-xl glass border border-white/10 hover:border-indigo-500/50 text-white text-xs font-bold uppercase tracking-wider active:scale-95 transition-all"
+                      >
+                        <span>Source Code</span>
+                        <Github size={14} />
+                      </a>
+                    )}
                   </div>
                 </div>
                 <Tilt className="flex-1 w-full aspect-[4/3] rounded-[4rem] overflow-hidden relative group cursor-pointer">

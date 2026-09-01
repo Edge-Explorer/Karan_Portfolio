@@ -134,24 +134,27 @@ export default function GithubContributions() {
       </div>
 
       {/* Main Glass Card (Matching Featured Ventures & Skillset design) */}
-      <div className="glass rounded-[3rem] p-8 md:p-12 border border-white/10 shadow-2xl backdrop-blur-3xl space-y-8 relative overflow-hidden shadow-[0_0_60px_rgba(99,102,241,0.08)]">
+      <div className="glass rounded-[2rem] sm:rounded-[3rem] p-5 sm:p-8 md:p-12 border border-white/10 shadow-2xl backdrop-blur-3xl space-y-6 sm:space-y-8 relative overflow-hidden shadow-[0_0_60px_rgba(99,102,241,0.08)]">
         
         {/* Spotlight background glows */}
         <div className="absolute -left-20 -top-20 w-80 h-80 bg-indigo-500/10 blur-[80px] rounded-full pointer-events-none" />
         <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-emerald-500/5 blur-[80px] rounded-full pointer-events-none" />
 
         {/* Header statistics info */}
-        <div className="flex justify-between items-center text-xs text-white/50 relative z-10">
+        <div className="flex flex-wrap justify-between items-center gap-2 text-xs text-white/50 relative z-10">
           <span className="text-sm font-medium text-white/80">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 font-black text-xl mr-1.5">
               {stats.total_contributions.toLocaleString()}
             </span>
             contributions in 2026
           </span>
+          <span className="text-[10px] font-mono text-white/40 block md:hidden">
+            Swipe ↔
+          </span>
         </div>
 
         {/* Scrollable grid area */}
-        <div className="relative overflow-x-auto pb-4 scrollbar-hide relative z-10">
+        <div className="relative overflow-x-auto pb-4 sleek-scrollbar relative z-10">
           <div className="flex gap-[4px] min-w-[980px] select-none">
             
             {/* Day Labels Column */}
@@ -187,6 +190,7 @@ export default function GithubContributions() {
                         style={{ backgroundColor: getGithubColor(day.count) }}
                         onMouseEnter={() => setHoveredDay(day)}
                         onMouseLeave={() => setHoveredDay(null)}
+                        onTouchStart={() => setHoveredDay(day)}
                       />
                     ))}
                   </div>

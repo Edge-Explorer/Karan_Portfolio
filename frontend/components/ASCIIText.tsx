@@ -386,9 +386,21 @@ class CanvAscii {
     this.width = Math.max(10, w);
     this.height = Math.max(10, h);
 
-    this.camera.aspect = this.width / this.height;
-    this.camera.updateProjectionMatrix();
+    const aspect = this.width / this.height;
+    this.camera.aspect = aspect;
 
+    // Dynamically adjust camera Z distance so text never clips on mobile or narrow screens
+    const textAspect =
+      this.textCanvas && this.textCanvas.width && this.textCanvas.height
+        ? this.textCanvas.width / this.textCanvas.height
+        : 3.5;
+    const planeW = this.planeBaseHeight * textAspect;
+    const fovRad = (this.camera.fov * Math.PI) / 180;
+    const requiredZForWidth = planeW / 2 / (Math.tan(fovRad / 2) * aspect) + 6;
+    const requiredZForHeight = this.planeBaseHeight / 2 / Math.tan(fovRad / 2) + 6;
+    this.camera.position.z = Math.max(28, Math.max(requiredZForWidth, requiredZForHeight));
+
+    this.camera.updateProjectionMatrix();
     this.filter.setSize(this.width, this.height);
   }
 

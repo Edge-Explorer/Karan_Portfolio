@@ -13,7 +13,8 @@ const SpaceBackground: React.FC = () => {
                 loop
                 muted
                 playsInline
-                className="w-full h-full object-cover opacity-60"
+                preload="auto"
+                className="w-full h-full object-cover opacity-60 pointer-events-none"
             >
                 {/* User can put their space video link here */}
                 <source src="/background.mp4" type="video/mp4" />
