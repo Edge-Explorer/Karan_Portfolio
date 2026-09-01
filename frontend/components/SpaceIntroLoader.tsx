@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import ASCIIText from "@/components/ASCIIText";
 
 export default function SpaceIntroLoader({ onComplete }: { onComplete?: () => void }) {
   const [isVisible, setIsVisible] = useState(true);
@@ -151,7 +152,7 @@ export default function SpaceIntroLoader({ onComplete }: { onComplete?: () => vo
   // Loading progress & exit timer
   useEffect(() => {
     const startTime = Date.now();
-    const duration = 2200; // 2.2 seconds cinematic loading sequence
+    const duration = 4200; // 4.2 seconds cinematic loading sequence
 
     const interval = setInterval(() => {
       const elapsed = Date.now() - startTime;
@@ -163,7 +164,7 @@ export default function SpaceIntroLoader({ onComplete }: { onComplete?: () => vo
         setTimeout(() => {
           setIsVisible(false);
           if (onComplete) onComplete();
-        }, 250);
+        }, 300);
       }
     }, 20);
 
@@ -194,7 +195,7 @@ export default function SpaceIntroLoader({ onComplete }: { onComplete?: () => vo
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-purple-600/15 blur-[120px] rounded-full pointer-events-none z-0" />
 
           {/* Main Content Box */}
-          <div className="relative z-10 flex flex-col items-center text-center px-6 space-y-6">
+          <div className="relative z-10 flex flex-col items-center text-center px-6 space-y-4 max-w-4xl w-full">
             {/* Top Minimal Status Indicator */}
             <motion.div
               initial={{ opacity: 0, y: -20 }}
@@ -208,17 +209,22 @@ export default function SpaceIntroLoader({ onComplete }: { onComplete?: () => vo
               </span>
             </motion.div>
 
-            {/* Glowing Name Reveal */}
-            <div className="overflow-hidden py-2">
-              <motion.h1
-                initial={{ opacity: 0, y: 40, letterSpacing: "0.05em" }}
-                animate={{ opacity: 1, y: 0, letterSpacing: "0.02em" }}
-                transition={{ duration: 0.9, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                className="text-5xl sm:text-7xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-100 to-indigo-200 drop-shadow-[0_0_35px_rgba(99,102,241,0.5)] tracking-tight"
-              >
-                Karan Shelar
-              </motion.h1>
-            </div>
+            {/* 3D ASCII Wave Shader Name Reveal */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="relative w-full h-40 sm:h-52 md:h-60 flex items-center justify-center pointer-events-auto"
+            >
+              <ASCIIText
+                text="Karan Shelar"
+                enableWaves={true}
+                asciiFontSize={7}
+                textFontSize={160}
+                textColor="#fdf9f3"
+                planeBaseHeight={8}
+              />
+            </motion.div>
 
             {/* Subtitle / Role Tag */}
             <motion.p
