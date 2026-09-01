@@ -229,12 +229,12 @@ const coursework = [
   }
 ];
 
-function SkillLogo({ skill }: { skill: Skill }) {
+function SkillLogo({ skill, className = "w-12 h-12 md:w-16 md:h-16" }: { skill: Skill; className?: string }) {
   if (skill.local) {
     return (
       <img
         src={skill.local}
-        className="w-12 h-12 md:w-16 md:h-16 object-contain transition-transform duration-500"
+        className={`${className} object-contain transition-transform duration-500`}
         alt={skill.name}
       />
     );
@@ -242,7 +242,7 @@ function SkillLogo({ skill }: { skill: Skill }) {
 
   if (skill.lucide) {
     const LucideIcon = skill.lucide;
-    return <LucideIcon className="w-10 h-10 md:w-14 md:h-14 transition-colors" style={{ color: skill.color }} />;
+    return <LucideIcon className={`${className} transition-colors`} style={{ color: skill.color }} />;
   }
 
   return (
@@ -250,18 +250,88 @@ function SkillLogo({ skill }: { skill: Skill }) {
       src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.icon}/${skill.icon}-original.svg`}
       onError={(e) => {
         (e.target as any).style.display = 'none';
-        (e.target as any).parentElement.innerHTML = `<span class="text-xl font-black opacity-20">${skill.name[0]}</span>`;
+        if ((e.target as any).parentElement) {
+          (e.target as any).parentElement.innerHTML = `<span class="text-sm font-black opacity-40">${skill.name[0]}</span>`;
+        }
       }}
-      className="w-12 h-12 md:w-16 md:h-16 object-contain transition-transform duration-500"
+      className={`${className} object-contain transition-transform duration-500`}
       alt={skill.name}
     />
+  );
+}
+
+const skillsTrack1: Skill[] = [
+  { name: "Python", info: "High-level programming for AI & Data Science.", icon: "python", color: "#3776ab" },
+  { name: "LangGraph", info: "Orchestrating complex multi-agent workflows.", local: "/skills/langgraph-logo.png", color: "#ffffff" },
+  { name: "FastAPI", info: "High-performance Python API development.", icon: "fastapi", color: "#05998b" },
+  { name: "PyTorch", info: "Flexible deep learning for research and prod.", icon: "pytorch", color: "#ee4c2c" },
+  { name: "Google Gemini", info: "Multimodal AI models for generative tasks.", local: "/skills/gemini.png", color: "#8e75ff" },
+  { name: "OpenAI", info: "Cutting-edge models like GPT-4 and DALL-E.", local: "/skills/openai.png", color: "#74aa9c" },
+  { name: "PostgreSQL", info: "Robust, open-source relational database (Neon DB).", icon: "postgresql", color: "#4169e1" },
+  { name: "Docker", info: "Containerization for consistent deployments.", icon: "docker", color: "#2496ed" },
+  { name: "LangChain", info: "Framework for building LLM-powered apps.", local: "/skills/langchain.png", color: "#00F5A0" },
+  { name: "Hugging Face", info: "Hub for modern transformers and public models.", local: "/skills/huggingface.png", color: "#ffbd45" },
+  { name: "Neon DB", info: "Serverless PostgreSQL database platform built for SaaS.", lucide: Database, color: "#00E599" },
+  { name: "TensorFlow", info: "Open-source platform for end-to-end ML.", icon: "tensorflow", color: "#ff6f00" },
+  { name: "Scikit Learn", info: "Simple and efficient tools for predictive data.", local: "/skills/scikitlearn.jpg", color: "#f7931e" },
+  { name: "Ollama", info: "Running large language models locally.", local: "/skills/ollama.png", color: "#ffffff" },
+  { name: "SQL", info: "Relational data management and complex queries.", icon: "mysql", color: "#4479a1" },
+  { name: "Alembic", info: "Database migration tool for SQLAlchemy.", lucide: Database, color: "#ed2124" }
+];
+
+const skillsTrack2: Skill[] = [
+  { name: "TypeScript", info: "Scaling JS with robust static typing.", icon: "typescript", color: "#3178c6" },
+  { name: "React", info: "Building component-based immersive interfaces.", icon: "react", color: "#61dafb" },
+  { name: "Next.js", info: "Modern fullstack framework with SSR/SSG.", icon: "nextjs", color: "#ffffff" },
+  { name: "Tailwind CSS", info: "Rapid styling with utility-first CSS.", icon: "tailwindcss", color: "#06b6d4" },
+  { name: "React Native", info: "Cross-platform native mobile applications.", icon: "react", color: "#61dafb" },
+  { name: "Google Cloud", info: "Scalable cloud infrastructure and AI hosting.", icon: "googlecloud", color: "#4285f4" },
+  { name: "Pandas", info: "Powerful data manipulation and analysis.", icon: "pandas", color: "#FF007A" },
+  { name: "NumPy", info: "Fundamental package for scientific computing.", icon: "numpy", color: "#4d77cf" },
+  { name: "Expo", info: "Accelerated development for React Native.", local: "/skills/expo.png", color: "#00E0FF" },
+  { name: "Android", info: "Native mobile development for Android devices.", icon: "android", color: "#3ddc84" },
+  { name: "JavaScript", info: "Dynamic web logic and interactive UI.", icon: "javascript", color: "#f7df1e" },
+  { name: "Vercel", info: "Fast, simple cloud platform for web apps.", icon: "vercel", color: "#ffffff" },
+  { name: "Git", info: "Version control for tracking code changes.", icon: "git", color: "#f05032" },
+  { name: "Postman", info: "Platform for building and using APIs.", local: "/skills/postman.jpg", color: "#ff6c37" },
+  { name: "VS Code", info: "Extensible code editor for modern development.", icon: "vscode", color: "#007acc" },
+  { name: "Jupyter", info: "Interactive computing across all languages.", icon: "jupyter", color: "#f37626" },
+  { name: "Matplotlib", info: "Comprehensive library for static/animated plots.", local: "/skills/matplotlib.png", color: "#ffffff" }
+];
+
+function SkillMarqueeCard({ skill }: { skill: Skill }) {
+  return (
+    <div
+      className="group relative flex items-center gap-3.5 px-6 py-3.5 rounded-2xl glass border border-white/10 hover:border-indigo-500/50 bg-white/[0.03] hover:bg-white/[0.08] transition-all duration-300 shadow-xl hover:shadow-[0_0_25px_rgba(99,102,241,0.25)] hover:scale-105 cursor-pointer whitespace-nowrap select-none"
+    >
+      {/* Background glow on hover */}
+      <div
+        className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl pointer-events-none"
+        style={{ backgroundColor: `${skill.color}25` }}
+      />
+
+      {/* Icon */}
+      <div className="relative w-8 h-8 flex items-center justify-center">
+        <SkillLogo skill={skill} className="w-7 h-7" />
+      </div>
+
+      {/* Label */}
+      <span className="text-xs md:text-sm font-bold text-white/80 group-hover:text-white transition-colors">
+        {skill.name}
+      </span>
+
+      {/* Subtle brand color accent dot */}
+      <div
+        className="w-1.5 h-1.5 rounded-full opacity-60 group-hover:opacity-100 transition-opacity"
+        style={{ backgroundColor: skill.color }}
+      />
+    </div>
   );
 }
 
 export default function Home() {
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isAIChatOpen, setIsAIChatOpen] = useState(false);
-  const [activeSkill, setActiveSkill] = useState<Skill | null>(null);
   const [theme, setTheme] = useState<"neural" | "space">("neural");
 
   useEffect(() => {
@@ -482,74 +552,51 @@ export default function Home() {
           </div>
         </motion.section>
 
-        {/* Unified Skillset Section */}
+        {/* Unified Skillset Section - Infinite Marquee Moving Bands */}
         <motion.section
           id="intelligence"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="w-full max-w-7xl space-y-24 py-32 border-y border-slate-200"
+          className="w-full py-32 space-y-16 relative overflow-hidden"
         >
-          <div className="flex flex-col items-center text-center space-y-8">
-            <h3 className="text-6xl md:text-9xl font-black tracking-tighter text-white">
-              <NeuralReveal text="Skillset" />
+          {/* Header */}
+          <div className="flex flex-col items-center text-center space-y-6 px-6">
+            <p className="text-xs md:text-sm font-black tracking-[0.4em] uppercase text-indigo-400/90">
+              POWERED BY MODERN TECH STACK
+            </p>
+            <h3 className="text-6xl md:text-8xl font-black tracking-tighter text-white">
+              <NeuralReveal text="Unified Skillset" />
             </h3>
+            <p className="text-sm md:text-base text-white/50 max-w-2xl font-medium leading-relaxed">
+              Core technologies, distributed systems, and generative AI engines powering production deployments.
+            </p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-12 sm:gap-x-12 sm:gap-y-16 px-4">
-            {(skills.flatMap(group => group.items) as Skill[]).map((skill, i) => (
-              <motion.div
-                key={skill.name}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.02 }}
-                onMouseEnter={() => setActiveSkill(skill)}
-                onMouseLeave={() => setActiveSkill(null)}
-                className="flex flex-col items-center gap-4 sm:gap-6 group relative w-20 sm:w-32"
-              >
-                {/* Improved Hover Glow */}
-                <div className="absolute inset-0 bg-indigo-500/5 blur-[40px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          {/* Marquee Moving Bands Strip */}
+          <div className="space-y-6 relative overflow-hidden marquee-container py-6">
+            {/* Left & Right Ambient Gradient Fade Masks */}
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-24 sm:w-56 bg-gradient-to-r from-[#020617] via-[#020617]/90 to-transparent z-20" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-24 sm:w-56 bg-gradient-to-l from-[#020617] via-[#020617]/90 to-transparent z-20" />
 
-                {/* Logo Container */}
-                <div className="relative w-16 h-16 sm:w-24 sm:h-24 flex items-center justify-center transition-all duration-500 group-hover:-translate-y-3 cursor-help bg-slate-100/50 rounded-2xl shadow-inner p-3 sm:p-4">
-                  <SkillLogo skill={skill} />
-                </div>
+            {/* Track 1: AI, LLMs, Backend & Databases (Moving Left) */}
+            <div className="flex overflow-hidden">
+              <div className="animate-marquee flex items-center gap-4 sm:gap-6 py-2">
+                {[...skillsTrack1, ...skillsTrack1].map((skill, idx) => (
+                  <SkillMarqueeCard key={`${skill.name}-t1-${idx}`} skill={skill} />
+                ))}
+              </div>
+            </div>
 
-                {/* Styled Badge */}
-                <div
-                  className="px-4 py-1.5 rounded-xl border backdrop-blur-md shadow-2xl transition-all duration-300"
-                  style={{
-                    borderColor: `${skill.color}44`,
-                    backgroundColor: `${skill.color}22`
-                  }}
-                >
-                  <span
-                    className="text-[10px] md:text-xs font-black uppercase tracking-wider transition-colors"
-                    style={{ color: skill.color }}
-                  >
-                    {skill.name}
-                  </span>
-                </div>
-
-                {/* Tooltip Info */}
-                <AnimatePresence>
-                  {activeSkill?.name === skill.name && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10, scale: 0.9 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 10, scale: 0.9 }}
-                      className="absolute bottom-full mb-6 z-[200] w-56 p-5 glass rounded-3xl border border-black/5 shadow-[0_20px_50px_rgba(0,0,0,0.1)] pointer-events-none"
-                    >
-                      <p className="text-xs font-black text-indigo-400 mb-2 uppercase tracking-widest">{skill.name}</p>
-                      <p className="text-[11px] text-white/70 leading-relaxed font-medium">{skill.info}</p>
-                      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 glass border-r border-b border-white/10 rotate-45" />
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            ))}
+            {/* Track 2: Frontend, Mobile, Cloud, MLOps & DevTools (Moving Right) */}
+            <div className="flex overflow-hidden">
+              <div className="animate-marquee-reverse flex items-center gap-4 sm:gap-6 py-2">
+                {[...skillsTrack2, ...skillsTrack2].map((skill, idx) => (
+                  <SkillMarqueeCard key={`${skill.name}-t2-${idx}`} skill={skill} />
+                ))}
+              </div>
+            </div>
           </div>
         </motion.section>
 
