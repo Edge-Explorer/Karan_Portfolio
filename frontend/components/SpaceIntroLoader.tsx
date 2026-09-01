@@ -195,66 +195,56 @@ export default function SpaceIntroLoader({ onComplete }: { onComplete?: () => vo
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-purple-600/15 blur-[120px] rounded-full pointer-events-none z-0" />
 
           {/* Main Content Box */}
-          <div className="relative z-10 flex flex-col items-center text-center px-6 space-y-4 max-w-4xl w-full">
-            {/* Top Minimal Status Indicator */}
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex items-center gap-2.5 px-4 py-1.5 rounded-full glass border border-white/10 bg-white/[0.03] backdrop-blur-md shadow-lg"
-            >
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#34d399]" />
-              <span className="text-[11px] font-mono tracking-[0.25em] text-white/70 uppercase">
-                PORTFOLIO SYSTEM ONLINE
-              </span>
-            </motion.div>
-
+          <div className="relative z-10 flex flex-col items-center text-center px-6 space-y-5 max-w-4xl w-full">
             {/* 3D ASCII Wave Shader Name Reveal */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="relative w-full h-40 sm:h-52 md:h-60 flex items-center justify-center pointer-events-auto"
+              transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="relative w-full h-44 sm:h-56 md:h-64 flex items-center justify-center pointer-events-auto"
             >
               <ASCIIText
                 text="Karan Shelar"
                 enableWaves={true}
                 asciiFontSize={7}
-                textFontSize={160}
+                textFontSize={170}
                 textColor="#fdf9f3"
                 planeBaseHeight={8}
               />
             </motion.div>
 
-            {/* Subtitle / Role Tag */}
+            {/* Subtitle / Role Tag with Premium Typography */}
             <motion.p
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.7 }}
-              className="text-xs sm:text-sm md:text-base font-semibold tracking-[0.3em] uppercase text-indigo-400/90 max-w-md"
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="text-xs sm:text-sm md:text-base font-extrabold tracking-[0.35em] uppercase text-transparent bg-clip-text bg-gradient-to-r from-slate-200 via-indigo-200 to-purple-300 drop-shadow-[0_0_15px_rgba(99,102,241,0.3)] max-w-xl font-sans"
             >
               AI Engineer & Full-Stack Architect
             </motion.p>
 
             {/* Futuristic Progress Bar */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.9 }}
-              className="w-56 sm:w-72 pt-4 flex flex-col items-center gap-2.5"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.7 }}
+              className="w-64 sm:w-80 pt-4 flex flex-col items-center gap-3"
             >
-              {/* Line track */}
-              <div className="w-full h-[2px] bg-white/10 rounded-full overflow-hidden relative">
-                <motion.div
-                  className="h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 shadow-[0_0_12px_rgba(99,102,241,0.8)]"
+              {/* Glass Capsule Track */}
+              <div className="w-full h-2 rounded-full p-[2px] bg-white/[0.05] border border-white/10 shadow-inner backdrop-blur-xl relative overflow-hidden">
+                <div
+                  className="h-full rounded-full bg-gradient-to-r from-cyan-400 via-indigo-500 to-purple-500 shadow-[0_0_16px_rgba(99,102,241,0.9)] transition-all duration-100 ease-out"
                   style={{ width: `${progress}%` }}
                 />
               </div>
 
               {/* Progress Text */}
-              <div className="w-full flex justify-between items-center text-[10px] font-mono text-white/40 tracking-wider">
-                <span>INITIALIZING</span>
-                <span>{progress}%</span>
+              <div className="w-full flex justify-between items-center text-[10px] sm:text-xs font-mono text-white/50 tracking-[0.2em] font-semibold uppercase">
+                <span className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_6px_#22d3ee]" />
+                  INITIALIZING
+                </span>
+                <span className="text-indigo-300 font-bold">{progress}%</span>
               </div>
             </motion.div>
           </div>
