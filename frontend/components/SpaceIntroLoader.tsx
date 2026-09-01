@@ -182,20 +182,35 @@ export default function SpaceIntroLoader({ onComplete }: { onComplete?: () => vo
             filter: "blur(16px)",
             transition: { duration: 0.85, ease: [0.16, 1, 0.3, 1] }
           }}
-          className="fixed inset-0 z-[99999] bg-[#020617] flex flex-col items-center justify-center overflow-hidden select-none cursor-default"
+          className="fixed inset-0 z-[99999] bg-[#030303] flex flex-col items-center justify-center overflow-hidden select-none cursor-default"
         >
-          {/* Starfield Canvas */}
+          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none bg-[#030303]">
+            {/* Dark overlay to ensure text contrast */}
+            <div className="absolute inset-0 bg-black/50 z-10" />
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              className="w-full h-full object-cover opacity-70 pointer-events-none"
+            >
+              <source src="/background.mp4" type="video/mp4" />
+            </video>
+
+            {/* Ambient Cosmic Nebula Glows */}
+            <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-indigo-500/20 blur-[120px] rounded-full animate-pulse z-10" />
+            <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-purple-500/20 blur-[120px] rounded-full animate-pulse delay-700 z-10" />
+          </div>
+
+          {/* Starfield & Shooting Stars Canvas Overlay */}
           <canvas
             ref={canvasRef}
-            className="absolute inset-0 w-full h-full pointer-events-none z-0"
+            className="absolute inset-0 w-full h-full pointer-events-none z-10 opacity-70"
           />
 
-          {/* Ambient Cosmic Nebula Spotlights */}
-          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-600/15 blur-[140px] rounded-full pointer-events-none z-0" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-purple-600/15 blur-[120px] rounded-full pointer-events-none z-0" />
-
           {/* Main Content Box */}
-          <div className="relative z-10 flex flex-col items-center text-center px-6 space-y-5 max-w-4xl w-full">
+          <div className="relative z-20 flex flex-col items-center text-center px-6 space-y-5 max-w-4xl w-full">
             {/* 3D ASCII Wave Shader Name Reveal */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
