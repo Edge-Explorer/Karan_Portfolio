@@ -5,7 +5,7 @@ import {
   Github, Linkedin, Mail, ExternalLink, Code2, Cpu, Globe, Rocket, Sparkles,
   Terminal, Database, Layout, Smartphone, Cloud, Layers, Cpu as AiIcon,
   Binary, GitBranch, Box, FileCode, Search, Server, Monitor, GraduationCap, BookOpen,
-  Activity, Zap, Instagram, X, Download, Brain
+  Activity, Zap, Instagram, X, Download, Brain, Network
 } from "lucide-react";
 import ChatInterface from "@/components/ChatInterface";
 import ContactModal from "@/components/ContactModal";
@@ -74,66 +74,74 @@ interface SkillGroup {
 
 const skills: SkillGroup[] = [
   {
-    group: "Core",
+    group: "Core & Languages",
     items: [
-      { name: "Python", info: "High-level programming for AI & Data Science.", icon: "python", color: "#3776ab" },
-      { name: "JavaScript", info: "Dynamic web logic and interactive UI.", icon: "javascript", color: "#f7df1e" },
-      { name: "TypeScript", info: "Scaling JS with robust static typing.", icon: "typescript", color: "#3178c6" },
-      { name: "SQL", info: "Relational data management and complex queries.", icon: "mysql", color: "#4479a1" }
+      { name: "Python", info: "High-level programming for AI, Backend & Data Science.", icon: "python", color: "#3776ab" },
+      { name: "JavaScript", info: "Dynamic web logic and interactive client applications.", icon: "javascript", color: "#f7df1e" },
+      { name: "TypeScript", info: "Scaling JavaScript with enterprise static typing.", icon: "typescript", color: "#3178c6" },
+      { name: "SQL", info: "Relational data management and complex analytical queries.", icon: "mysql", color: "#4479a1" }
     ]
   },
   {
-    group: "Frontend & Mobile",
+    group: "AI & LLM",
     items: [
-      { name: "React", info: "Building component-based immersive interfaces.", icon: "react", color: "#61dafb" },
-      { name: "Next.js", info: "Modern fullstack framework with SSR/SSG.", icon: "nextjs", color: "#ffffff" },
-      { name: "Tailwind CSS", info: "Rapid styling with utility-first CSS.", icon: "tailwindcss", color: "#06b6d4" },
-      { name: "React Native", info: "Cross-platform native mobile applications.", icon: "react", color: "#61dafb" },
-      { name: "Expo", info: "Accelerated development for React Native.", local: "/skills/expo.png", color: "#00E0FF" },
-      { name: "Android", info: "Native mobile development for Android devices.", icon: "android", color: "#3ddc84" }
-    ]
-  },
-  {
-    group: "Backend & Cloud",
-    items: [
-      { name: "FastAPI", info: "High-performance Python API development.", icon: "fastapi", color: "#05998b" },
-      { name: "PostgreSQL", info: "Robust, open-source relational database (Neon DB).", icon: "postgresql", color: "#4169e1" },
-      { name: "Docker", info: "Containerization for consistent deployments.", icon: "docker", color: "#2496ed" },
-      { name: "Google Cloud", info: "Scalable cloud infrastructure and AI hosting.", icon: "googlecloud", color: "#4285f4" },
-      { name: "Neon DB", info: "Serverless PostgreSQL database platform built for SaaS.", lucide: Database, color: "#00E599" },
-      { name: "Vercel", info: "Fast, simple cloud platform for web apps.", icon: "vercel", color: "#ffffff" },
-      { name: "Alembic", info: "Database migration tool for SQLAlchemy.", lucide: Database, color: "#ed2124" }
-    ]
-  },
-  {
-    group: "Generative AI",
-    items: [
-      { name: "LangChain", info: "Framework for building LLM-powered apps.", local: "/skills/langchain.png", color: "#00F5A0" },
-      { name: "LangGraph", info: "Orchestrating complex multi-agent workflows.", local: "/skills/langgraph-logo.png", color: "#ffffff" },
-      { name: "Google Gemini", info: "Multimodal AI models for generative tasks.", local: "/skills/gemini.png", color: "#8e75ff" },
-      { name: "OpenAI", info: "Cutting-edge models like GPT-4 and DALL-E.", local: "/skills/openai.png", color: "#74aa9c" },
-      { name: "Hugging Face", info: "Hub for modern transformers and public models.", local: "/skills/huggingface.png", color: "#ffbd45" },
-      { name: "Ollama", info: "Running large language models locally.", local: "/skills/ollama.png", color: "#ffffff" }
+      { name: "LangChain", info: "Framework for building LLM-powered context-aware apps.", local: "/skills/langchain.png", color: "#00F5A0" },
+      { name: "LangGraph", info: "Orchestrating stateful, multi-agent cyclical graphs.", local: "/skills/langgraph-logo.png", color: "#ffffff" },
+      { name: "RAG Pipelines", info: "Retrieval-Augmented Generation with hybrid vector search.", lucide: Layers, color: "#8B5CF6" },
+      { name: "Multi-Agent Systems", info: "Decentralized autonomous agent teams with reflection & supervisor routing.", lucide: Network, color: "#6366F1" },
+      { name: "LLM Fine-Tuning", info: "Parameter-efficient fine-tuning (LoRA/QLoRA) and DPO alignment.", lucide: Sparkles, color: "#EC4899" },
+      { name: "Prompt Engineering", info: "ReAct, Few-Shot, and Chain-of-Thought prompting.", lucide: Terminal, color: "#10B981" },
+      { name: "Hugging Face", info: "Transformers hub, model repository, and dataset pipelines.", local: "/skills/huggingface.png", color: "#ffbd45" },
+      { name: "Ollama", info: "Self-hosted local inference for open-weight LLMs.", local: "/skills/ollama.png", color: "#ffffff" },
+      { name: "Google Gemini", info: "Multimodal Gemini 2.5 Flash / Pro reasoning and tool execution.", local: "/skills/gemini.png", color: "#8e75ff" },
+      { name: "OpenAI", info: "GPT-4o, embeddings, and structured outputs.", local: "/skills/openai.png", color: "#74aa9c" }
     ]
   },
   {
     group: "ML & Data Science",
     items: [
-      { name: "TensorFlow", info: "Open-source platform for end-to-end ML.", icon: "tensorflow", color: "#ff6f00" },
-      { name: "PyTorch", info: "Flexible deep learning for research and prod.", icon: "pytorch", color: "#ee4c2c" },
-      { name: "Scikit Learn", info: "Simple and efficient tools for predictive data.", local: "/skills/scikitlearn.jpg", color: "#f7931e" },
-      { name: "Pandas", info: "Powerful data manipulation and analysis.", icon: "pandas", color: "#FF007A" },
-      { name: "NumPy", info: "Fundamental package for scientific computing.", icon: "numpy", color: "#4d77cf" },
-      { name: "Matplotlib", info: "Comprehensive library for static/animated plots.", local: "/skills/matplotlib.png", color: "#ffffff" }
+      { name: "PyTorch", info: "Dynamic neural networks and deep learning research.", icon: "pytorch", color: "#ee4c2c" },
+      { name: "TensorFlow", info: "Production-grade ML framework and distributed training.", icon: "tensorflow", color: "#ff6f00" },
+      { name: "Scikit-Learn", info: "Classical machine learning algorithms and preprocessing.", local: "/skills/scikitlearn.jpg", color: "#f7931e" },
+      { name: "ONNX", info: "High-performance cross-platform on-device model inference.", lucide: Cpu, color: "#005CED" },
+      { name: "Pandas", info: "High-performance data manipulation and time-series analysis.", icon: "pandas", color: "#FF007A" },
+      { name: "NumPy", info: "Vectorized numerical computing and linear algebra operations.", icon: "numpy", color: "#4d77cf" },
+      { name: "NLP", info: "Natural Language Processing, tokenization & text extraction.", lucide: FileCode, color: "#06B6D4" },
+      { name: "Supervised Learning", info: "Regression, classification, and validation pipelines.", lucide: GraduationCap, color: "#3B82F6" },
+      { name: "Feature Engineering", info: "Feature transformation, scaling, and dimensionality reduction.", lucide: Binary, color: "#F59E0B" },
+      { name: "Matplotlib", info: "Statistical plotting and publication-quality data visualization.", local: "/skills/matplotlib.png", color: "#ffffff" }
     ]
   },
   {
-    group: "Tools",
+    group: "Backend & Frontend",
     items: [
-      { name: "Git", info: "Version control for tracking code changes.", icon: "git", color: "#f05032" },
-      { name: "Postman", info: "Platform for building and using APIs.", local: "/skills/postman.jpg", color: "#ff6c37" },
-      { name: "VS Code", info: "Extensible code editor for modern development.", icon: "vscode", color: "#007acc" },
-      { name: "Jupyter", info: "Interactive computing across all languages.", icon: "jupyter", color: "#f37626" }
+      { name: "FastAPI", info: "Asynchronous Python web framework with OpenAPI schemas.", icon: "fastapi", color: "#05998b" },
+      { name: "GraphQL", info: "Declarative API query language and real-time subscriptions.", icon: "graphql", color: "#E10098" },
+      { name: "REST APIs", info: "Scalable HTTP/JSON services with robust error handling.", lucide: Server, color: "#22C55E" },
+      { name: "Async Python", info: "High-concurrency asyncio and async/await event loops.", lucide: Zap, color: "#3776AB" },
+      { name: "SQLAlchemy", info: "Python SQL toolkit and Object Relational Mapper (ORM).", icon: "sqlalchemy", color: "#D71F00" },
+      { name: "Celery", info: "Distributed background task queue for async ML workloads.", lucide: Box, color: "#37814A" },
+      { name: "React.js", info: "Component-driven UI architecture with hooks and concurrent mode.", icon: "react", color: "#61dafb" },
+      { name: "React Native", info: "Cross-platform mobile application development.", icon: "react", color: "#61dafb" },
+      { name: "Next.js", info: "Production React framework with SSR, SSG, and App Router.", icon: "nextjs", color: "#ffffff" },
+      { name: "Tailwind CSS", info: "Utility-first design system with modern responsive styles.", icon: "tailwindcss", color: "#06b6d4" }
+    ]
+  },
+  {
+    group: "Databases & DevOps",
+    items: [
+      { name: "PostgreSQL", info: "Advanced open-source relational database.", icon: "postgresql", color: "#4169e1" },
+      { name: "NeonDB", info: "Serverless Postgres with instant branching & auto-scaling.", lucide: Database, color: "#00E599" },
+      { name: "Supabase", info: "Open-source Firebase alternative with built-in Postgres Auth.", icon: "supabase", color: "#3ECF8E" },
+      { name: "Qdrant", info: "Vector database for semantic similarity and RAG pipelines.", lucide: Search, color: "#FF4B4B" },
+      { name: "Redis", info: "In-memory caching and distributed message broker.", icon: "redis", color: "#DC382D" },
+      { name: "Redpanda", info: "High-throughput Kafka-compatible real-time event streaming.", lucide: Rocket, color: "#F04438" },
+      { name: "Docker", info: "Containerization and multi-stage container builds.", icon: "docker", color: "#2496ed" },
+      { name: "Git", info: "Distributed version control and branch management.", icon: "git", color: "#f05032" },
+      { name: "Vercel", info: "Edge deployments, preview URLs, and serverless hosting.", icon: "vercel", color: "#ffffff" },
+      { name: "Prometheus", info: "Time-series monitoring and operational metric telemetry.", lucide: Activity, color: "#E6522C" },
+      { name: "Grafana", info: "Real-time observability dashboards and alerts.", icon: "grafana", color: "#F46800" },
+      { name: "Postman", info: "API testing, automated workflows, and documentation.", local: "/skills/postman.jpg", color: "#ff6c37" }
     ]
   }
 ];
@@ -261,42 +269,57 @@ function SkillLogo({ skill, className = "w-12 h-12 md:w-16 md:h-16" }: { skill: 
 }
 
 const skillsTrack1: Skill[] = [
-  { name: "Python", info: "High-level programming for AI & Data Science.", icon: "python", color: "#3776ab" },
-  { name: "LangGraph", info: "Orchestrating complex multi-agent workflows.", local: "/skills/langgraph-logo.png", color: "#ffffff" },
+  { name: "Python", info: "High-level programming for AI, Backend & Data Science.", icon: "python", color: "#3776ab" },
+  { name: "LangGraph", info: "Orchestrating stateful, multi-agent cyclical graphs.", local: "/skills/langgraph-logo.png", color: "#ffffff" },
+  { name: "Multi-Agent Systems", info: "Autonomous agent swarms with supervisor routing.", lucide: Network, color: "#6366F1" },
   { name: "FastAPI", info: "High-performance Python API development.", icon: "fastapi", color: "#05998b" },
-  { name: "PyTorch", info: "Flexible deep learning for research and prod.", icon: "pytorch", color: "#ee4c2c" },
-  { name: "Google Gemini", info: "Multimodal AI models for generative tasks.", local: "/skills/gemini.png", color: "#8e75ff" },
-  { name: "OpenAI", info: "Cutting-edge models like GPT-4 and DALL-E.", local: "/skills/openai.png", color: "#74aa9c" },
-  { name: "PostgreSQL", info: "Robust, open-source relational database (Neon DB).", icon: "postgresql", color: "#4169e1" },
-  { name: "Docker", info: "Containerization for consistent deployments.", icon: "docker", color: "#2496ed" },
-  { name: "LangChain", info: "Framework for building LLM-powered apps.", local: "/skills/langchain.png", color: "#00F5A0" },
-  { name: "Hugging Face", info: "Hub for modern transformers and public models.", local: "/skills/huggingface.png", color: "#ffbd45" },
-  { name: "Neon DB", info: "Serverless PostgreSQL database platform built for SaaS.", lucide: Database, color: "#00E599" },
-  { name: "TensorFlow", info: "Open-source platform for end-to-end ML.", icon: "tensorflow", color: "#ff6f00" },
-  { name: "Scikit Learn", info: "Simple and efficient tools for predictive data.", local: "/skills/scikitlearn.jpg", color: "#f7931e" },
-  { name: "Ollama", info: "Running large language models locally.", local: "/skills/ollama.png", color: "#ffffff" },
+  { name: "PyTorch", info: "Dynamic neural networks and deep learning research.", icon: "pytorch", color: "#ee4c2c" },
+  { name: "RAG Pipelines", info: "Retrieval-Augmented Generation with hybrid vector search.", lucide: Layers, color: "#8B5CF6" },
+  { name: "LLM Fine-Tuning", info: "Parameter-efficient fine-tuning & DPO alignment.", lucide: Sparkles, color: "#EC4899" },
+  { name: "Google Gemini", info: "Multimodal Gemini 2.5 Flash / Pro reasoning.", local: "/skills/gemini.png", color: "#8e75ff" },
+  { name: "OpenAI", info: "GPT-4o, embeddings, and structured outputs.", local: "/skills/openai.png", color: "#74aa9c" },
+  { name: "PostgreSQL", info: "Advanced open-source relational database.", icon: "postgresql", color: "#4169e1" },
+  { name: "NeonDB", info: "Serverless Postgres with instant branching & auto-scaling.", lucide: Database, color: "#00E599" },
+  { name: "LangChain", info: "Framework for building LLM-powered context-aware apps.", local: "/skills/langchain.png", color: "#00F5A0" },
+  { name: "Hugging Face", info: "Transformers hub, model repository, and datasets.", local: "/skills/huggingface.png", color: "#ffbd45" },
+  { name: "Ollama", info: "Self-hosted local inference for open-weight LLMs.", local: "/skills/ollama.png", color: "#ffffff" },
+  { name: "Redis", info: "In-memory caching and distributed message broker.", icon: "redis", color: "#DC382D" },
+  { name: "Redpanda", info: "High-throughput Kafka-compatible event streaming.", lucide: Rocket, color: "#F04438" },
+  { name: "Qdrant", info: "Vector database for semantic similarity and RAG.", lucide: Search, color: "#FF4B4B" },
+  { name: "TensorFlow", info: "Production-grade ML framework & distributed training.", icon: "tensorflow", color: "#ff6f00" },
+  { name: "Scikit-Learn", info: "Classical machine learning algorithms & preprocessing.", local: "/skills/scikitlearn.jpg", color: "#f7931e" },
+  { name: "ONNX", info: "High-performance cross-platform on-device inference.", lucide: Cpu, color: "#005CED" },
+  { name: "Celery", info: "Distributed background task queue for async ML.", lucide: Box, color: "#37814A" },
+  { name: "SQLAlchemy", info: "Python SQL toolkit and Object Relational Mapper.", icon: "sqlalchemy", color: "#D71F00" },
   { name: "SQL", info: "Relational data management and complex queries.", icon: "mysql", color: "#4479a1" },
-  { name: "Alembic", info: "Database migration tool for SQLAlchemy.", lucide: Database, color: "#ed2124" }
+  { name: "Supervised Learning", info: "Regression, classification, and validation pipelines.", lucide: GraduationCap, color: "#3B82F6" }
 ];
 
 const skillsTrack2: Skill[] = [
-  { name: "TypeScript", info: "Scaling JS with robust static typing.", icon: "typescript", color: "#3178c6" },
-  { name: "React", info: "Building component-based immersive interfaces.", icon: "react", color: "#61dafb" },
-  { name: "Next.js", info: "Modern fullstack framework with SSR/SSG.", icon: "nextjs", color: "#ffffff" },
-  { name: "Tailwind CSS", info: "Rapid styling with utility-first CSS.", icon: "tailwindcss", color: "#06b6d4" },
-  { name: "React Native", info: "Cross-platform native mobile applications.", icon: "react", color: "#61dafb" },
-  { name: "Google Cloud", info: "Scalable cloud infrastructure and AI hosting.", icon: "googlecloud", color: "#4285f4" },
-  { name: "Pandas", info: "Powerful data manipulation and analysis.", icon: "pandas", color: "#FF007A" },
-  { name: "NumPy", info: "Fundamental package for scientific computing.", icon: "numpy", color: "#4d77cf" },
-  { name: "Expo", info: "Accelerated development for React Native.", local: "/skills/expo.png", color: "#00E0FF" },
-  { name: "Android", info: "Native mobile development for Android devices.", icon: "android", color: "#3ddc84" },
-  { name: "JavaScript", info: "Dynamic web logic and interactive UI.", icon: "javascript", color: "#f7df1e" },
-  { name: "Vercel", info: "Fast, simple cloud platform for web apps.", icon: "vercel", color: "#ffffff" },
-  { name: "Git", info: "Version control for tracking code changes.", icon: "git", color: "#f05032" },
-  { name: "Postman", info: "Platform for building and using APIs.", local: "/skills/postman.jpg", color: "#ff6c37" },
+  { name: "TypeScript", info: "Scaling JavaScript with enterprise static typing.", icon: "typescript", color: "#3178c6" },
+  { name: "JavaScript", info: "Dynamic web logic and interactive client applications.", icon: "javascript", color: "#f7df1e" },
+  { name: "React.js", info: "Component-driven UI architecture with modern hooks.", icon: "react", color: "#61dafb" },
+  { name: "Next.js", info: "Production React framework with SSR, SSG & App Router.", icon: "nextjs", color: "#ffffff" },
+  { name: "Tailwind CSS", info: "Utility-first design system with responsive styles.", icon: "tailwindcss", color: "#06b6d4" },
+  { name: "React Native", info: "Cross-platform mobile application development.", icon: "react", color: "#61dafb" },
+  { name: "GraphQL", info: "Declarative API query language & real-time subscriptions.", icon: "graphql", color: "#E10098" },
+  { name: "REST APIs", info: "Scalable HTTP/JSON microservices.", lucide: Server, color: "#22C55E" },
+  { name: "Async Python", info: "High-concurrency asyncio and async/await event loops.", lucide: Zap, color: "#3776AB" },
+  { name: "Prompt Engineering", info: "ReAct, Few-Shot, and Chain-of-Thought prompting.", lucide: Terminal, color: "#10B981" },
+  { name: "Supabase", info: "Open-source Firebase alternative with Postgres Auth.", icon: "supabase", color: "#3ECF8E" },
+  { name: "Docker", info: "Containerization and multi-stage container builds.", icon: "docker", color: "#2496ed" },
+  { name: "Prometheus", info: "Time-series monitoring & operational metric telemetry.", lucide: Activity, color: "#E6522C" },
+  { name: "Grafana", info: "Real-time observability dashboards and alerts.", icon: "grafana", color: "#F46800" },
+  { name: "Git", info: "Distributed version control and branch management.", icon: "git", color: "#f05032" },
+  { name: "Vercel", info: "Edge deployments and serverless cloud hosting.", icon: "vercel", color: "#ffffff" },
+  { name: "Postman", info: "API testing, automated workflows, and documentation.", local: "/skills/postman.jpg", color: "#ff6c37" },
+  { name: "Pandas", info: "High-performance data manipulation & time-series analysis.", icon: "pandas", color: "#FF007A" },
+  { name: "NumPy", info: "Vectorized numerical computing & linear algebra.", icon: "numpy", color: "#4d77cf" },
+  { name: "NLP", info: "Natural Language Processing, tokenization & text extraction.", lucide: FileCode, color: "#06B6D4" },
+  { name: "Feature Engineering", info: "Transformation, scaling, and dimensionality reduction.", lucide: Binary, color: "#F59E0B" },
   { name: "VS Code", info: "Extensible code editor for modern development.", icon: "vscode", color: "#007acc" },
   { name: "Jupyter", info: "Interactive computing across all languages.", icon: "jupyter", color: "#f37626" },
-  { name: "Matplotlib", info: "Comprehensive library for static/animated plots.", local: "/skills/matplotlib.png", color: "#ffffff" }
+  { name: "Matplotlib", info: "Statistical plotting and publication-quality visual plots.", local: "/skills/matplotlib.png", color: "#ffffff" }
 ];
 
 function SkillMarqueeCard({ skill }: { skill: Skill }) {
