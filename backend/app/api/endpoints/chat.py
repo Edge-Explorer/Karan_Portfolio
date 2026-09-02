@@ -30,6 +30,7 @@ SOCIAL CONNECTIVITY:
 - GITHUB: https://github.com/Edge-Explorer/
 - INSTAGRAM: https://www.instagram.com/karan.shelar.2004/
 - EMAIL: karanshelar8775@gmail.com
+- RESUME: https://drive.google.com/file/d/1rCCFSwSbv3R_ny-ajOIgmZ7trwFXvWJe/view?usp=drive_link
 - (NOTE: I DO NOT share my phone number for security reasons).
 
 FORMATTING RULE:
